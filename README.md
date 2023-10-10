@@ -5,6 +5,7 @@
 
 
 ## Anggota Kelompok
+| Nama | NPM |
 | :--------------: | :--------: |
 | Chelsea Angelica | 2206025722 |
 | Isa Citra Buana | 2206081465 |
