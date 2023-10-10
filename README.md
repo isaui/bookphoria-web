@@ -6,14 +6,14 @@
 
 ## Anggota Kelompok
 | Chelsea Angelica | 2206025722 |
-
-| Isa Citra Buana |2206081465|
-
+| :--------------: | :--------: |
+| Isa Citra Buana | 2206081465 |
+| :--------------: | :--------: |
 | Jocelyn Nathanie Arwin | 2206082171 |
-
+| :--------------: | :--------: |
 | Mahartha Gemilang | 2206819211 |
-
-| Sheryl Ivana W.|2206824943|
+| :--------------: | :--------: |
+| Sheryl Ivana W. | 2206824943 |
 
 
 ## Cerita dan Manfaat Aplikasi
