@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <title>Bookphoria</title>
+{% endblock meta %}
+
+{% block content %}
+    {% include 'partials/navbar.html' %}
+    {% include "partials/sidebar.html"  %}
+    {% include "partials/loading.html"  %}
+    <div class="w-screen max-h-screen min-h-screen  flex flex-col pt-12 md:pt-16 items-center max-w-[1240px] mx-auto">
+        {% include "partials/home-carousel.html"  %}
+        <div class="flex mb-2 mt-2 justify-between items-center w-full px-2">
+            <h1 class="text-lg font-bold">Terbaru</h1>
+            <h1 class="text-sm">Lihat Semua</h1>
+        </div>
+        <div class="flex  w-full px-2">
+            <hr class="px-2 border-b border-[#460C90] opacity-10 w-full">
+        </div>
+
+        <div id="book-cards-container" class="grid md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1">
+
+
+            
+        </div>
+                <div class="flex  w-full px-2">
+                    <hr class="px-2 border-b border-[#460C90] opacity-20 w-full">
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}
