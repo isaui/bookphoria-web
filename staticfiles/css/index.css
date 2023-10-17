@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
 
+html{
+    overflow-x: hidden;
+}
 body{
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    position: relative;
 }
 .clip-half-circle {
     clip-path: ellipse(100% 50% at 50% 100%);
