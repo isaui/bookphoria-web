@@ -1,0 +1,28 @@
+{% load static %}
+<div id="sidebar" onclick="closeSidebar();" class=" fixed top-0 left-0 flex w-screen z-30 h-screen transform -translate-x-[100%] transition-transform duration-300 ease-in-out">
+    <div onclick="
+        event.stopPropagation();
+        " class="flex flex-col bg-[#240A48] h-full w-[70%] max-w-[24rem] text-white text-base">
+        <div class=" relative flex flex-col rounded-b-full  px-4 py-8" >
+            <img src="{% static 'img/books.jpg' %}" class="opacity-10 absolute top-0 left-0 w-full h-full rounded-b-full"/>
+            <h1 class=" z-10 px-4 mt-6 mb-2  text-indigo-600 font-bold  text-center">Untuk pengalaman menjelajahi dunia buku lebih baik</h1>
+        <div class="z-10 flex w-full mb-6 justify-center space-x-4 px-4 text-white items-center">
+            <button class="px-3 py-1 rounded-sm bg-indigo-600 text-base">Login</button>
+            <h1 class="text-sm font-light ">Atau</h1>
+            <button class="px-3 py-1 rounded-sm bg-indigo-600 text-base">Register</button>
+        </div>
+        </div>
+        <div class="w-full bg-opacity-20 mt-12 px-2 py-3 text-white flex  mx-auto max-w-[90%] bg-indigo-900 text-base rounded-md">
+          <h1 class="mx-auto">Home</h1>
+        </div>
+        <div class="w-full bg-opacity-20 mt-3 px-2 py-3 text-white flex  mx-auto max-w-[90%] bg-indigo-900 text-base rounded-md">
+            <h1 class="mx-auto">All Books</h1>
+          </div>
+          <div class="w-full bg-opacity-20 mt-3 px-2 py-3 text-white flex  mx-auto max-w-[90%] bg-indigo-900 text-base rounded-md">
+            <h1 class="mx-auto">Dashboard</h1>
+          </div>
+          <div class="w-full bg-opacity-20 mt-3 px-2 py-3 text-white flex  mx-auto max-w-[90%] bg-indigo-900 text-base rounded-md">
+            <h1 class="mx-auto">Account</h1>
+          </div>
+    </div>
+</div>

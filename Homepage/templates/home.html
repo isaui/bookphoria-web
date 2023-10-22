@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <title>Bookphoria</title>
+{% endblock meta %}
+
+{% block content %}
+    
+    {% include 'partials/navbar.html' %}
+    {% include "partials/sidebar.html"  %}
+    {% include "partials/loading.html"  %}
+    <div id="homeContent" class="w-screen max-w-[96vw] min-h-screen  flex flex-col pt-12 md:pt-16 items-center max-w-[1240px] mx-auto">
+        {% include "partials/home-carousel.html"  %}
+        <div class="flex mb-2 mt-2 justify-between  items-center w-full px-2">
+            <h1 class="text-lg font-bold">Koleksi Buku</h1>
+            {% include "partials/dropdown.html" %}
+        </div>
+        <div class="flex  w-full px-2">
+            <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+        </div>
+
+        <div id="book-cards-container" class="grid md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1">  
+        </div>
+        <div class="flex  w-full px-2">
+        <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+        </div>
+        <div class="w-full my-4 flex items-center justify-center">
+            <button class="h-12 w-auto px-4 py-3 w-[18rem] max-w-[80vw] text-white text-lg bg-indigo-700 hover:bg-indigo-800 rounded-md">Lihat Semua Buku</button>
+        </div>
+        </div>
+        </div>
+    </div>
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}
