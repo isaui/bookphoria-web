@@ -10,10 +10,10 @@ def home(request):
 
 @csrf_exempt
 def get_books_json(request):
-    books = Book.objects.all()
+    books = Book.objects.prefetch_related('authors', 'images', 'categories').all()
     book_list = []
     for book in books:
-        book_data = book_data = {
+        book_data  = {
             'title': book.title,
             'subtitle': book.subtitle,
             'description': book.description,
@@ -27,6 +27,7 @@ def get_books_json(request):
             'pdf_link': book.pdf_link,
             'thumbnail': book.thumbnail,
             'categories': [category.name for category in book.categories.all()],
+            'images':[imageUrl.url for imageUrl in book.images.all()],
             'price': book.price,
             'saleability': book.saleability,
             'buy_link': book.buy_link,

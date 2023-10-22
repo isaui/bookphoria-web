@@ -8,7 +8,6 @@ class Author(models.Model):
         return self.name
 
 class ImageUrl (models.Model):
-    book: models.ForeignKey('Book', on_delete= models.CASCADE)
     url = models.URLField()
     def __str__(self):
         return self.url

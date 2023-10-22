@@ -76,7 +76,7 @@ def add_dummy_data(json_data):
         newBook.authors.add(*authors)
         newBook.categories.add(*categories)
 def main():
-    json_file_data = get_json_from_file('books.json')
+    json_file_data = get_json_from_file('books2.json')
     add_dummy_data(json_file_data)
 
 if __name__ == '__main__':

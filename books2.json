@@ -1,0 +1,4207 @@
+[
+  {
+    "kind": "books#volume",
+    "id": "EvkIEAAAQBAJ",
+    "etag": "+a8sDs07Mgk",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/EvkIEAAAQBAJ",
+    "volumeInfo": {
+      "title": "Why? The Prince (Machiavelli)",
+      "authors": [
+        "YeaRimDang"
+      ],
+      "publisher": "Elex Media Komputindo",
+      "publishedDate": "2020-11-12",
+      "description": "Pada abad ke-15, Italia terbagi atas beberapa bagian. Seorang filsuf bernama Machiavelli memiliki harapan untuk melihat Italia bersatu, dan untuk mewujudkan itu dibutuhkan pemimpin yang kuat. Machiavelli mengatakan bahwa untuk mengatasi krisis saat ini dan krisis masa depan, diperlukan sebuah usaha yang disebut dengan virtue. Dalam buku Machiavelli yang berjudul The Prince, virtue berarti keberanian, teknik, dan kekuatan militer yang lebih baik. Oleh karena itu, Machiavelli menekankan bahwa usaha serta virtue adalah hal terpenting yang harus dimiliki oleh seorang pemimpin",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020487304"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "602048730X"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 216,
+      "printType": "BOOK",
+      "categories": [
+        "Comics & Graphic Novels"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "comicsContent": true,
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=EvkIEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=EvkIEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=EvkIEAAAQBAJ&pg=PA55&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=1&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=EvkIEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=EvkIEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 103400,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 72376,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=EvkIEAAAQBAJ&rdid=book-EvkIEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 103400000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 72376000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Why_The_Prince_Machiavelli-sample-pdf.acsm?id=EvkIEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=EvkIEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> ” adalah Buku yang Kejam ? Meskipun Machiavelli menulis buku PRINCIPE &quot; The <b>Prince</b> &quot; demi merekonstruksi Italia , NICCOLO semasa hidupnya , dia tidak pernah melihat MACHIAVELLI titik terang . 5 tahun setelah dia meninggal , yakni&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "UZ4DwrrhSHoC",
+    "etag": "YzqeJzUbeSc",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/UZ4DwrrhSHoC",
+    "volumeInfo": {
+      "title": "The Prince Of Love, Sang Pangeran Cinta",
+      "publisher": "Gema Insani",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9799959535"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789799959539"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 76,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.2.4.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=UZ4DwrrhSHoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=UZ4DwrrhSHoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=UZ4DwrrhSHoC&pg=PR4&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=2&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=UZ4DwrrhSHoC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/The_Prince_Of_Love_Sang_Pangeran_Cinta.html?hl=&id=UZ4DwrrhSHoC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Prince_Of_Love_Sang_Pangeran_Cinta-sample-pdf.acsm?id=UZ4DwrrhSHoC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=UZ4DwrrhSHoC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "THE <b>PRINCE</b> OF LOVE ( Sang Pangeran Cinta ) Penulis - Reza M. Syarif Penyunting - Nuim Hidayat Perwajahan isi - Imamsobar Penata letak - Arifin Desain sampul - Eja Assagaf Penerbit PRESTASI Kelompok GEMA INSANI Depok : Jl . Ir . Juanda&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "9A46EAAAQBAJ",
+    "etag": "6PEy5b3mtLg",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/9A46EAAAQBAJ",
+    "volumeInfo": {
+      "title": "The Tale",
+      "authors": [
+        "Megawei_"
+      ],
+      "publisher": "Airiz Publishing",
+      "description": "Starring : NCT Dream's Jeno and Renjun Wattpad by Megawei_",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 286,
+      "printType": "BOOK",
+      "categories": [
+        "Drama"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=9A46EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=9A46EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=9A46EAAAQBAJ&pg=PA1&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=4&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=9A46EAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=9A46EAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 50000,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 41500,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=9A46EAAAQBAJ&rdid=book-9A46EAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 50000000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 41500000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Tale-sample-pdf.acsm?id=9A46EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=9A46EAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Megawei_. 《The <b>Tale</b>》&quot;<b>Tale</b> as old as time, True as it can be...&quot; Paruh bait dari lagu pengantar salah satu dongeng anak-anak itu mengalun merdu di kamar bernuansa biru langit yang dihiasi banyak stiker dinding bergambar karakter kartun&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "aTN1DwAAQBAJ",
+    "etag": "wOllVGkeOT0",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/aTN1DwAAQBAJ",
+    "volumeInfo": {
+      "title": "Prince Joe",
+      "subtitle": "Venom Publisher",
+      "authors": [
+        "Cleopetra"
+      ],
+      "publisher": "Venom publisher",
+      "publishedDate": "2018-10-28",
+      "description": "Joe William Draco. Siapa yang tidak mengenalnya. Artis, Model, sekaligus pemilik JJ Entertaiment. Hidupnya sempurna, Harta melimpah dan tunangan sexy tiada tara. Sampai wanita yang selalu muncul di dalam mimpinya datang. Wanita yang fobia terhadap blitz kamera. Bagaimana Joe menghadapinya? Saat dia ingin seluruh dunia tahu, Dia sudah menemukan cintanya justru dia tidak bisa memamerkan keberadaannya. Satu fakta lagi terkuak. Istrinya adalah mantan pacar dari sahabatnya. Dia harus apa coba?",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 247,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=aTN1DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=aTN1DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=aTN1DwAAQBAJ&pg=PA13&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=5&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=aTN1DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=aTN1DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 38850,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 32246,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=aTN1DwAAQBAJ&rdid=book-aTN1DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 38850000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 32246000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Prince_Joe-sample-pdf.acsm?id=aTN1DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=aTN1DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> Joe. Tentu saja semua kembali tegang, karena tidak ada cewek mana pun yang sanggup bertahan dengan semua pesona <b>Prince</b> Joe. Jangankan dipeluk, dicium diapa-apain juga semua cewek pasti mengharapkan itu kalo yang melakukannya&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "hVxqEAAAQBAJ",
+    "etag": "a3KVsamwPDo",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/hVxqEAAAQBAJ",
+    "volumeInfo": {
+      "title": "Different Life, Kingdom: Enniyy",
+      "authors": [
+        "Enniyy"
+      ],
+      "publisher": "Enniyy",
+      "publishedDate": "2022-04-13",
+      "description": "Qinjia tahu kekasihnya selingkuh dan berpikir dengan membuntutinya dan tahu kebenarannya akan membuat dia bisa bebas dari pria tersebut. Tapi apa jadinya saat dia ternyata malah salah langkah dan jatuh ke tebing. Saat itu yang ada di pikirannya, dia telah meninggal tanpa ada yang bisa menemukan tubuhnya. Tapi seolah kesempatan kedua datang padanya. Dia membuka mata dengan peran yang berbeda. Dia tiba-tiba saja menjadi seorang putri dari negeri Haros. Putri yang akan menikahi seorang pangeran yang adalah sepupunya sendiri. Bisakah Qinjia menjalani kehidupan keduanya yang sangat berbeda? Apalagi dengan hidup bersama calon suaminya yang kata mereka bagai monster, juga kekasihnya yang juga rupanya ada di negeri Haros kembali bersilang takdir dengannya. Ketika dia harus memilih, yang manakah akan menjadi pilihannya?",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 261,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=hVxqEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=hVxqEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=hVxqEAAAQBAJ&pg=PA31&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=7&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=hVxqEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=hVxqEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 61050,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 45788,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=hVxqEAAAQBAJ&rdid=book-hVxqEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 61050000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 45788000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Different_Life_Kingdom_Enniyy-sample-pdf.acsm?id=hVxqEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=hVxqEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> Areez dan Lady Dayana dulu adalah sepasang kekasih tapi begitu raja sudah memberikan titah maka hubungan itu berakhir karena raja memilih <b>prince</b> Areez untuk menjadi suami anda. Itu pun atas permintaan anda. Jadi hubungan itu&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "lZ3-DwAAQBAJ",
+    "etag": "FvmyrfjWRc4",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/lZ3-DwAAQBAJ",
+    "volumeInfo": {
+      "title": "Another Frog Prince",
+      "authors": [
+        " Novi Nurlailah"
+      ],
+      "publisher": "SPASI MEDIA",
+      "description": "Another Frog Prince PENULIS: Novi Nurlailah Ukuran : 14 x 21 cm ISBN : 978-623-251-288-7 Terbit : Februari 2020 www.guepedia.com Sinopsis: Mati. Kematian menandakan akhir dari cerita hidup manusia. Jika cerita hidupmu sudah lama berakhir? Untuk apa memperpanjang hidup? Angel, gadis yang berjuang bunuh diri karena cerita hidupnya telah lebih dulu berakhir sebelum kematian . Ayahnya, ibunya yang masuk penjara dan sahabat yang berselingkuh dengan pangeran kodoknya, Alkanza Nura. Setelah tujuh kali percobaan bunuh dirinya gagal, dengan bantuan Elrey akankah usaha percobaan bunuh dirinya akan berhasil? www.guepedia.com Email : guepedia@gmail.com WA di 081287602508 Happy shopping & reading Enjoy your day, guys",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786232512887"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "623251288X"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "printType": "BOOK",
+      "categories": [
+        "Antiques & Collectibles"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=lZ3-DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=lZ3-DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=lZ3-DwAAQBAJ&pg=PA5&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=8&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=lZ3-DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=lZ3-DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 86136,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 64602,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=lZ3-DwAAQBAJ&rdid=book-lZ3-DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 86136000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 64602000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Another_Frog_Prince-sample-pdf.acsm?id=lZ3-DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=lZ3-DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> ...................................... Part 2: My Gang My Advanture................................. Part 3: Sisi Baik, Mungkin ... <b>Prince</b> Suara kala petang saling beradu Tidur lelapku 5 Another Frog <b>Prince</b>."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "tExJDwAAQBAJ",
+    "etag": "UZykxdL8a3A",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/tExJDwAAQBAJ",
+    "volumeInfo": {
+      "title": "Fairy Tail 14",
+      "authors": [
+        "Kodansha - Hiro Mashima"
+      ],
+      "publisher": "Elex Media Komputindo",
+      "publishedDate": "2014-12-03",
+      "description": "Kota Magnolia yang setiap tahun mengadakan pesta panen, diserang habis-habisan! Laxus yang ingin menguasai Fairy Tail, mengadakan \"\"\"\"Battle of Fairy Tail\"\"\"\" untuk menentukan siapa yang terkuat di guild. Laxus dan anggota \"\"\"\"Grup Thunder God\"\"\"\" yang lain, membuat anggota guild saling bertempur di dalam jebakan yang sudah disiapkan!",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020202150"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020202151"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 200,
+      "printType": "BOOK",
+      "categories": [
+        "Art"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=tExJDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=tExJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=tExJDwAAQBAJ&pg=PA67&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=9&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=tExJDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=tExJDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 21250,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 21250,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=tExJDwAAQBAJ&rdid=book-tExJDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 21250000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 21250000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Fairy_Tail_14-sample-pdf.acsm?id=tExJDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=tExJDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Fairy</b> Tail, dia bekerja di toko sushi, Karena sangat disukai, manajer toko sampai menahannya agar jangan berhenti ... <b>PALACE</b> duaghh hah!? sejak kapan kau jadi lemah begitu, eva!? kenapa. Episode 113 Thunder <b>Palace</b>."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "3lI_DwAAQBAJ",
+    "etag": "sVabMIRjUWg",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/3lI_DwAAQBAJ",
+    "volumeInfo": {
+      "title": "Koala Prince: Novel Snowdrop Creative Partner",
+      "subtitle": "",
+      "authors": [
+        "Felis Linanda"
+      ],
+      "publisher": "Snowdrop Creative Partner",
+      "publishedDate": "2017-11-20",
+      "description": "Demi Jovan, Alexa rela pindah ke St. Raphl setelah lulus dari kelas sembilan. Namun di hari pertama ospek, ia tertangkap basah telat oleh Cola, seorang cowok sengak yang sangat ia benci. Hari-hari Alexa seolah berada dalam neraka. Tak sekali pun keduanya bisa akur. Berkat tantangan surat cinta, Alexa berhasil menarik perhatian Jovan dan bahkan membuat keduanya begitu dekat. Tapi ketika Jovan menyatakan perasaannya, pikiran Alexa justru terbagi. Sementaraitu, tim basket yang kembali dibuka setelah insiden mengerikan, kini menerima ancaman dari seorang pemain basket ternama yang bernama Ryu. Ancaman tersebut merupakan bagian dari masa kelam tim basket yang dulu sempat berjaya. Alexa berusaha mencairkan hati Ryu yang justru membawanya ke pilihan yang sulit. Memilih terus melawan takdir atau justru menghancurkan tim yang susah payah dipertahankan mereka.",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 290,
+      "printType": "BOOK",
+      "categories": [
+        "Young Adult Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=3lI_DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=3lI_DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=3lI_DwAAQBAJ&pg=PA283&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=10&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=3lI_DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=3lI_DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 83250,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 62438,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=3lI_DwAAQBAJ&rdid=book-3lI_DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 83250000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 62438000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Koala_Prince_Novel_Snowdrop_Creative_Par-sample-pdf.acsm?id=3lI_DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=3lI_DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>PRINCE</b>” yang ditulisnya sejak tahun 2006 bisa ikut berhasil seperti novel perdananya. Koala <b>Prince</b> sendiri lolos 90 besar di ajang lomba Gramedia Writing Project Batch 3 dan mengikuti Expert Class. Dan telah dibaca lebih dari 2.000&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "Iqb7DwAAQBAJ",
+    "etag": "dlS27E96KNM",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/Iqb7DwAAQBAJ",
+    "volumeInfo": {
+      "title": "My Prince Ice",
+      "subtitle": "Eternity Publishing",
+      "authors": [
+        "Amaliyah Dewi"
+      ],
+      "publisher": "Eternity Publishing",
+      "publishedDate": "2020-09-08",
+      "description": "Dila Putri Argantara, gadis berusia 17 tahun yang belum pernah merasakan jatuh cinta, akhirnya menjatuhkan hatinya kepada sang Prince Ice di sekolahnya. Delo Putra Sanjaya. Bermula dari insiden Dila menabrak Delo. Dila langsung jatuh hati kepada Delo yang saat itu, hanya menampilkan wajah datar nya saja. Dan saat itu juga, Dila baru menyadari bahwa Delo adalah ketua osis di sekolahnya. Hari demi hari, Dila gencar mendekati Delo walaupun selalu ditolak dan berakhir dicibir satu sekolah. Namun dia tidak berputus asa. Sampai suatu hari, dirinya tahu penyebab Delo bersikap dingin karena apa. Dan akankah Dila terus memperjuangkan cinta nya kepada Delo setelah menerima penolakan terus-menerus? Atau dia justru akan menyerah ditengah jalan?",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 87,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Iqb7DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Iqb7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=Iqb7DwAAQBAJ&pg=PA3&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=11&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=Iqb7DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Iqb7DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 18870,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 18870,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=Iqb7DwAAQBAJ&rdid=book-Iqb7DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 18870000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 18870000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/My_Prince_Ice-sample-pdf.acsm?id=Iqb7DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=Iqb7DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Eternity Publishing Amaliyah Dewi. My. <b>Prince</b>. Ice. Awal menginjakan kaki di SMA Garuda setelah libur kenaikan kelas kemarin, gadis cantik dengan rambut dikuncir satu berlari tanpa melihat sekitar. Hingga saat di belokan ... <b>Prince</b> Ice ..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "Z_lJEAAAQBAJ",
+    "etag": "7vSXr4OkkbY",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/Z_lJEAAAQBAJ",
+    "volumeInfo": {
+      "title": "The Secret Kiss In A Fairy Tale",
+      "authors": [
+        "Satoru Takamiya"
+      ],
+      "publisher": "M&C",
+      "publishedDate": "2021-10-08",
+      "description": "The Secret Kiss In A Fairy Tale",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 14,
+      "printType": "BOOK",
+      "categories": [
+        "Comics & Graphic Novels"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.1.0.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "comicsContent": true,
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Z_lJEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Z_lJEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=Z_lJEAAAQBAJ&pg=PA124&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=12&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=Z_lJEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Z_lJEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 20900,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 20900,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=Z_lJEAAAQBAJ&rdid=book-Z_lJEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 20900000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 20900000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Secret_Kiss_In_A_Fairy_Tale-sample-pdf.acsm?id=Z_lJEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=Z_lJEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> - Wolf &quot; , karya ini baru saja kubuat sebulan lalu . Jadi aku masih ingat dengan jelas . Tapi di saat penting itu aku kena flu . Rasanya kenangan yang ada hanya &quot; pegal ” , “ dingin ” dan “ sakit &quot; . Karena kisahnya menyangkut&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "PKnaDwAAQBAJ",
+    "etag": "RgE6JtVW4x8",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/PKnaDwAAQBAJ",
+    "volumeInfo": {
+      "title": "PANGERAN CILIK (LE PETIT PRINCE)",
+      "authors": [
+        "Antoine de Saint-Exupry"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2020-04-02",
+      "description": "Pangeran Cilik termasuk buku yang paling banyak diterjemahkan di dunia. Konon pernah disadur ke dalam 230 bahasa asing. Buku ini memang luar biasa. Tampaknya seolah cerita anak-anak, tapi sebenarnya dinikmati dan direnungkan juga oleh orang dewasa. Lewat cerita seorang anak yang mengamati dunia dengan mata naif dan lugu, Saint-Exupry menyentuh beberapa nilai dan pengalaman manusia yang paling dasar, seperti kekuasaan, tanggung jawab, dan cinta. Dongeng yang mengharukan sekaligus amat mendalam ini termasuk karya-karya agung sastra dunia yang tidak terlupakan.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020398242"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020398242"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 120,
+      "printType": "BOOK",
+      "categories": [
+        "Young Adult Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=PKnaDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=PKnaDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=PKnaDwAAQBAJ&pg=PA120&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=13&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=PKnaDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=PKnaDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 42900,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 35607,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=PKnaDwAAQBAJ&rdid=book-PKnaDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 42900000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 35607000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/PANGERAN_CILIK_LE_PETIT_PRINCE-sample-pdf.acsm?id=PKnaDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=PKnaDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Prince</b> (Pangeran Cilik), fabel kanak-kanak penuh tekateki yang membuat namanya melambung. Sebelumnya ia menulis pengalaman-pengalamannya semasa perang dalam Pilote de Guerre, yang selama enam bulan menduduki buku terlaris di Amerika&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "H0dGDwAAQBAJ",
+    "etag": "4y/ESGv3plo",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/H0dGDwAAQBAJ",
+    "volumeInfo": {
+      "title": "The Art of War for Women",
+      "authors": [
+        "Chin-Ning Cu"
+      ],
+      "publisher": "Elex Media Komputindo",
+      "publishedDate": "2013-02-12",
+      "description": "\"Terlepas dari kekuatan, strategi, dan kesuksesan, adaptasi dari karya besar Sun Tzu, Seni Berperang, ini menunjukkan kepada kaum wanita bagimana cara menggunakan filosofi untuk menang secara elegan dalam setiap aspek kehidupan. Buku ini realistis. Chu langsung ke poin sensitif: planning, doing battle, win first the fight, use timing to generate momentum, dalam konflik do not show your hand, managing the troops, espionage, be more competitive by doing lessÖ Seni Strategi Perang Sun Tzu yang dijadikan dasar buku ini terdiri atas 6 elemen: 1. Tao (righteousness): Bagaimana cara membuat keputusan andal. 2. Tien (Timing): dari universal timing menjadi personal timing. 3. Di (Resources): Membalik kekurangan Anda menjadi aset 4. Jiang (Leadership): True Leadership adalah tentang sikap 5. Fa (Managing): Mutlak tentang eksekusi, pelaksanaan 6. Deception: Tampak lemah justru pada saat kuat. *** Editor's Note: - Chin-ning Chu adalah ahli strategis bisnis wanita China - Porsi wanita bekerja makin berkembang di era kesetaraan. Keseimbangan hidup berkarier & berkeluarga makin menjadi tuntutan. Buku ini menjawab sebagian besar kebutuhan itu. Chin-ning Chu sudah sangat dikenal di Indonesia sejak penerbitan buku Thick Face Black Heart-nya, dimana versi resminya diterbitkan dengan sukses oleh Elex Media.\"",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9789792719284"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "9792719288"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 306,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.4.2.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=H0dGDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=H0dGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=H0dGDwAAQBAJ&pg=PA282&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=14&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=H0dGDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=H0dGDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 85800,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 64350,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=H0dGDwAAQBAJ&rdid=book-H0dGDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 85800000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 64350000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Art_of_War_for_Women-sample-pdf.acsm?id=H0dGDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=H0dGDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b> for Women hanya dari sudut pandang laki-laki. The Art of <b>War</b> for Women menawarkan rancangan yang lebih brilian tentang sifat-sifat layak manusia yang memberdayakan.&quot; -Linda K. Bolliger, Pendiri, Ketua, dan CVO, Boardroom Bound&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "3iE6EAAAQBAJ",
+    "etag": "mZx5xy/XDjY",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/3iE6EAAAQBAJ",
+    "volumeInfo": {
+      "title": "My Coach My Prince",
+      "authors": [
+        "Rintas"
+      ],
+      "publisher": "Bhuana Ilmu Populer",
+      "publishedDate": "2021-07-09",
+      "description": "Renatta, seorang cewek gendut yang hobinya makan. Bagi dia, fisik bukan tolak ukur untuk mencari seorang cowok. Sudah biasa jadi bahan bully-an teman-temannya. Renatta pun tak peduli lagi dengan berat badannya. Sampai akhirnya Renatta yang diintai banyak penyakit karena tubuh gemuknya ini bertemu dengan seorang cowok yang harus mau tidak mau masuk ke dalam hidup Renatta. Mengubah pola hidup Renatta yang sangat berantakan menjadi lebih baik. Cowok tampan yang tulus menemani Renatta mencapai tubuh sehatnya. Apakah cowok ini adalah pangeran yang selama ini Renatta inginkan? My Coach My Prince akan membawa pembaca ke dalam cerita yang menakjubkan. Menjadi moti?vasi bagi mereka yang tidak percaya diri bahwa setiap cewek seperti apa pun akan bertemu dengan pangerannya dengan cara dan waktu tepat yang telah dituliskan Tuhan.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786230405785"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6230405784"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 176,
+      "printType": "BOOK",
+      "categories": [
+        "Young Adult Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=3iE6EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=3iE6EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=3iE6EAAAQBAJ&pg=PA104&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=15&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=3iE6EAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=3iE6EAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 71000,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 53250,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=3iE6EAAAQBAJ&rdid=book-3iE6EAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 71000000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 53250000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/My_Coach_My_Prince-sample-pdf.acsm?id=3iE6EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=3iE6EAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Rintas. Big. Girl. and. Her. <b>Prince</b>. Hari itu Renatta memutuskan untuk ikut pertukaran pelajar ke Singapura. Walaupun otak Renatta tidak terlalu genius, tetapi akhirnya dia beruntung. Dia lolos dalam tes pertukaran pelajar kali itu&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "Mu_LEAAAQBAJ",
+    "etag": "IIcqtoKuH28",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/Mu_LEAAAQBAJ",
+    "volumeInfo": {
+      "title": "KINGDOM DRIVEN LIFE: Kehidupan yang digerakkan oleh Kerajaan",
+      "authors": [
+        "Pdt. Dr. Ricky Donald Montang"
+      ],
+      "publisher": "CV. Ruang Tentor",
+      "publishedDate": "2023-04-01",
+      "description": "Buku Kingdom Diven Life atau kehidupan yang digerakkan oleh Kerajaan merupakan buku hasil kajian terhadap Injil Matius 5-7. Kehidupan yang digerakkan oleh Kerajaan Allah merupakan standar hidup warga Kerajaan Allah yang harus dihidupi dalam kehidupan sehari-hari demi kejayaan dari Kerajaan Allah. Buku ini dibagi dalam delapan bab yang menjelaskan mengenai karakter, pengaruh, moralitas, kesalehan, ambisi, hubungan, penyerahan hidup warga Kerajaan Allah berdasarkan Khotbah Yesus di atas Bukit. Standar hidup Kerajaan Allah ini yang harus dipraktekkan dalam kehidupan setiap warga Kerajaan Allah. Dalam bab akhir menjelaskan mengenai pengajaran tentang Kerajaan Allah dan Agenda Kerajaan Allah dalam dimensi pribadi.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786230932885"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6230932881"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 232,
+      "printType": "BOOK",
+      "categories": [
+        "Education"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Mu_LEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Mu_LEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=Mu_LEAAAQBAJ&pg=PP1&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=16&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=Mu_LEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Mu_LEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 84970,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 63728,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=Mu_LEAAAQBAJ&rdid=book-Mu_LEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 84970000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 63728000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=Mu_LEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... ДАБИ ДОХ ОБЪЕДИНЕННЫЕ АРАБСКИЕ PENERBIT CV RUANG TENTOR Суккур КИСТАН Fe - Карачи EMPAT MACK M САУДОВСКАЯ Тариф АРАВИЯ OMAL от прим Myxanna APARH <b>KINGDOM</b> DRIVEN LIFE KEHIDUPAN YANG DIGERAKKAN OLEH KERAJAAN Buku <b>Kingdom</b>. Page 1."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "p6tosPJ882YC",
+    "etag": "Ti2VJHEha1E",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/p6tosPJ882YC",
+    "volumeInfo": {
+      "title": "The Life Giving Sword - Naskah Klasik Aj",
+      "publisher": "Gramedia Pustaka Utama",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9792231579"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789792231571"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 224,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.2.4.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=p6tosPJ882YC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=p6tosPJ882YC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=p6tosPJ882YC&pg=PA4&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=17&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=p6tosPJ882YC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/The_Life_Giving_Sword_Naskah_Klasik_Aj.html?hl=&id=p6tosPJ882YC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Life_Giving_Sword_Naskah_Klasik_Aj-sample-pdf.acsm?id=p6tosPJ882YC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=p6tosPJ882YC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>Sword</b> Naskah Klasik Ajaran Zen dan Tanpa Pedang Karya Pesaing Utama Musashi Oleh Yagyu Munenori GM 204 07.090 Penerjemah : Ratu Fortunata Rahmi Puspahadi Perwajahan Isi : Rahayu Lestari Adaptasi Perwajahan Sampul : Agus Purwanta&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "xdtpEAAAQBAJ",
+    "etag": "jKoE0IdhE4k",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/xdtpEAAAQBAJ",
+    "volumeInfo": {
+      "title": "Sun Tzu Perspective On Management And War: Terpaksa, Terbiasa, Terbudaya",
+      "authors": [
+        "Mahadana Abyasa"
+      ],
+      "publisher": "GUEPEDIA",
+      "description": "Sun Tzu Perspective On Management And War: Terpaksa, Terbiasa, Terbudaya Penulis : Mahadana Abyasa Ukuran : 14 x 21 cm ISBN : 978-623-407-141-2 Terbit : Januari 2022 www.guepedia.com Sinopsis : Sun Tzu merupakan seorang Jenderal dari Tiongkok, ahli strategi militer, dan filsuf yang hidup di Zaman Musim Semi dan Gugur pada masa Tiongkok Kuno. Sun Tzu diketahui sebagai penulis The Art of War, sebuah strategi militer yang secara luas berpengaruh terhadap filosofi Barat dan Timur. Diluar peninggalannya sebagai penulis The Art of War, Sun Tzu merujuk kepada figur sejarah dari Tiongkok dan Kebudayaan Asia. Dia lahir dengan nama Sun Wu dan dikenal dengan nama Changqing. Nama Sun Tzu sendiri merupakan sebuah gelar kehormatan yang berarti “Master Sun”. Sun Tzu mengajarkan semua yang kita butuhkan dalam memenangkan hidup. Sun Tzu memberikan strategi terbaik bagi mereka yang mau berjuang dan berusaha memenangkannya. The Art of War tak hanya dipahami sebatas ruang lingkup militer saja, namun strategi perang yang diciptakan memiliki nilai dan konsepsi lebih mendalam bagi setiap lini kehidupan untuk menghantarakan seseorang menuju pintu kesuksesan melalui manajemen hidup dan peluang. “Inilah falsafah yang relevan sepanjang masa dari jendral terbaik yang pernah ada”. www.guepedia.com Email : guepedia@gmail.com WA di 081287602508 Happy shopping & reading Enjoy your day, guys",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786234071412"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6234071414"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "printType": "BOOK",
+      "categories": [
+        "Antiques & Collectibles"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=xdtpEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=xdtpEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=xdtpEAAAQBAJ&pg=PA15&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=18&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=xdtpEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=xdtpEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 97680,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 73260,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=xdtpEAAAQBAJ&rdid=book-xdtpEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 97680000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 73260000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Sun_Tzu_Perspective_On_Management_And_Wa-sample-pdf.acsm?id=xdtpEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=xdtpEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b>, while defeated warriors go to <b>war</b> first and then seek to win” “Biarkan rencanamu menjadi gelap dan tidak bisa ditembus seperti malam,. 15 Sun Tzu Perspective On Management And <b>War</b>."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "veGlEAAAQBAJ",
+    "etag": "wuBB1EOv2vs",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/veGlEAAAQBAJ",
+    "volumeInfo": {
+      "title": "Just Like Magic - Winter's Love Tale - DarkRose Publisher - Carmen LaBohemian",
+      "authors": [
+        "Carmen LaBohemian"
+      ],
+      "publisher": "DarkRose Publisher",
+      "publishedDate": "2023-01-06",
+      "description": "Winter's Love Tale Sweet passionate love story on winter's time, it's magical, sweet and passionate. Kisah tentang Alice dan River dan seorang gadis kecil bermata sendu yang berusaha menemukan 'rumahnya' kembali. Akankah Alice bisa mewujudkan keinginan gadis kecil itu dan sekaligus impiannya di momen penuh keajaiban ini?",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 93,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=veGlEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=veGlEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=veGlEAAAQBAJ&pg=PP1&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=19&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=veGlEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=veGlEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 21090,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 21090,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=veGlEAAAQBAJ&rdid=book-veGlEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 21090000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 21090000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Just_Like_Magic_Winter_s_Love_Tale_DarkR-sample-pdf.acsm?id=veGlEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=veGlEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Carmen LaBohemian. Just Like magic winter&#39;s love <b>tale</b> a sweet passionate love story by Carmen LaBohemian CARMEN LABOhEMiAN Just like magic Winter&#39;s Love <b>Tale</b>. Front Cover."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "Xc8yAQAAQBAJ",
+    "etag": "KwWA/E35KTc",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/Xc8yAQAAQBAJ",
+    "volumeInfo": {
+      "title": "War and Faith",
+      "subtitle": "The Catholic Church in Slovenia, 1914-1918",
+      "authors": [
+        "Pavlina Bobič"
+      ],
+      "publisher": "BRILL",
+      "publishedDate": "2012-01-20",
+      "description": "Drawing on the themes of religious rhetoric, embedded in social and political contexts, this study offers new insights into the manners in which the Catholic Church helped mould the Slovenians' responses to WWI and reconsiders the reasons for the clergy's political actions amid tensions, which resulted in the Habsburg empire's collapse.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9789004224155"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "9004224157"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 280,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Xc8yAQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Xc8yAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=Xc8yAQAAQBAJ&pg=PA250&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=22&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=Xc8yAQAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/War_and_Faith.html?hl=&id=Xc8yAQAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/War_and_Faith-sample-pdf.acsm?id=Xc8yAQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=Xc8yAQAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b>, University of Chicago, Chicago–London 2004. Fussell, Paul, The Great <b>War</b> and Modern Memory, Oxford University Press, Oxford 1975. Gilbert, Martin, First World <b>War</b>, Weidenfeld and Nicolson, London 1994. Gooch, George P., Studies in&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "jYMhAwAAQBAJ",
+    "etag": "cFxZ4qCv+fE",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/jYMhAwAAQBAJ",
+    "volumeInfo": {
+      "title": "War Planning 1914",
+      "authors": [
+        "Richard F. Hamilton",
+        "Holger H. Herwig"
+      ],
+      "publisher": "Cambridge University Press",
+      "publishedDate": "2009-11-30",
+      "description": "The major European powers drafted war plans before 1914 and executed them in August 1914; none brought the expected victory by Christmas. Why? This tightly focused collection of essays by international experts in military history reassesses the war plans of 1914 in a broad diplomatic, military, and political setting for the first time in three decades. The book analyzes the war plans of Austria-Hungary, France, Germany, Great Britain, Italy, and Russia on the basis of the latest research and explores their demise in the opening months of World War I. Collectively and comparatively, these essays place contingency war planning before 1914 in the different contexts and challenges each state faced as well as into a broad European paradigm. This is the first such undertaking since Paul Kennedy's groundbreaking War Plans of the Great Powers (1979), and the end result is breathtaking in both scope and depth of analysis.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781139481694"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "113948169X"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.1.1.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=jYMhAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=jYMhAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=jYMhAwAAQBAJ&pg=PA49&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=23&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=jYMhAwAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/War_Planning_1914.html?hl=&id=jYMhAwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/War_Planning_1914-sample-epub.acsm?id=jYMhAwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/War_Planning_1914-sample-pdf.acsm?id=jYMhAwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=jYMhAwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> planning changed to the West. With Russia temporarily weakened by the Russo-Japanese <b>War</b> and the Revolution of 1905 and slow to mobilize, a chance presented itself to concentrate on France. Imperial Germany&#39;s <b>war</b> plan in 1914 was&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "hXfYAgAAQBAJ",
+    "etag": "6T9mOEIqWsQ",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/hXfYAgAAQBAJ",
+    "volumeInfo": {
+      "title": "A City At War",
+      "subtitle": "Milwaukee Labor During World War II",
+      "authors": [
+        "Richard L. Pifer"
+      ],
+      "publisher": "Wisconsin Historical Society",
+      "publishedDate": "2014-03-07",
+      "description": "Milwaukeeans greeted the advent of World War II with the same determination as other Americans. Everyone felt the effect of the war, whether through concern for loved ones in danger, longer work hours, consumer shortages, or participation in war service organizations and drives. Men and women workers produced the essential goods necessary for victory—the vehicles, weapons, munitions, and components for all the machinery of war. But even in wartime there were labor conflicts, fueled by the sacrifices and tensions of wartime life. A City at War focuses on the experience of working men and women in a community that was not a wartime boom town. It looks at the stands of the CIO and the AFL against low wartime wages, and at women in unionized factories facing the perceptions and goals of male workers, union leaders, and society itself. Here is a social history of wartime Milwaukee and its workers as they laid the groundwork for a secure postwar future.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780870204821"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "0870204823"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 229,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.1.2.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=hXfYAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=hXfYAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=hXfYAgAAQBAJ&pg=PA20&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=26&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=hXfYAgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=hXfYAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 174346,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 118555,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=hXfYAgAAQBAJ&rdid=book-hXfYAgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 174346000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 118555000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/A_City_At_War-sample-epub.acsm?id=hXfYAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/A_City_At_War-sample-pdf.acsm?id=hXfYAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=hXfYAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> with the same determination as other Americans. They did not want to be at <b>war</b>, but once the conflict was forced upon them, they acted with patriotic fervor to win it as speedily as pos- sible. Everyone felt the effect of the <b>war</b>&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "bNQkAgAAQBAJ",
+    "etag": "qFVLHM06Wg8",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/bNQkAgAAQBAJ",
+    "volumeInfo": {
+      "title": "Gotham at War",
+      "subtitle": "New York City, 1860-1865",
+      "authors": [
+        "Edward K. Spann"
+      ],
+      "publisher": "Rowman & Littlefield Publishers",
+      "publishedDate": "2002-09-01",
+      "description": "Gotham at War is an accessible, entertaining account of America's biggest and most powerful urban center during the Civil War. New York City mobilized an enthusiastic but poorly trained military force during the first month of the war that helped protect Washington, D.C., from Confederate capture. Its strong financial support for the national government may well have saved the Union. New York served as a center for manpower, military supplies, and shipbuilding. And medically, New York became a center for efforts to provide for sick and wounded soldiers. Yet, despite being a major Northern city, New York also had strong sympathy for the South. Parts of the city were strongly racist, hostile to the abolition of slavery and to any real freedom for black Americans. The hostility of many New Yorkers to the military draft culminated in one of the greatest of all urban upheavals, the draft riots of July 1863. Edward K. Spann brings his experience as an urban historian to provide insights on both the varied ways in which the war affected the city and the ways in which the city's people and industry influenced the divided nation. This is the first book to assess the city's contributions to the Civil War. Gotham at War examines the different sides of the city as some fought to sustain the Union while others opposed the war effort and sided with the South. This unique book will entertain all readers interested in the Civil War and New York City. About the Author Edward K. Spann is professor emeritus of history at Indiana State University. He is a specialist in nineteenth-century history and urban history. Spann has authored a number of books, including The New Metropolis: New York City 1840-1857 and Ideals and Politics: New York Intellectuals and Liberal Democracy, which was nominated for a Pulitzer Prize.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781461714163"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1461714168"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 213,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.1.2.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=bNQkAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=bNQkAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=bNQkAgAAQBAJ&pg=PA167&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=27&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=bNQkAgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=bNQkAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 558410,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 446725,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=bNQkAgAAQBAJ&rdid=book-bNQkAgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 558410000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 446725000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Gotham_at_War-sample-epub.acsm?id=bNQkAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Gotham_at_War-sample-pdf.acsm?id=bNQkAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=bNQkAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> a <b>war</b> for freedom.” The league declared that “there are Ten Thousand Woman in our City able and willing to give time and effort to the National cause.”2 The supporters of the <b>war</b> effort, Republicans and their allies among <b>War</b>&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "mWQMBAAAQBAJ",
+    "etag": "27xwtbuWNEw",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/mWQMBAAAQBAJ",
+    "volumeInfo": {
+      "title": "Virginia in the War Years, 1938-1945",
+      "subtitle": "Military Bases, the U-Boat War and Daily Life",
+      "authors": [
+        "Joseph P. Freitus"
+      ],
+      "publisher": "McFarland",
+      "publishedDate": "2014-07-30",
+      "description": "Although World War II began as a war in Europe, many in the United States, foreseeing the inevitable, began to prepare for war, putting no faith in the Neutrality Act. Preparations for war, essentially ending the Great Depression, affected the entire country, with Virginia particularly playing a major role. More than one million service men and women came to Virginia. The sheer scope of the military development in Virginia of the Army, Navy, Coast Guard and Air Force, providing training bases and support facilities, underscores the national resolve to be prepared. The book includes the Civil Air Patrol, wartime industry, POW camps, U-boat attacks, the Beach Patrol and other Virginia-related topics.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780786479665"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "0786479663"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 209,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=mWQMBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=mWQMBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=mWQMBAAAQBAJ&pg=PA96&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=28&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=mWQMBAAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Virginia_in_the_War_Years_1938_1945.html?hl=&id=mWQMBAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Virginia_in_the_War_Years_1938_1945-sample-pdf.acsm?id=mWQMBAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=mWQMBAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b> Bonds actually were a loan by the public to the government to help pay for the staggering expense of the <b>war</b>. The first Series E bond was purchased by President Roosevelt. The massive sale of <b>War</b> Bonds produced the necessary money&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "bbPVAAAAQBAJ",
+    "etag": "mz9WxwOdTIY",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/bbPVAAAAQBAJ",
+    "volumeInfo": {
+      "title": "The Ethics of War and Peace",
+      "authors": [
+        "Nigel Dower"
+      ],
+      "publisher": "John Wiley & Sons",
+      "publishedDate": "2013-08-26",
+      "description": "This book presents a clear and comprehensive introduction to the diverse and wide-ranging ethical aspects of war and peace. In a fair-minded and engaging analysis, Nigel Dower introduces the different ethical theories in traditional and contemporary debates ? realism, just war theory and pacifism ? and subjects each to detailed critical scrutiny. He frames these debates within a related but distinct framework of three approaches to international relations, namely skeptical realism, internationalism and cosmopolitanism. The book also identifies and evaluates two further important perspectives, militarism and pacificism. Whilst analyzing the advantages and disadvantages of the different outlooks, Dower makes a strong case for a cosmopolitan pacificist position, arguing that we need to see peace in more positive terms than merely the absence of war. The book uses a wide range of examples from across the world and includes discussion of nuclear weapons, new wars, terrorism, humanitarian intervention and human security. Written as a textbook for students who have no prior knowledge of philosophical ethics, The Ethics of War and Peace is designed to help students understand and see the relevance of how a professional philosopher can engage ethically with the world. Each chapter contains a helpful survey of its contents at the beginning and a set of questions for individual reflection or group discussion at the end. This book will be essential reading for students of security studies, conflict resolution, peace studies, philosophy and political theory and anyone interested in the ethical questions which arise from the study of war and peace.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780745658315"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "0745658318"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 232,
+      "printType": "BOOK",
+      "categories": [
+        "Political Science"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.4.2.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=bbPVAAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=bbPVAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=bbPVAAAAQBAJ&pg=PT143&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=30&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=bbPVAAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=bbPVAAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 488609,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 342026,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=bbPVAAAAQBAJ&rdid=book-bbPVAAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 488609000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 342026000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Ethics_of_War_and_Peace-sample-epub.acsm?id=bbPVAAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Ethics_of_War_and_Peace-sample-pdf.acsm?id=bbPVAAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=bbPVAAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> against the negative effects of the <b>war</b> itself? Or is one considering the overall expected effects of a <b>war</b> with the effects of not fighting a <b>war</b> at all? How far into the future are the effects to be calculated? Certainly the&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "yTvRAgAAQBAJ",
+    "etag": "9yfHA2pNBlI",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/yTvRAgAAQBAJ",
+    "volumeInfo": {
+      "title": "Samurai Sword",
+      "subtitle": "A Handbook",
+      "authors": [
+        "John M. Yumoto"
+      ],
+      "publisher": "Tuttle Publishing",
+      "publishedDate": "2013-01-08",
+      "description": "The samurai sword: a symbol of the spirit of old Japan, it embodies the samurai's steel discipline, unswerving devotion and peerless skill. With its creation, a feat of craftsmanship passed down by generations of artisans, the samurai sword is generally considered to be superior even to the famed blades of Western Damascus and Toledo. The Samurai Sword Handbook is a precise exploration of the samurai sword designed for sword collectors as well as anyone intrigued by these ancient blades. Detailing the origins and development of the samurai sword, its historical background, styles, famous schools and differences in construction, this revised edition of the classic reference outlines methods of identifying and researching the sword, as well as caring for it properly. This must-have for sword lovers is sure to be a bestseller. Topics of this Samurai book include: Japanese History and the Samurai Sword Types of swords Parts of the sword Blade shape, construction, and grain The making of the sword Inscriptions and their readings Care and maintenance Appraisal and value Relative point values",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781462907069"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1462907067"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 229,
+      "printType": "BOOK",
+      "categories": [
+        "Antiques & Collectibles"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "1.12.13.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=yTvRAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=yTvRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=yTvRAgAAQBAJ&pg=PA42&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=32&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=yTvRAgAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Samurai_Sword.html?hl=&id=yTvRAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Samurai_Sword-sample-epub.acsm?id=yTvRAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Samurai_Sword-sample-pdf.acsm?id=yTvRAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=yTvRAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>sword</b> was replaced by the cutting action, the swordsmiths endeavored to construct swords whose blades would have uniform cutting efficiency throughout their length. They discovered, through trial and error, that a <b>sword</b> with a razor&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "4Ud8AgAAQBAJ",
+    "etag": "a60FMeUut7Y",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/4Ud8AgAAQBAJ",
+    "volumeInfo": {
+      "title": "War in Iraq",
+      "subtitle": "Planning and Execution",
+      "authors": [
+        "Thomas G. Mahnken",
+        "Thomas A. Keaney"
+      ],
+      "publisher": "Routledge",
+      "publishedDate": "2007-06-11",
+      "description": "This volume provides a collection of insightful essays on all phases of the Iraq War: both US-led major combat operations to defeat the Ba’athist regime as well as efforts to reconstruct the country and defeat the insurgency. Written by leading scholars on the Iraq War, many of whom have practical first-hand experience of the war, the book includes a Conclusion by leading US strategic thinker Eliot Cohen. This is the first work on the Iraq War to incorporate an understanding of the Iraqi side of the war, based on a systematic analysis of captured Iraqi archives. War in Iraq will be of great interest to students of the Iraq War, small wars and insurgencies, international security and strategic studies in general.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781134104192"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1134104197"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 502,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.5.5.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=4Ud8AgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=4Ud8AgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=4Ud8AgAAQBAJ&pg=PT38&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=34&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=4Ud8AgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=4Ud8AgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 1105941,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 884749,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=4Ud8AgAAQBAJ&rdid=book-4Ud8AgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 1105941000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 884749000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/War_in_Iraq-sample-epub.acsm?id=4Ud8AgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/War_in_Iraq-sample-pdf.acsm?id=4Ud8AgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=4Ud8AgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b> campaign plan that wasn&#39;t. A campaign plan by name only, one that was more reflective of a major combat operational plan than a holistic <b>war</b> plan and one where the actions and outcomes of the majority of its activities were left to&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "i6ZTAgAAQBAJ",
+    "etag": "g7htx+7eWNA",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/i6ZTAgAAQBAJ",
+    "volumeInfo": {
+      "title": "Lies, Damned Lies, and Drug War Statistics, Second Edition",
+      "subtitle": "A Critical Analysis of Claims Made by the Office of National Drug Control Policy",
+      "authors": [
+        "Matthew B. Robinson",
+        "Renee G. Scherlen"
+      ],
+      "publisher": "State University of New York Press",
+      "publishedDate": "2013-12-12",
+      "description": "First published in 2007, Lies, Damned Lies, and Drug War Statistics critically analyzed claims made by the Office of National Drug Control Policy (ONDCP), the White House agency of accountability in the nation's drug war since 1989, as found in the six editions of the annual National Drug Control Strategy between 2000 and 2005. In this revised and updated second edition of their critically acclaimed work, Matthew B. Robinson and Renee G. Scherlen examine seven more recent editions (2006–2012) to once again determine if ONDCP accurately and honestly presents information or intentionally distorts evidence to justify continuing the drug war. They uncover the many ways in which ONDCP manipulates statistics and visually presents that information to the public. Their analysis demonstrates a drug war that consistently fails to reduce drug use, drug fatalities, or illnesses associated with drug use; fails to provide treatment for drug-dependent users; and drives up the prices of drugs. They conclude with policy recommendations for reforming ONDCP's use of statistics, as well as how the nation fights the war on drugs.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781438448398"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1438448392"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 330,
+      "printType": "BOOK",
+      "categories": [
+        "Political Science"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "1.1.2.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=i6ZTAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=i6ZTAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=i6ZTAgAAQBAJ&pg=PA7&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=37&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=i6ZTAgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=i6ZTAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 644718,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 451303,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=i6ZTAgAAQBAJ&rdid=book-i6ZTAgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 644718000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 451303000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Lies_Damned_Lies_and_Drug_War_Statistics-sample-epub.acsm?id=i6ZTAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Lies_Damned_Lies_and_Drug_War_Statistics-sample-pdf.acsm?id=i6ZTAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=i6ZTAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> on drugs—which is being fought within our borders and beyond—both depends on and maintains a dominant ideology. There are four key components to this drug <b>war</b> ideology. Government agencies, most notably ONDCP, use various claims&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "7YDNAQAAQBAJ",
+    "etag": "uxSZQpGJyNU",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/7YDNAQAAQBAJ",
+    "volumeInfo": {
+      "title": "Leveled Texts: World War I",
+      "authors": [
+        "Wendy Conklin"
+      ],
+      "publisher": "Teacher Created Materials",
+      "publishedDate": "2014-01-01",
+      "description": "All students can learn about World War I through text written at four different reading levels. Symbols on the pages represent reading-level ranges to help differentiate instruction. Provided comprehension questions complement the text.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781425870799"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1425870791"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 9,
+      "printType": "BOOK",
+      "categories": [
+        "Social Science"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.2.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=7YDNAQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=7YDNAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=7YDNAQAAQBAJ&pg=PP4&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=51&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=7YDNAQAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Leveled_Texts_World_War_I.html?hl=&id=7YDNAQAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Leveled_Texts_World_War_I-sample-pdf.acsm?id=7YDNAQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=7YDNAQAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Wendy Conklin. The “Great <b>War</b>” In 1914, a <b>war</b> began. At that time, it was called the “Great <b>War</b>.” It was fought in Europe. More nations battled in it than in any <b>war</b> before it. It lasted for four years. About 65 million troops fought&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "qIt6BAAAQBAJ",
+    "etag": "QJ7sC+oEmc4",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/qIt6BAAAQBAJ",
+    "volumeInfo": {
+      "title": "A History of the Laws of War: Volume 2",
+      "subtitle": "The Customs and Laws of War with Regards to Civilians in Times of Conflict",
+      "authors": [
+        "Alexander Gillespie"
+      ],
+      "publisher": "Bloomsbury Publishing",
+      "publishedDate": "2011-10-07",
+      "description": "This unique new work of reference traces the origins of the modern laws of warfare from the earliest times to the present day. Relying on written records from as far back as 2400 BCE, and using sources ranging from the Bible to Security Council Resolutions, the author pieces together the history of a subject which is almost as old as civilisation itself. The author shows that as long as humanity has been waging wars it has also been trying to find ways of legitimising different forms of combatants and ascribing rules to them, protecting civilians who are either inadvertently or intentionally caught up between them, and controlling the use of particular classes of weapons that may be used in times of conflict. Thus it is that this work is divided into three substantial parts: Volume 1 on the laws affecting combatants and captives; Volume 2 on civilians; and Volume 3 on the law of arms control. This second book on civilians examines four different topics. The first topic deals with the targetting of civilians in times of war. This discussion is one which has been largely governed by the developments of technologies which have allowed projectiles to be discharged over ever greater areas, and attempts to prevent their indiscriminate utilisation have struggled to keep pace. The second topic concerns the destruction of the natural environment, with particular regard to the utilisation of starvation as a method of warfare, and unlike the first topic, this one has rarely changed over thousands of years, although contemporary practices are beginning to represent a clear break from tradition. The third topic is concerned with the long-standing problems of civilians under the occupation of opposing military forces, where the practices of genocide, collective punishments and/or reprisals, and rape have occurred. The final topic in this volume is about the theft or destruction of the property of the enemy, in terms of either pillage or the intentional devastation of the cultural property of the opposition. As a work of reference this set of three books is unrivalled, and will be of immense benefit to scholars and practitioners researching and advising on the laws of warfare. It also tells a story which throws fascinating new light on the history of international law and on the history of warfare itself.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781847318626"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "1847318622"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 324,
+      "printType": "BOOK",
+      "categories": [
+        "Law"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.4.4.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=qIt6BAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=qIt6BAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=qIt6BAAAQBAJ&pg=PT269&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=52&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=qIt6BAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=qIt6BAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 1627124,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 1138987,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=qIt6BAAAQBAJ&rdid=book-qIt6BAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 1627124000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 1138987000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/A_History_of_the_Laws_of_War_Volume_2-sample-epub.acsm?id=qIt6BAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/A_History_of_the_Laws_of_War_Volume_2-sample-pdf.acsm?id=qIt6BAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=qIt6BAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b> in World History (California, California University Press) 489. 167 Marozzi, J (2005) Tamerlane: <b>Sword</b> of Islam (London, Harper) 42–43, 78–80, 138–39, 199, 271–74, 290, 292–96, 306–307; Runciman, S (1964) The Fall of Constantinople&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "dWK2AgAAQBAJ",
+    "etag": "cOxGGgTu5DM",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/dWK2AgAAQBAJ",
+    "volumeInfo": {
+      "title": "American Voices of World War I",
+      "subtitle": "Primary Source Documents, 1917-1920",
+      "authors": [
+        "Martin Marix Evans"
+      ],
+      "publisher": "Routledge",
+      "publishedDate": "2014-01-27",
+      "description": "First Published in 2001. Routledge is an imprint of Taylor & Francis, an informa company.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781135969851"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "113596985X"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 300,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.2.1.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=dWK2AgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=dWK2AgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=dWK2AgAAQBAJ&pg=PA225&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=58&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=dWK2AgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=dWK2AgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 2658973,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 2127175,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=dWK2AgAAQBAJ&rdid=book-dWK2AgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 2658973000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 2127175000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/American_Voices_of_World_War_I-sample-epub.acsm?id=dWK2AgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/American_Voices_of_World_War_I-sample-pdf.acsm?id=dWK2AgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=dWK2AgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>War</b>, London, Frank Cass, t996. Halliday. Ernest M., The Ignaront Armies. New York. Harper, t960. Harbord. 1ames G.. Leaves from a <b>War</b> Diary, New York. Dodd. Mead. I92S. Harnes. Meioon and Susie, The Lost Days of Innacence: Amenca at <b>War</b>&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "EXmvAwAAQBAJ",
+    "etag": "XbWF2T65yrY",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/EXmvAwAAQBAJ",
+    "volumeInfo": {
+      "title": "Politicians, Diplomacy and War in Modern British History",
+      "authors": [
+        "Keith Robbins"
+      ],
+      "publisher": "A&C Black",
+      "publishedDate": "1994-07-01",
+      "description": "The aspirations of democracy and the requirements of diplomacy have always coexisted uneasily. The politicians discussed in this book, in particular the appreciation of the careers of John Bright and James Bryce, reflect obliquely or directly on the problems of politicians who seek the 'high moral ground' either in domestic or international politics. There is also a discussion of the relationship between politicians and the press, as well as of the difficult link between cultural and political assumptions on the one hand and the facts of economic performance on the other.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780826460479"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "082646047X"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 320,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.131.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=EXmvAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=EXmvAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=EXmvAwAAQBAJ&pg=PA181&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=59&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=EXmvAwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=EXmvAwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 2122335,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 1485634,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=EXmvAwAAQBAJ&rdid=book-EXmvAwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 2122335000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 1485634000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Politicians_Diplomacy_and_War_in_Modern-sample-pdf.acsm?id=EXmvAwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=EXmvAwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> lay. In the lectures on the Origins of the <b>War</b> delivered in Cambridge in the Michaelmas term 1914, Holland Rose condemned German policy but believed that &#39;when the din of <b>war</b> dies down, we shall realize that behind the lust of&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "rWoKAgAAQBAJ",
+    "etag": "2iJAxrxX5K4",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/rWoKAgAAQBAJ",
+    "volumeInfo": {
+      "title": "Ending the U.S. War in Iraq",
+      "subtitle": "The Final Transition, Operational Maneuver, and Disestablishment of United States Forces-Iraq",
+      "authors": [
+        "Richard R. Jr. Brennan",
+        "Charles P. Ries",
+        "Larry Hanauer",
+        "Ben Connable",
+        "Terrence K. Kelly"
+      ],
+      "publisher": "Rand Corporation",
+      "publishedDate": "2013-11-05",
+      "description": "Ending the U.S. war in Iraq required redeploying 100,000 military and civilian personnel; handing off responsibility for 431 activities to the Iraqi government, U.S. embassy, USCENTCOM, or other U.S. government entities; and moving or transferring ownership of over a million pieces of property in accordance with U.S. and Iraqi laws, national policy, and DoD requirements. This book examines the planning and execution of this transition.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780833080486"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "0833080482"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 606,
+      "printType": "BOOK",
+      "categories": [
+        "Political Science"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.1.2.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=rWoKAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=rWoKAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=rWoKAgAAQBAJ&pg=PT91&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=60&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=rWoKAgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=rWoKAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 173560,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 118021,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=rWoKAgAAQBAJ&rdid=book-rWoKAgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 173560000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 118021000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Ending_the_U_S_War_in_Iraq-sample-epub.acsm?id=rWoKAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Ending_the_U_S_War_in_Iraq-sample-pdf.acsm?id=rWoKAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=rWoKAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> termination, see Stewart Albert and Edward C. Luck, On the Endings of Wars, Port Washington, N.Y.: Kennikat Press, 1989; Stephen J. Cimbala, ed., Strategic <b>War</b> Termination, New York: Praeger, 1986; H.E. Goemans, War&amp; Punishment: The&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "LT0DAgAAQBAJ",
+    "etag": "slm+iXLsX1o",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/LT0DAgAAQBAJ",
+    "volumeInfo": {
+      "title": "Sword of the Wild Rose",
+      "authors": [
+        "Ruth Carmichael Ellinger"
+      ],
+      "publisher": "Ambassador International",
+      "publishedDate": "2010-04-01",
+      "description": "When his young wife is brutally murdered in a senseless raid, Derick Davidson, son of a Scottish chieftain, seeks revenge. Suspected by the English authorities, he flees Scotland, arriving in Boston at the onset of the American Revolution. He meets the colourful frontiersman, Daniel Morgan who talks of war and freedom. But another war rages inside Dericks heart, a deadly conflict that challenges the very core of his political and spiritual beliefs. He follows one burning desireto be free. Morgan takes Derick to Virginia where he meets the winsome and beautiful Kearan Mackenzies. He teaches her to sword fight and Kearan learns the secrets of his troubled past. He learns of another freedoma liberty greater than any king or country has to offer. At the Battle of Point Pleasant, Wyandot Indians capture Derick and his uncle, a Longhunter, and former soldier of the Black Watch. Escape seems impossible and death inevitable. During this terrible impasse, the Longhunter points Derick to another weapona two-edged sword that slashes to the very thoughts of his heart. Filled with danger, intrigue, and suspense,Sword of the Wild Roseexplores the meaning of freedom, friendship, and prevailing love. We follow one mans spiritual journey from the depths of heartbreak and revenge to the liberating experience of divine forgiveness and the joy of unforeseen love.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9781935507154"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "193550715X"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 403,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.1.1.0.preview.3",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=LT0DAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=LT0DAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=LT0DAgAAQBAJ&pg=PT94&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=66&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=LT0DAgAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=LT0DAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 174346,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 118555,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=LT0DAgAAQBAJ&rdid=book-LT0DAgAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 174346000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 118555000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true
+      },
+      "pdf": {
+        "isAvailable": true
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=LT0DAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>sword</b> is as natural asbreathing. Ye mustdraw yourblade before ye actually think aboutit.Not until yehave mastered this spontaneousmotion are ye readyto cross blades.” Kearan sighed and returned her <b>sword</b> to its sheath. “I was hoping to&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "nQ1DAgAAQBAJ",
+    "etag": "0SXTzm0pJyg",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/nQ1DAgAAQBAJ",
+    "volumeInfo": {
+      "title": "The War of 1812 on the Genesee River: A Documentary Journey",
+      "authors": [
+        "Christopher Pieczynski"
+      ],
+      "publisher": "Lulu.com",
+      "publishedDate": "2010-04-07",
+      "description": "During the War of 1812, the area along the Genesee River, both upriver around the modern city of Rochester and along the shores of Lake Ontario, never saw a battle, never had any significant military presence, and at best held only a minor level of strategic value. Despite these facts, the few inhabitants of this area faced constant threat of British plunder or invasion and had almost continuous 'visits' from both American and British forces during the extent of the war. Based on first hand accounts and primary source materials.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9780557324835"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "0557324831"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 72,
+      "printType": "BOOK",
+      "categories": [
+        "Genesee River (Pa. and N.Y.)"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=nQ1DAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=nQ1DAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=nQ1DAgAAQBAJ&pg=PA3&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=77&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=nQ1DAgAAQBAJ&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/The_War_of_1812_on_the_Genesee_River_A_D.html?hl=&id=nQ1DAgAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_War_of_1812_on_the_Genesee_River_A_D-sample-pdf.acsm?id=nQ1DAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=nQ1DAgAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... <b>war</b> that ultimately shaped this country, they are but a few of the many battles, skirmishes, and incidents of the <b>war</b>. Unfortunately, many of these other events will not be recognized for their significance. The incidents along the&nbsp;..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "V3ELEAAAQBAJ",
+    "etag": "HCv3MgCvxb0",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/V3ELEAAAQBAJ",
+    "volumeInfo": {
+      "title": "Japanese Traditional Tales: Legenda-Legenda Negeri Matahari Terbit",
+      "authors": [
+        "YEI THEODORA OZAKI"
+      ],
+      "publisher": "Elex Media Komputindo",
+      "publishedDate": "2020-11-23",
+      "description": "Diterjemahkan langsung dari teks-teks asli Jepang, Yei Theodora Ozaki, menceritakan kembali legenda-legenda, seperti \"Kisah Putri Hase\", \"Si Penebang Bambu dan si Anak Bulan\", \"Kisah tentang Momotaro, si Anak Buah Persik\" berdasarkan imajinasi dan sentuhan lokal, tanpa menghilangkan ekspresi autentiknya. Sebanyak 22 legenda asal negeri matahari terbit dalam buku ini akan membuka pintu imajinasi pembaca tentang manusia, binatang, benda, hingga dunia ajaib yang tidak pernah Anda bayangkan sebelumnya.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786230009877"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6230009870"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 296,
+      "printType": "BOOK",
+      "categories": [
+        "Social Science"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=V3ELEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=V3ELEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=V3ELEAAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=212&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=V3ELEAAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=V3ELEAAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 74800,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 56100,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=V3ELEAAAQBAJ&rdid=book-V3ELEAAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 74800000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 56100000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Japanese_Traditional_Tales_Legenda_Legen-sample-pdf.acsm?id=V3ELEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=V3ELEAAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Diterjemahkan langsung dari teks-teks asli Jepang, Yei Theodora Ozaki, menceritakan kembali legenda-legenda, seperti &quot;Kisah Putri Hase&quot;, &quot;Si Penebang Bambu dan si Anak Bulan&quot;, &quot;Kisah tentang Momotaro, si Anak Buah Persik&quot; berdasarkan ..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "KV68DwAAQBAJ",
+    "etag": "YLNIPTxvutY",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/KV68DwAAQBAJ",
+    "volumeInfo": {
+      "title": "Perang Opium (The Poppy War)",
+      "authors": [
+        "R.F. Kuang"
+      ],
+      "publisher": "Gramedia pustaka utama",
+      "publishedDate": "2019-10-28",
+      "description": "Semua orang terkejut ketika Rin berhasil masuk Sinegard, akademi militer elite di Kekaisaran Nikan. Tetapi, kejutan tidaklah selalu menyenangkan. Karena dianggap anak kampung miskin, Rin jadi bulan-bulanan. Apalagi karena ia perempuan. Dalam keadaan putus asa, Rin mendapati dirinya ternyata memiliki kekuatan supernatural yang mematikan—syamanisme. Di bawah bimbingan guru yang dianggap gila, Rin jadi tahu bahwa dewa-dewa yang selama ini dikira mati, ternyata masih hidup. Kekaisaran Nikan hidup damai, namun bekas penjajahnya, Federasi Mugen, terus mengintai. Kekuatan syamanisme Rin mungkin satu-satunya yang bisa menyelamatkan rakyat, tapi semakin ia mengenal sang dewa Phoenix yang memilihnya, dewa penuh kemurkaan dan dendam, semakin ia khawatir. Memenangi perang mungkin harus dibayarnya mahal dengan sifat kemanusiaan. Dan mungkin semuanya sudah terlambat. “Debut fantasi terbaik 2018.” - Wired",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020634968"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020634965"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 568,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=KV68DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=KV68DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=KV68DwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=214&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=KV68DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=KV68DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 130900,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 91627,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=KV68DwAAQBAJ&rdid=book-KV68DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 130900000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 91627000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Perang_Opium_The_Poppy_War-sample-pdf.acsm?id=KV68DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=KV68DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Semua orang terkejut ketika Rin berhasil masuk Sinegard, akademi militer elite di Kekaisaran Nikan."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "_KJLDwAAQBAJ",
+    "etag": "WIYNHnancoU",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/_KJLDwAAQBAJ",
+    "volumeInfo": {
+      "title": "Alice's Adventures in Wonderland (Alice di Negeri Ajaib)",
+      "authors": [
+        "Lewis Carroll"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2016-02-12",
+      "description": "“Di arah sana,” si Kucing melambaikan cakar kanannya, “tinggal si Tukang Topi. Dan di sebelah sana,” ia melambaikan cakar satunya, “tinggal si Kelinci Maret. Terserah siapa yang akan kaukunjungi. Dua-duanya gila.” Alice bosan pada buku yang sedang dibacanya, sebab di buku itu tak ada gambar maupun percakapan. Maka, ketika seekor kelinci putih lewat tergesa-gesa sambil melihat jam sakunya, Alice mengikutinya, dan dimulailah petualangan Alice di Negeri Ajaib––negeri yang penuh makhluk aneh dan eksentrik. Alice bertemu sang Duchess dan kucingnya yang bisa bicara, Tukang Topi dan Kelinci Maret yang sibuk dengan jamuan teh mereka, si Kura-Kura Palsu yang menceritakan kisah hidupnya, dan banyak lagi lainnya.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020324791"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020324796"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 136,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=_KJLDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=_KJLDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=_KJLDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=223&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=_KJLDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=_KJLDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 42900,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 35607,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=_KJLDwAAQBAJ&rdid=book-_KJLDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 42900000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 35607000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Alice_s_Adventures_in_Wonderland_Alice_d-sample-pdf.acsm?id=_KJLDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=_KJLDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "“Di arah sana,” si Kucing melambaikan cakar kanannya, “tinggal si Tukang Topi."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "UNRCDwAAQBAJ",
+    "etag": "P9SFydJjI78",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/UNRCDwAAQBAJ",
+    "volumeInfo": {
+      "title": "Anna Karenina 1",
+      "subtitle": "",
+      "authors": [
+        "Leo Tolstoi"
+      ],
+      "publisher": "Kepustakaan Populer Gramedia",
+      "publishedDate": "2016-11-21",
+      "description": "“Keluarga bahagia mirip satu dengan lainnya, keluarga tak bahagia tidak bahagia dengan jalannya sendiri-sendiri.” Novel Anna Karenina adalah kisah tentang tiga keluarga, salah satunya keluarga Karenin. Anna, istri Karenin, menyeleweng dengan seorang opsir muda yang mengaguminya, Aleksei Vronskii, dan akhirnya memutuskan tali perkawinan. Bagi Anna, penyelewengan itu merupakan petaka yang tak dapat ditolak dengan segudang alasan. Salah satunya, di mata Anna, Karenin hanyalah sepotong boneka tanpa jiwa dan harga diri meskipun dia seorang pejabat tinggi. “Dia itu bukan laki-laki, bukan manusia, tapi boneka!... Dia itu bukan manusia, tapi mesin kementerian,” kata Anna tentang suaminya.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786024240233"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6024240236"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 672,
+      "printType": "BOOK",
+      "categories": [
+        "Juvenile Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.1.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=UNRCDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=UNRCDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=UNRCDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=232&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=UNRCDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=UNRCDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 117700,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 82386,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=UNRCDwAAQBAJ&rdid=book-UNRCDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 117700000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 82386000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Anna_Karenina_1-sample-pdf.acsm?id=UNRCDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=UNRCDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "“Keluarga bahagia mirip satu dengan lainnya, keluarga tak bahagia tidak bahagia dengan jalannya sendiri-sendiri.” Novel Anna Karenina adalah kisah tentang tiga keluarga, salah satunya keluarga Karenin."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "s7m0DwAAQBAJ",
+    "etag": "ZJSfEyn7H48",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/s7m0DwAAQBAJ",
+    "volumeInfo": {
+      "title": "Bangkitnya Sang Serigala (Rise of the Wolf)",
+      "authors": [
+        "Jennifer A. Nielsen"
+      ],
+      "publisher": "Gramedia pustaka utama",
+      "publishedDate": "2019-09-02",
+      "description": "Nic kembali menjadi orang paling dicari. Alasannya hanya satu: ia memiliki kunci kuil yang menyimpan Mars si Jahat, amulet lain dengan kesaktian luar biasa. Namun tak ada yang paling menginginkan amulet itu selain para Praetor yang dipimpin Decimas Brutus, pengabdi Dewi Diana yang bertekad membantunya memenangi perang para dewa. Semua orang meyakini Senator Horatio memberikan kunci tersebut kepada Nic sebelum kematiannya, padahal Nic tak tahu apa-apa. Para Praetor akan melakukan apa saja demi mendapatkan kunci itu, termasuk melukai sahabat dan keluarga Nic. Ketika mereka kemudian menculik ibu Nic, Nic tahu ia harus berusaha melakukan apa pun demi menyelamatkannya. Ia pun mengusulkan pertandingan balap kereta. Jika ia menang, ibunya akan dibebaskan. Jika kalah, Nic akan ikut dengan para Praetor untuk membantu mereka mendapatkan Mars si Jahat, dan itu berarti ikut andil dalam menghancurkan Roma…",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020631455"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020631451"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 384,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=s7m0DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=s7m0DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=s7m0DwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=233&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=s7m0DwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=s7m0DwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 82500,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 61875,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=s7m0DwAAQBAJ&rdid=book-s7m0DwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 82500000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 61875000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Bangkitnya_Sang_Serigala_Rise_of_the_Wol-sample-pdf.acsm?id=s7m0DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=s7m0DwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Nic kembali menjadi orang paling dicari."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "hVHuDwAAQBAJ",
+    "etag": "bEz5xqeBOB0",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/hVHuDwAAQBAJ",
+    "volumeInfo": {
+      "title": "THE ROSE PETALS AND SECRET SWORD",
+      "authors": [
+        "SISWANJAYA "
+      ],
+      "publisher": "CV Kekata Group",
+      "publishedDate": "2019-05-31",
+      "description": "Terbitnya buku ini juga merupakan salah satu langkah nyata untuk mendukung Gerakan Literasi Sekolah (GLS) bagi peserta didik di Sekolah Menengah Pertama yang dicanangkan oleh Kementerian Pendidikan dan Kebudayaan Republik Indonesia. Tak ada yang sempurna. Penyusun menyadari masih banyak kekurangan dan kesalahan dalam penyusunan buku ini. Saran-saran yang membangun sangatlah berharga bagi penyusun untuk dapat menghasilkan buku-buku yang lebih baik lagi kedepannya. Tak lupa penyusun mengucapkan terima kasih banyak kepada pihak-pihak yang telah mendukung dan membantu hingga terbitnya buku ini. Semoga dengan hadirnya buku ini dapat memperkaya sumber-sumber bacaan bagi pembaca khususnya peserta didik di tingkat Sekolah Menengah Pertama dan memberikan banyak inspirasi dan menumbuhkan budaya literasi yang semakin lebih baik.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786024572341"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6024572344"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 178,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=hVHuDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=hVHuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=hVHuDwAAQBAJ&pg=PA40&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=234&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=hVHuDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=hVHuDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 16650,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 16650,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=hVHuDwAAQBAJ&rdid=book-hVHuDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 16650000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 16650000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=hVHuDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "... ekspedisi menggunakan senjata tajam, bisa dikatakan jika ini menjadi kegemaranku, hingga suatu ketika pedangku patah karena aku terlalu keras menggunakannya, Aku pun memutuskan untuk menemui ayahku di 40. 8. The Secret <b>Sword</b> ..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "DxlIDwAAQBAJ",
+    "etag": "A1g3tXBVSMc",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/DxlIDwAAQBAJ",
+    "volumeInfo": {
+      "title": "The Martian - Si Penghuni Mars",
+      "authors": [
+        "Andy Weir"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2016-02-12",
+      "description": "Enam hari yang lalu, astronaut Mark Watney menjadi salah satu orang pertama yang menjejakkan kaki di Mars. Sekarang dia yakin akan menjadi yang pertama mati di sana. Mark ditinggalkan di Mars oleh rekan-rekannya, yang mengira dia tewas ketika terjadi badai pasir. Sekarang dia sendirian, tak punya sarana untuk mengirim sinyal ke Bumi, dan persediaan makanannya sudah pasti akan habis lama sebelum tim penyelamat bisa datang. Tapi Mark belum mau menyerah. Berbekal keterampilan teknis dan kreativitasnya––plus rasa humor yang terbukti menjadi sumber kekuatan terbesarnya––dia memulai misi untuk bertahan hidup, menanam kentang untuk dimakan, dan bahkan menyusun rencana edan untuk menghubungi NASA di Bumi. Rintangan demi rintangan berhasil diatasinya, dan Mark mulai yakin dia bisa keluar dari Mars hidup-hidup––tetapi planet ini ternyata menyimpan banyak kejutan untuknya.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020324395"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020324397"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 528,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=DxlIDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=DxlIDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=DxlIDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=246&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=DxlIDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=DxlIDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 93500,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 70125,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=DxlIDwAAQBAJ&rdid=book-DxlIDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 93500000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 70125000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Martian_Si_Penghuni_Mars-sample-pdf.acsm?id=DxlIDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=DxlIDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Enam hari yang lalu, astronaut Mark Watney menjadi salah satu orang pertama yang menjejakkan kaki di Mars."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "6UuHDwAAQBAJ",
+    "etag": "G2/4kuEtoLk",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/6UuHDwAAQBAJ",
+    "volumeInfo": {
+      "title": "The Girl Before",
+      "authors": [
+        "JP Delaney"
+      ],
+      "publisher": "Elex Media komputindo",
+      "publishedDate": "2019-01-07",
+      "description": "Buatlah daftar semua hal yang kau anggap sangat penting dalam hidupmu. Itu permintaan yang janggal dan penuh paksaan, dan mengundang konsekuensi besar bagi dua wanita yang rela menjawabnya. Emma hanya ingin menemukan tempat tinggal baru yang aman. Dan dia menemukannya di One Folgate Street, rumah berdesain minimalis yang merupakan sebuah mahakarya arsitektur. Tapi ada dua ratus peraturan yang harus dipatuhinya. Tidak boleh ada foto. Tidak boleh ada buku. Jane hanya ingin memulai hidupnya lagi setelah kemalangan yang dia dapatkan. Dan dia menemukannya di One Folgate Street, tempat tinggal yang indah dengan elemen batu dan kaca. Tapi ada tragedi lain yang harus dia hadapi: misteri kematian Emma, penghuni rumah terdahulu. Tidak boleh ada tirai. Tidak boleh ada bantal sofa.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786020488097"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6020488098"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 416,
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=6UuHDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=6UuHDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=6UuHDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=264&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=6UuHDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=6UuHDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 82500,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 61875,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=6UuHDwAAQBAJ&rdid=book-6UuHDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 82500000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 61875000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Girl_Before-sample-pdf.acsm?id=6UuHDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=6UuHDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Buatlah daftar semua hal yang kau anggap sangat penting dalam hidupmu."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "pBtyVwVaSx0C",
+    "etag": "4Ri2V1OMjaA",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/pBtyVwVaSx0C",
+    "volumeInfo": {
+      "title": "Musashi",
+      "authors": [
+        "Eiji Yoshikawa"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2001",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9796556030"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789796556038"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 1254,
+      "printType": "BOOK",
+      "categories": [
+        "Historical fiction"
+      ],
+      "averageRating": 4.5,
+      "ratingsCount": 5,
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.3.3.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=pBtyVwVaSx0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=pBtyVwVaSx0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.co.id/books?id=pBtyVwVaSx0C&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=265&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=pBtyVwVaSx0C&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Musashi.html?hl=&id=pBtyVwVaSx0C"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Musashi-sample-pdf.acsm?id=pBtyVwVaSx0C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=pBtyVwVaSx0C&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "N2FK09JvlSYC",
+    "etag": "5gH9tZOn+Mo",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/N2FK09JvlSYC",
+    "volumeInfo": {
+      "title": "Quidditch dari masa ke masa",
+      "authors": [
+        "J. K. Rowling"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2002",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9796865564"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789796865567"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 84,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.2.4.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=N2FK09JvlSYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=N2FK09JvlSYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=N2FK09JvlSYC&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=297&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=N2FK09JvlSYC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Quidditch_dari_masa_ke_masa.html?hl=&id=N2FK09JvlSYC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Quidditch_dari_masa_ke_masa-sample-pdf.acsm?id=N2FK09JvlSYC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=N2FK09JvlSYC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "qIC-8YSTYsMC",
+    "etag": "3bTyXokvyTM",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/qIC-8YSTYsMC",
+    "volumeInfo": {
+      "title": "The Rape of Nanking",
+      "publisher": "Penerbit Narasi",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9791681619"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789791681612"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 420,
+      "printType": "BOOK",
+      "averageRating": 5,
+      "ratingsCount": 1,
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "1.2.3.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=qIC-8YSTYsMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=qIC-8YSTYsMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=qIC-8YSTYsMC&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=311&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=qIC-8YSTYsMC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/The_Rape_of_Nanking.html?hl=&id=qIC-8YSTYsMC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/The_Rape_of_Nanking-sample-pdf.acsm?id=qIC-8YSTYsMC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=qIC-8YSTYsMC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "JxSbDwAAQBAJ",
+    "etag": "pkj6ZnxGtfo",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/JxSbDwAAQBAJ",
+    "volumeInfo": {
+      "title": "CLOCKWORK ANGLE",
+      "subtitle": "The Infernal Devices",
+      "authors": [
+        "Cassandra Clare"
+      ],
+      "description": "Goodreads Choice Award Nominee for Favorite Book, Young Adult Fantasy, Goodreads Author (2010), RT Reviewers’ Choice Award Nominee for Best Young Adult Paranormal/Fantasy Novel (2010) SIHIR MEMANG BERBAHAYA—TAPI CINTA TETAP LEBIH BERBAHAYA Pada zaman Victoria, Tessa Gray yang berusia enam belas tahun menyeberangi samudera untuk menemui kakak laki-lakinya di Inggris. Sesuatu yang mengerikan sedang menantinya di Dunia Bawah London, di mana vampir, warlock, dan makhluk gaib lainnya berjalan diam-diam di jalanan yang diterangi lampu gas. Hanya para Pemburu Bayangan, ksatria yang mengabdi untuk menyingkirkan iblis dari dunia, yang menjaga keteraturan di tengah kekacauan. Tanpa teman dan diburu, Tessa berlindung kepada para Pemburu Bayangan di Institut London. Tessa segera tertarik dengan—dan terkoyak di antara—dua sahabat. Ada James, yang ketampanan rapuhnya menyembunyikan rahasia mematikan. Lalu ada Will, yang bermata biru, dengan kejenakaan tajamnya dan suasana hatinya yang cepat berubah-ubah membuat semua orang menjaga jarak... semua orang, benar, kecuali Tessa. Dapatkah Tessa menemukan kakaknya? Kenapa Tessa diincar oleh Magister yang misterius? Akankah Will membiarkan Tessa memahaminya sebelum gadis itu luluh oleh kehangatan sahabatnya? “Prekuel THE MORTAL INSTRUMENTS ini penuh dengan petualangan yang seru dan mendebarkan.” —TeensReadToo.com “Penggemar seri Mortal Instruments tidak akan kecewa.” —Publishers Weekly “Buku ini berisi rangkaian misteri.” —Kirkus Reviews “Kau akan setengah mati menunggu sekuelnya.” —Booklist “Wajib dibaca!” —Romantic Times Book Reviews",
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "printType": "BOOK",
+      "categories": [
+        "Fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "0.0.1.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=JxSbDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=JxSbDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=JxSbDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=317&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=JxSbDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=JxSbDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 60997,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 45748,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=JxSbDwAAQBAJ&rdid=book-JxSbDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 60997000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 45748000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/CLOCKWORK_ANGLE-sample-pdf.acsm?id=JxSbDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=JxSbDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "Goodreads Choice Award Nominee for Favorite Book, Young Adult Fantasy, Goodreads Author (2010), RT Reviewers’ Choice Award Nominee for Best Young Adult Paranormal/Fantasy Novel (2010) SIHIR MEMANG BERBAHAYA—TAPI CINTA TETAP LEBIH ..."
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "2sl1PmebxqIC",
+    "etag": "wqR9JhJVKsM",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/2sl1PmebxqIC",
+    "volumeInfo": {
+      "title": "Menghitung Bintang",
+      "publisher": "Penerbit Serambi",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9791600678"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789791600675"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 220,
+      "printType": "BOOK",
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.5.5.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=2sl1PmebxqIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=2sl1PmebxqIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=2sl1PmebxqIC&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=319&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=2sl1PmebxqIC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Menghitung_Bintang.html?hl=&id=2sl1PmebxqIC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Menghitung_Bintang-sample-pdf.acsm?id=2sl1PmebxqIC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=2sl1PmebxqIC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "WOBsQ_vXfLsC",
+    "etag": "IswG6SnTAoI",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/WOBsQ_vXfLsC",
+    "volumeInfo": {
+      "title": "Anak lelaki berpiama garis-garis",
+      "authors": [
+        "John Boyne"
+      ],
+      "publisher": "Gramedia Pustaka Utama",
+      "publishedDate": "2007",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "9792229825"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9789792229820"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 242,
+      "printType": "BOOK",
+      "categories": [
+        "Historical fiction"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "0.5.5.0.preview.1",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=WOBsQ_vXfLsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=WOBsQ_vXfLsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=WOBsQ_vXfLsC&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=333&source=gbs_api",
+      "infoLink": "http://books.google.co.id/books?id=WOBsQ_vXfLsC&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&source=gbs_api",
+      "canonicalVolumeLink": "https://books.google.com/books/about/Anak_lelaki_berpiama_garis_garis.html?hl=&id=WOBsQ_vXfLsC"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "NOT_FOR_SALE",
+      "isEbook": false
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Anak_lelaki_berpiama_garis_garis-sample-pdf.acsm?id=WOBsQ_vXfLsC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=WOBsQ_vXfLsC&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  },
+  {
+    "kind": "books#volume",
+    "id": "Qa-LDwAAQBAJ",
+    "etag": "TPX8Tq9uSjk",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/Qa-LDwAAQBAJ",
+    "volumeInfo": {
+      "title": "Guns, Germs & Steel (NEW)",
+      "authors": [
+        "Jared Diamond"
+      ],
+      "publisher": "Kepustakaan Populer Gramedia",
+      "publishedDate": "2016-08-18",
+      "description": "PADA 1970-an, ketika sedang berada di Papua untuk meneliti burung, Jared Diamond ditanyai oleh sahabatnya yang orang Papua: Mengapa orang kulit putih membuat banyak barang berharga, sementara orang Papua tidak? Pertanyaan itu sebenarnya adalah pertanyaan mengenai mengapa kemajuan peradaban di berbagai benua itu berbeda-beda. Guns, Germs & Steel, buku pemenang Hadiah Pulitzer 1998, adalah jawaban Jared Diamond bagi pertanyaan sahabatnya. Mengapa sebagian bangsa di dunia bisa mencapai kemajuan teknologi dan peradaban, sehingga lantas menaklukkan dan menjajah bangsa di bagian dunia lain? Apakah itu karena bangsa-bangsa itu hakikatnya lebih unggul daripada lainnya? Atau semua bangsa sama saja, dan yang membedakan adalah faktor lingkungan berupa tanah, iklim, flora-fauna, dan sejarah alam? Guns, Germs & Steel mengajak kita melihat riwayat peradaban manusia pada masa tepat sebelum masa sejarah—mulai sekitar tahun 11000 SM—yang justru penting karena pada waktu itulah unsur-unsur pembentuk peradaban manusia seperti pertanian dan bahasa muncul. Dari situ kita diajak meninjau perkembangan di semua benua, dan mengetahui mengapa kemajuan peradaban manusia di berbagai tempat itu berbeda-beda.",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_13",
+          "identifier": "9786024241384"
+        },
+        {
+          "type": "ISBN_10",
+          "identifier": "6024241380"
+        }
+      ],
+      "readingModes": {
+        "text": false,
+        "image": true
+      },
+      "pageCount": 638,
+      "printType": "BOOK",
+      "categories": [
+        "History"
+      ],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": true,
+      "contentVersion": "preview-1.0.0",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=Qa-LDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=Qa-LDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "language": "id",
+      "previewLink": "http://books.google.co.id/books?id=Qa-LDwAAQBAJ&printsec=frontcover&dq=Gate+OR+Reincarnation+OR+Tale+OR+War+OR+Palace+OR+Kingdom+OR+Mage+OR+Sword+OR+Prince+OR+Dungeon+OR+Fairy+-Sex&hl=&cd=391&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=Qa-LDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Qa-LDwAAQBAJ"
+    },
+    "saleInfo": {
+      "country": "ID",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 119900,
+        "currencyCode": "IDR"
+      },
+      "retailPrice": {
+        "amount": 83927,
+        "currencyCode": "IDR"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=Qa-LDwAAQBAJ&rdid=book-Qa-LDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 119900000000,
+            "currencyCode": "IDR"
+          },
+          "retailPrice": {
+            "amountInMicros": 83927000000,
+            "currencyCode": "IDR"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "ID",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": false
+      },
+      "pdf": {
+        "isAvailable": true,
+        "acsTokenLink": "http://books.google.co.id/books/download/Guns_Germs_Steel_NEW-sample-pdf.acsm?id=Qa-LDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=Qa-LDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+      "textSnippet": "PADA 1970-an, ketika sedang berada di Papua untuk meneliti burung, Jared Diamond ditanyai oleh sahabatnya yang orang Papua: Mengapa orang kulit putih membuat banyak barang berharga, sementara orang Papua tidak?"
+    }
+  }
+]

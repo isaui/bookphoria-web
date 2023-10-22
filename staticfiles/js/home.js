@@ -1,4 +1,13 @@
-const currentBooks = []
+var currentBooks = [];
+const dropdownButton = document.getElementById("dropdownDelayButton");
+const dropdownCurrentText = document.getElementById("dropdownButtonText")
+const dropdownContent = document.getElementById("dropdownDelay");
+const dropdownButtonsContent = dropdownContent.querySelectorAll("button");
+const dropdownIcon = document.getElementById("homeDropdownIcon");
+const homeContent = document.getElementById("homeContent");
+const MAX_HOMEPAGEBOOKS = 12;
+var currentValue = 'Terbaru';
+
 const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
 const getBooks = async ()=>{
     const loading = document.getElementById('loading');
@@ -13,13 +22,87 @@ const getBooks = async ()=>{
         books.reverse();
         setCarouselBooks(getRandomElementsFromArray(books, 5));
         setHomepageBooks(books);
-        currentBooks = books;
+        currentBooks = [...books];
         loading.style.display = 'none';
     } catch (error) {
         loading.style.display = 'none';
     }
 
 }
+
+window.addEventListener("load", ()=>{
+    dropdownButtonText.textContent = currentValue;
+    establishDropdownSelectedValueColor();
+})
+
+document.addEventListener("click", (event) => {
+// Periksa apakah elemen yang diklik adalah dropdownButton
+if (event.target !== dropdownContent) {
+    // Periksa apakah elemen yang diklik adalah dropdownContent atau elemen dalam dropdownContent
+    if (!dropdownContent.contains(event.target)) {
+        // Jika bukan dropdownButton, dropdownContent, atau elemen dalam dropdownContent yang diklik, maka tutup dropdownContent
+        closeDropdown();
+    }
+}
+});
+
+const sortBooksBy = (identifier) => {
+    const newBooks = [...currentBooks];
+    if(identifier == "Terbaru"){
+        setHomepageBooks(newBooks)
+    }
+    else if(identifier == "Terlama"){
+        newBooks.reverse();
+        setHomepageBooks(newBooks);
+    }
+}
+
+const establishDropdownSelectedValueColor =  ()=>{
+    dropdownButtonsContent.forEach(button => {
+        if(button.getAttribute("data-value") != currentValue){
+            button.classList.remove("bg-purple-600");
+        }
+        else {
+            if(!button.classList.contains("bg-purple-600")){
+                button.classList.add("bg-purple-600")
+            }
+        }
+    })
+}
+
+const openDropdown = () => {
+    if(dropdownContent.classList.contains("hidden")){
+        dropdownContent.classList.remove("hidden");
+    }
+    dropdownIcon.setAttribute("transform", "scale(1, -1)");
+}
+
+const closeDropdown = () => {
+    if(!dropdownContent.classList.contains("hidden")){
+            dropdownContent.classList.add("hidden");
+        }
+    dropdownIcon.setAttribute("transform", "scale(1, 1)");
+}
+
+dropdownButton.addEventListener("mouseenter", () => {
+    openDropdown();
+});
+
+dropdownButton.addEventListener("click", () => {
+    openDropdown();
+});
+
+dropdownButtonsContent.forEach(button => {
+    button.addEventListener("click", ()=>{
+        const newValue = button.getAttribute("data-value");
+        currentValue = newValue;
+        dropdownCurrentText.textContent = currentValue;
+        establishDropdownSelectedValueColor();
+        sortBooksBy(newValue)
+        closeDropdown();
+    })
+});
+
 
 function getRandomElementsFromArray(array, numElements) {
     const newArray = [...array];
@@ -36,8 +119,8 @@ const setCarouselBooks = (res) => {
             <div  class="my-auto">
                 <div class=" px-2  flex  min-h-[13rem] max-w-[24rem] md:max-w-[32rem] lg:max-w-[48rem] py-2">
                     <img class=" rounded-md h-[11rem] md:h-[18rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
-                    <div class=" pl-3 flex-1 flex flex-col">
-                        <div class="flex  justify-between items-start ">
+                    <div class=" pl-3 flex-1 flex flex-col  ">
+                        <div class="flex   justify-between items-start ">
                         <div class="mt-1 mr-2">
                         <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title : 'No Title'}</h1>
                         <h1 class="text-[#C52A62] text-xs line-clamp-2">
@@ -70,7 +153,7 @@ const setCarouselBooks = (res) => {
                                 415 Reviews
                             </div>
                         </div>    
-                        <div  class="mt-1 text-black md:text-[#C52A62] text-xs line-clamp-2">
+                        <div  class="mt-1 text-[#C52A62] text-xs line-clamp-2">
                         ${book.categories.length > 0 ? book.categories.map((category,index)=>{
                             if(index == book.categories.length - 1){
                                 return `<a>${category}</a><span>.</span>`
@@ -102,8 +185,8 @@ const setCarouselBooks = (res) => {
 }
 const setHomepageBooks = (res) => {
     const booksCardContainer = document.getElementById('book-cards-container');
+    res = res.slice(0,MAX_HOMEPAGEBOOKS);
     let booksString = '';
-    console.log('DISINI')
     try {
         res.forEach((book,index) => {
             const isFirstLast = index == res.length -1;
@@ -179,9 +262,8 @@ const setHomepageBooks = (res) => {
     }
 }
 
-
-
-window.onload = () => {
-    console.log('HEI AKU DIJALANKAN')
-    getBooks();
-}
+window.addEventListener("DOMContentLoaded", async ()=>{
+    homeContent.classList.add("hidden");
+    await getBooks();
+    homeContent.classList.remove("hidden");
+})

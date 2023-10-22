@@ -1,6 +1,6 @@
 {% load static %}
-<div class="w-full overflow-hidden relative  h-[20rem] min-h-[20rem] md:h-[24rem] md:min-h-[24rem]  py-2 flex items-center">
-    <img class="w-full h-full absolute top-0 left-0 opacity-30" src="{% static 'img/library-img.jpg' %}" alt="">
+<div class="w-full overflow-hidden relative  h-[20rem] min-h-[20rem] md:h-[24rem] md:min-h-[24rem]   py-2 flex items-center">
+    
     <div id="carousel" class="w-full relative flex items-center transition-transform duration-500 py-2  ">
     
     </div>
@@ -69,10 +69,10 @@ function updateIndicators() {
     if (index === currentIndex) {
       indicator.classList.remove("bg-gray-400");
       indicator.classList.remove("w-3")
-      indicator.classList.add("bg-[#460C90]");
+      indicator.classList.add("bg-indigo-600");
       indicator.classList.add("w-6")
     } else {
-      indicator.classList.remove("bg-[#460C90]");
+      indicator.classList.remove("bg-indigo-600");
       indicator.classList.remove("w-6")
       indicator.classList.add("bg-gray-400");
       indicator.classList.add("w-3")
