@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <title>All Books</title>
+{% endblock meta %}
+
+{% block content %}
+    {% include "partials/navbar.html" %}
+    {% include "partials/sidebar.html" %}
+    {% include "partials/loading-text.html" %}
+    <div id="categories-overlay" class="w-full hidden transform transition-transform duration-300 ease-in-out whitespace-nowrap fixed bg-white top-12 lg:top-16 z-10 flex  items-center justify-start px-4 min-h-[2rem] md:min-h-[3rem] border-b border-gray-300 py-4 font-bold text-xs">
+    <div id="categories-container" class="flex w-full scroll-smooth overflow-x-hidden items-center font-bold md:pr-4 ">
+    </div>
+    <button id="next-categories-button"class="hidden absolute top-1/2 right-0 transform  -translate-y-1/2 z-20 rounded-l-2xl w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem]  bg-inherit  flex justify-center items-center">
+        <div  class="relative z-20 text-sm w-6 h-6 md:w-8 md:h-8 rounded-full hover:bg-[#460C90] bg-white hover:text-white text-black flex items-center justify-center">
+            <i class="fas fa-chevron-right "></i>
+        </div>
+    </button>
+    <button id="prev-categories-button" class="hidden absolute top-1/2 left-0 transform  -translate-y-1/2 rounded-r-2xl z-20 w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] bg-inherit  flex justify-center items-center">
+        <div  class="relative z-20  text-sm w-6 h-6 md:w-8 md:h-8 rounded-full hover:bg-[#460C90] bg-white hover:text-white text-black flex items-center justify-center">
+            <i class="fas fa-chevron-left "></i>
+        </div>
+    </button>
+    </div>
+    </div>
+    <div id="homeContent" class="hidden w-screen max-w-[96vw] min-h-screen  flex flex-col pt-12 md:pt-32 items-center max-w-[1240px] mx-auto">
+        <div class="flex w-full items-center justify-between">
+            <h1></h1>
+
+        </div>
+        <div class="flex  w-full px-2">
+            <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+        </div>
+        <div id="books-card-container" class="grid md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1">  
+        </div>
+        <div class="flex  w-full px-2">
+            <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+        </div>
+    </div>
+<script src="{% static 'js/all-books.js' %}"></script>
+
+{% endblock content %}
+    

@@ -7,10 +7,10 @@ const dropdownIcon = document.getElementById("homeDropdownIcon");
 const homeContent = document.getElementById("homeContent");
 const MAX_HOMEPAGEBOOKS = 12;
 var currentValue = 'Terbaru';
-
+var isDropdownOpen = false;
 const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
 const getBooks = async ()=>{
-    const loading = document.getElementById('loading');
+    const loading = document.getElementById('loading-text');
     try {
         loading.style.display = 'flex';
         const resJson = await fetch('/get-books/', {
@@ -31,7 +31,7 @@ const getBooks = async ()=>{
 }
 
 window.addEventListener("load", ()=>{
-    dropdownButtonText.textContent = currentValue;
+    dropdownCurrentText.textContent = currentValue;
     establishDropdownSelectedValueColor();
 })
 
@@ -71,25 +71,31 @@ const establishDropdownSelectedValueColor =  ()=>{
 }
 
 const openDropdown = () => {
-    if(dropdownContent.classList.contains("hidden")){
-        dropdownContent.classList.remove("hidden");
-    }
+    dropdownContent.classList.remove('hidden');
+    isDropdownOpen = true;
     dropdownIcon.setAttribute("transform", "scale(1, -1)");
 }
 
-const closeDropdown = () => {
-    if(!dropdownContent.classList.contains("hidden")){
-            dropdownContent.classList.add("hidden");
-        }
-    dropdownIcon.setAttribute("transform", "scale(1, 1)");
+const toggleDropdown = () => {
+    if(isDropdownOpen){
+        closeDropdown()
+    }
+    else{
+        openDropdown()
+    }
 }
 
-dropdownButton.addEventListener("mouseenter", () => {
-    openDropdown();
-});
-
-dropdownButton.addEventListener("click", () => {
-    openDropdown();
+const closeDropdown = () => {
+    if(!dropdownContent.classList.contains('hidden')){
+        dropdownContent.classList.add('hidden')
+    }
+    isDropdownOpen = false;
+    dropdownIcon.setAttribute("transform", "scale(1, 1)");
+}
+dropdownButton.addEventListener("click", (event) => {
+    toggleDropdown();
+    event.stopPropagation();
+    
 });
 
 dropdownButtonsContent.forEach(button => {
