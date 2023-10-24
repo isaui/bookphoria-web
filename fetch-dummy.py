@@ -70,7 +70,7 @@ def add_dummy_data(json_data):
             epub_available = book_data['accessInfo']['epub']['isAvailable'],
             epub_link = epub_link,
             maturity_rating = book_data['volumeInfo']['maturityRating'],
-            page_count = int(book_data['volumeInfo'].get('page_count', 1))
+            page_count = int(book_data['volumeInfo'].get('pageCount', 0))
         )
         newBook.save()
         newBook.authors.add(*authors)

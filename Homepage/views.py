@@ -1,12 +1,24 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Book
+from .models import Book, Category
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
 def home(request):
     return render(request, "home.html")
+
+def all_books_page(request):
+    return render(request, "allbooks-page.html")
+
+@csrf_exempt
+def get_categories(request):
+    categories = Category.objects.all()
+    categories_list = []
+    for category in categories:
+        categories_list.append(category.name)
+    return JsonResponse({'categories':categories_list})
+
 
 @csrf_exempt
 def get_books_json(request):
