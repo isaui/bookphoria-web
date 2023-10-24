@@ -1,7 +1,8 @@
-var categories = ['All'];
 var currentSelectedCategory = 'All';
+var maturityRating = 'All';
 var currentBooks = [];
 var currentfilterBooks= [];
+var categoryMap = new Map();
 const categoriesContainer = document.getElementById('categories-container');
 const nextCategoriesButton = document.getElementById('next-categories-button');
 const prevCategoriesButton = document.getElementById('prev-categories-button');
@@ -13,6 +14,42 @@ let lastScrollPosition = window.scrollY;
 let isScrolling;
 const scrollThreshold = 100;
 
+const sortCategory = (books) => {
+    categoryMap = new Map()
+    categoryMap.set('All', 0)
+    books.forEach(book => {
+        if(categoryMap.has('All')){
+            categoryMap.set('All', categoryMap.get('All') + 1)
+        }
+        book.categories.forEach(category => {
+            if(categoryMap.has(category)){
+                categoryMap.set(category, categoryMap.get(category) + 1);
+            }
+            else{
+                categoryMap.set(category, 1);
+            }
+        })
+    })
+    categoryMap = Array.from(categoryMap.entries()).sort((a, b) => b[1] - a[1]);
+}
+
+const setBooksPreference = () => {
+    if(currentSelectedCategory == 'All'){
+        wrapperSetBooks(currentBooks);
+    }
+    else{
+        currentfilterBooks = currentBooks.filter(book=> {
+            if(!book.categories){
+                return false;
+            }
+            if(book.categories.includes(currentSelectedCategory)){
+                return true;
+            }
+            return false;
+        });
+        wrapperSetBooks(currentfilterBooks);
+    }
+}
 window.addEventListener('scroll', () => {
     const currentScrollPosition = window.scrollY;
     clearTimeout(isScrolling);
@@ -67,10 +104,10 @@ const setBooks = (res) => {
             const isSecondLast = index == res.length -2;
             const isThirdLast = index == res.length -3;
             const bookString = `
-            <div  class="">
-                    <div class=" px-2  flex  min-h-[13rem]  py-2">
+            <div  class="flex-auto flex flex-col  ">
+                    <div class="  w-full px-2 grow flex  min-h-[13rem]  py-2">
                         <img class="rounded-md h-[10rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
-                        <div class=" pl-3 flex-1 flex flex-col">
+                        <div class=" pl-3 flex-1 flex flex-col min-h-full ">
                             <div class="flex  justify-between items-start ">
                             <div class="mt-1 mr-2">
                             <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title : 'No Title'}</h1>
@@ -122,7 +159,7 @@ const setBooks = (res) => {
                             </div>
                         </div>
                     </div>
-                    <div class="border-b border-[#460C90] w-full opacity-20 ${isFirstLast? ' hidden ' : isSecondLast? `${res.length % 2 == 0? ` md:hidden ` :
+                    <div class="mt-auto border-b border-[#460C90] w-full opacity-20 ${isFirstLast? ' hidden ' : isSecondLast? `${res.length % 2 == 0? ` md:hidden ` :
                      res.length % 3 == 0? ` lg:hidden `:' '}`: isThirdLast? `${res.length % 3 == 0? ` lg:hidden `: ``}` : ``}">
                     </div>
                     </div>
@@ -171,14 +208,15 @@ categoriesContainer.addEventListener("scroll", handleCategoriesContainerResize);
 window.addEventListener("resize", handleCategoriesContainerResize);
 window.addEventListener("DOMContentLoaded", handleCategoriesContainerResize)
 
-const addEventListenerToCategoryButton = () => {
-    categories.forEach(category=>{
+const addEventListenerToCategoryButton = (cmap) => {
+    for(let[key,value] of cmap){
+        const category = key
         const id = category + "-books-btn";
         const element = document.getElementById(id);
         element.addEventListener('click', ()=>{
             setSelectedCategory(category);
         })
-    })
+    }
 }
 
 const setSelectedCategory = (category) => {
@@ -196,53 +234,37 @@ const setSelectedCategory = (category) => {
         nextSelectedCategoryElement.classList.add('border-black')
     }
     currentSelectedCategory = category;
-    if(category == 'All'){
-        wrapperSetBooks(currentBooks);
-        return;
-    }
-    currentfilterBooks = currentBooks.filter(book=> {
-        if(!book.categories){
-            return false;
-        }
-        if(book.categories.includes(category)){
-            return true;
-        }
-        return false;
-    });
-    wrapperSetBooks(currentfilterBooks);
-    
+    setBooksPreference()
 }
 
 const setCategoriesBar = (categoriesData) => {
     const categoriesContainer = document.getElementById('categories-container');
     let innerHTML = ``;
-    categoriesData.forEach((category, index)=>{
+    for(let[key,value] of categoriesData){
+        category = key
         const sanitizedCategory = `${category}`; 
         const categoryHTML = `<div onclick='' id="${sanitizedCategory}-books-btn" class="py-1 mr-4 text-black text-xs ${currentSelectedCategory === sanitizedCategory ? 'border-b-2 border-black' : ''} ">${category}</div>`;
         innerHTML += categoryHTML
-    })
+    }
     categoriesContainer.innerHTML = innerHTML;
     handleCategoriesContainerResize()
-    addEventListenerToCategoryButton()
+    addEventListenerToCategoryButton(categoriesData)
 }
 
-const getCategories = async () => {
+const getCategories =  () => {
+    //console.log('sini')
+    sortCategory(currentBooks)
+    setCategoriesBar(categoryMap)
+}
+window.addEventListener("DOMContentLoaded", async ()=> {
     try {
-        const resJson = await fetch('/get-categories/');
-        const res = await resJson.json();
-        res.categories.sort()
-        categories = ['All', ...res.categories]
-        setCategoriesBar(categories)
-
+        await getBooks();
+        getCategories();
+        categoriesOverlay.classList.remove('hidden');
+        homeContent.classList.remove('hidden');
+        loadingSpinner.style.display = 'none';
+        handleCategoriesContainerResize();
     } catch (error) {
         
     }
-}
-window.addEventListener("DOMContentLoaded", async ()=> {
-    await getCategories();
-    categoriesOverlay.classList.remove('hidden');
-    await getBooks();
-    homeContent.classList.remove('hidden');
-    loadingSpinner.style.display = 'none';
-    handleCategoriesContainerResize();
 })
