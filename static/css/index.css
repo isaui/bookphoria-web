@@ -2,7 +2,10 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+
 }
 .clip-half-circle {
     clip-path: ellipse(100% 50% at 50% 100%);
 }
+
+

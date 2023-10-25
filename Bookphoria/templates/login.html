@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-form">
+        <h1>Login</h1>
+        <form method="POST" id="login-form">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" id="id_username" placeholder="Username" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" id="id_password" placeholder="Password" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="btn login-btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+        <div id="login-error" class="error-message"></div>
+    </div>
+    <div class="register-link">
+        Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f0f7ff;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #b3c5d1;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .login-form h1 {
+        color: #007BFF;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #b3c5d1;
+        border-radius: 5px;
+    }
+
+    .btn.login-btn {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn.login-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .error-message {
+        color: #dc3545;
+    }
+
+    .register-link {
+        margin-top: 10px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
