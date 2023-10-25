@@ -4,6 +4,8 @@ var maturityRating = 'All';
 var currentBooks = [];
 var currentfilterBooks= [];
 var categoryMap = new Map();
+var currentSearchCategory = 'All';
+
 
 const categoriesContainer = document.getElementById('categories-container');
 var currentPreferences = {
@@ -495,6 +497,17 @@ const setCategoriesBar = (categoriesData) => {
     categoriesContainer.innerHTML = innerHTML;
     handleCategoriesContainerResize()
     addEventListenerToCategoryButton(categoriesData)
+}
+
+//const getCategoriesList = async () => {
+  //  const resJson = await fetch('/books-get-categories/');
+  //  const res = await resJson.json();
+//}
+
+const setCategorySearchList = () => {
+    for(let [key,val] of categoryMap){
+        
+    }
 }
 
 const getCategories =  () => {
