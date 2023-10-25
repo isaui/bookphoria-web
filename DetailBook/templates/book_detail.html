@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ book.title }}</title>
+{% endblock title %}
+
+{% block content %}
+<div>
+  <div>
+    <div>
+      <div>
+        <img src="{{ book.images}}" />
+      </div>
+      <div>
+        <div>
+          <h5><a href="">{{ book.title }}</a></h5>
+          <p>Author: {{ book.authors }}</p>
+          <p>Category: {{ book.categories }}</p>
+          <p>Publisher: {{ book.publisher }}</p>
+          <p>Description: {{ book.description | safe}}</p>
+          <p>Language: {{ book.language }}</p>
+          <p>Pages: {{ book.page_count }}</p>
+          <p>Publised Date: {{ book.publised_date }}</p>
+          <p>Price: {{ book.price }}</p>
+          {% if book.epub_available %}
+            <a href="{{ book.epub_link }}" download>
+              <button type="submit">Download E-Book</button>
+            </a>
+          {% else %}
+            <p>E-Book not available for download.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
