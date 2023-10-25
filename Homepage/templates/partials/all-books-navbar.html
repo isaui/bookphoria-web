@@ -5,25 +5,11 @@
         <form class="hidden md:flex min-w-[50vw] max-w-[50vw] lg:min-w-[60vw] lg:max-w-[50vw]">
             <div class="flex grow">
                 <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
-                <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">All categories <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <button id="dropdown-button-xl" data-dropdown-toggle="dropdown" class="relative flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">All categories <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg></button>
-                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdown-button">
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Mockups</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Templates</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Design</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Logos</button>
-                        </li>
-                    </ul>
-                </div>
+                </svg>
+                </button>
+                
                 <div class="relative w-full">
                     <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
                     <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-purple-300">
