@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="register-container">
+    <div class="register-form">
+        <h1>Register</h1>
+        <form method="POST" id="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn register-btn" type="submit" name="submit" value="Daftar"/>
+        </form>
+    </div>
+    <div id="registration-success" class="success-message"></div>
+    <div id="registration-error" class="error-message"></div>
+</div>
+
+<style>
+    .register-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #b3c5d1;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .register-form h1 {
+        color: #007BFF;
+    }
+
+    .btn.register-btn {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn.register-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .success-message {
+        color: #28a745;
+    }
+
+    .error-message {
+        color: #dc3545;
+    }
+
+    .register-form input[type="text"],
+    .register-form input[type="email"],
+    .register-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #b3c5d1;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $('#register-form').submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "{% url 'register' %}",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function(data) {
+                    if (data.success) {
+                        $('#registration-success').text("Pendaftaran berhasil! Silakan login.");
+                        $('#registration-error').empty();
+                    } else {
+                        $('#registration-error').text(data.message);
+                        $('#registration-success').empty();
+                    }
+                },
+                error: function() {
+                    $('#registration-error').text("Terjadi kesalahan saat mendaftar.");
+                    $('#registration-success').empty();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

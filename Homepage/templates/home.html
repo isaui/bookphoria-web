@@ -30,6 +30,11 @@
             </div>
             </div>
         </div>
+        <a href="{% url 'main:logout' %}">
+            <button>
+                Logout
+            </button>
+        </a>
     <script src="{% static 'js/home.js' %}"></script>
     <script type="module" src="{% static 'js/firebase-upload.js' %}"></script> 
 {% endblock content %}
