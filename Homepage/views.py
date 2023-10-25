@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from .models import Book, Category
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -50,3 +51,8 @@ def get_books_json(request):
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
+
+def get_profile(request, username):
+    user = username
+    context = {'user': user}
+    return render(request, 'profile.html', context)
