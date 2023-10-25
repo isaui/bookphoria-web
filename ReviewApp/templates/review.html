@@ -1,0 +1,4 @@
+<form class="review-form" method="GET" action="/review">
+{% for book in books %}
+    <input type="hidden" name="book_id" id="book_id" value="{{book.id}}"/>
+    {% endfor %}
