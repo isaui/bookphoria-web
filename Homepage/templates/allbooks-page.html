@@ -8,10 +8,65 @@
     {% include "partials/all-books-navbar.html" %}
     {% include "partials/sidebar.html" %}
     {% include "partials/loading-text.html" %}
+    <style>
+      .books-sidebar {
+    z-index: 50;
+    }
     
+      @media (min-width:1024px) {
+    .books-sidebar{
+        z-index: 10;
+    }
+}
+    </style>
+    
+    <div style="z-index: 40;" id="sidebar-background" class="hidden fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-40">
 
-    <div style="z-index: 12;" class="hidden lg:flex fixed flex-col py-2 text-slate-800   px-4 w-full pt-16 top-0 right-0 bg-gray-200 max-h-screen min-h-screen max-w-[25%]">
-        <h1 class="w-full text-2xl font-bold mt-3 ">BOOKS PREFERENCE</h1>
+    </div>
+
+    <div id="books-sidebar"  class="books-sidebar translate-x-[22rem] lg:translate-x-0 transition-transform duration-300 transform  lg:flex fixed flex-col py-2 text-slate-800    px-4 w-full lg:pt-16 top-0 right-0 bg-gray-200 max-h-[100vh] min-h-screen max-w-[60%] md:max-w-[35%] lg:max-w-[25%]">
+        
+        <h1 class="w-full text-2xl font-bold lg:mt-3 ">BOOKS PREFERENCE</h1>
+        <div class="w-full mt-2 flex flex-col items-start ">
+            <h1 class="text-base">Sort By</h1>
+            <div class="flex  text-sm items-center flex-wrap grow">
+                <label class="flex items-center mr-2">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="sortBy" value="TERBARU" checked>
+                  <span class="ml-2">Terbaru</span>
+                </label>
+                <label class="flex items-center mr-2">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="TERLAMA">
+                  <span class="ml-2">Terlama</span>
+                </label>
+                <label class="flex items-center mr-2">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="PALING_BANYAK_DISUKAI">
+                  <span class="ml-2">Paling Banyak Disukai</span>
+                </label>
+                <label class="flex items-center mr-2">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="REVIEW_TERBANYAK">
+                    <span class="ml-2">Review Terbanyak</span>
+                  </label>
+              </div>
+        </div>
+        <div class="w-full mt-2 flex flex-col items-start ">
+            <h1 class="text-base mb-1">Year Range</h1>
+            <div class="flex  text-sm items-center flex-wrap grow">
+                <div class="flex space-x-4 items-center">
+                    <div class="w-1/2">
+                      <div class="relative rounded-md shadow-sm">
+                        <input type="number" min="1978" max="2023"  name="minYear" id="minYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Min Year">
+                
+                    </div>
+                    </div>
+                  
+                    <div class="w-1/2">
+                      <div class="relative rounded-md shadow-sm">
+                        <input type="number" max="2023" min="1978" name="maxYear" id="maxYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Max Year"> 
+                    </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
         <div class="w-full mt-2 flex flex-col items-start ">
             <h1 class="text-base">Maturity Rating</h1>
             <div class="flex  text-sm items-center flex-wrap grow">
@@ -37,11 +92,11 @@
                   <span class="ml-2">All</span>
                 </label>
                 <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="NOT_MATURE">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="FREE">
                   <span class="ml-2">Available for Free</span>
                 </label>
                 <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="MATURE">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="PAID">
                   <span class="ml-2">Paid Purchase</span>
                 </label>
               </div>
@@ -50,7 +105,12 @@
             <h1 class="text-base mb-1">Average Ratings</h1>
             <div class="flex flex-col text-sm items-start flex-wrap grow">
                 <label class="flex items-center mb-1">
-                    <div class="rating text-yellow-400 text-sm">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="default" checked>
+                    <span class="ml-2">Default</span>
+                </label>
+                <label class="flex items-center mb-1">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="4-up">
+                    <div class="ml-2 rating text-yellow-400 text-sm">
                         <span class="fas fa-star"></span>
                         <span class="fas fa-star"></span>
                         <span class="fas fa-star"></span>
@@ -60,7 +120,8 @@
                     <span class="ml-2">& Up</span>
                 </label>
                 <label class="flex items-center mb-1">
-                    <div class="rating text-yellow-400 text-sm">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="3-up">
+                    <div class="ml-2 rating text-yellow-400 text-sm">
                         <span class="fas fa-star"></span>
                         <span class="fas fa-star"></span>
                         <span class="fas fa-star"></span>
@@ -70,7 +131,8 @@
                     <span class="ml-2">& Up</span>
                 </label>
                 <label class="flex items-center mb-1">
-                    <div class="rating text-yellow-400 text-sm">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="2-up">
+                    <div class="ml-2 rating text-yellow-400 text-sm">
                         <span class="fas fa-star"></span>
                         <span class="fas fa-star"></span>
                         <span class="far fa-star"></span>
@@ -80,7 +142,8 @@
                     <span class="ml-2">& Up</span>
                 </label>
                 <label class="flex items-center mb-1">
-                    <div class="rating text-yellow-400 text-sm">
+                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="1-up">
+                    <div class="ml-2 rating text-yellow-400 text-sm">
                         <span class="fas fa-star"></span>
                         <span class="far fa-star"></span>
                         <span class="far fa-star"></span>
@@ -99,7 +162,7 @@
                 <div class="flex space-x-4 items-center">
                     <div class="w-1/2">
                       <div class="relative rounded-md shadow-sm">
-                        <input type="text" name="min_price" id="min_price" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Minimum Price">
+                        <input type="number" min="0" name="minPrice" id="minPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Minimum Price">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
                             IDR
                           </div>
@@ -108,7 +171,7 @@
                   
                     <div class="w-1/2">
                       <div class="relative rounded-md shadow-sm">
-                        <input type="text" name="max_price" id="max_price" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Maximum Price"> 
+                        <input type="number" min="0" name="maxPrice" id="maxPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Maximum Price"> 
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
                             IDR
                           </div>
@@ -121,21 +184,21 @@
             <h1 class="text-base">Availability</h1>
             <div class="flex  text-sm items-center flex-wrap grow">
                 <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="availability" value="ALL" checked>
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="availability" value="default" checked>
                   <span class="ml-2">Default</span>
                 </label>
                 <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="NOT_MATURE">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="PDF">
                   <span class="ml-2">PDF</span>
                 </label>
                 <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="MATURE">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="EPUB">
                   <span class="ml-2">EPUB</span>
                 </label>
               </div>
         </div>
-        <div class="w-full px-4 mt-auto mb-2">
-            <button class="bg-violet-600 w-full rounded-md text-white px-2 py-2 flex items-center justify-center text-xl">APPLY</button>
+        <div class="w-full  mt-auto mb-2">
+            <button id="apply-preference" class="bg-violet-600 w-full rounded-md text-white px-2 py-2 flex items-center justify-center text-xl">APPLY</button>
         </div>
     </div>
 
@@ -143,7 +206,7 @@
         
         <div id="categories-overlay" class="lg:max-w-[75%] w-full hidden transform transition-transform duration-300 ease-in-out whitespace-nowrap fixed bg-white top-12 md:top-16 z-10 flex  items-center justify-start px-4 min-h-[2rem] md:min-h-[3rem] border-b border-gray-300 py-3 font-bold text-xs">
             <div class="flex w-full items-center justify-start">
-                <button class="lg:hidden btn btn-preference">
+                <button id="preference-btn" class="lg:hidden ">
                     <i class="fas fa-cog text-indigo-600 text-sm"></i>
                   </button>
                 <div id="categories-container" class="ml-4 lg:ml-0 flex grow scroll-smooth overflow-x-hidden items-center h-full my-auto  font-bold md:pr-4 ">
@@ -161,16 +224,21 @@
             </button>
         </div>
 
-        <div class="flex  w-full px-2">
+        <div  class="flex w-full px-2">
+            <h1 id="books-card-container-header" class="ml-1 text-xl font-bold"></h1>
+        </div>
+
+        <div id="top-divider" class="flex mt-1 w-full px-2">
             <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
         </div>
         <div id="books-card-container" class="grid  md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1 grid-flow-row auto-rows-max">  
         </div>
-        <div class="flex  w-full px-2">
+        <div id="bottom-divider" class="flex  w-full px-2">
             <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
         </div>
     </div>
-<script src="{% static 'js/all-books.js' %}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="{% static 'js/all-books.js' %}"></script>
 
 {% endblock content %}
     
