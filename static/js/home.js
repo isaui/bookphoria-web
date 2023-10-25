@@ -299,5 +299,5 @@ const setHomepageBooks = (res) => {
 
 window.addEventListener("DOMContentLoaded", async ()=>{
     await getBooks();
-    homeContent.classList.remove("hidden"); 
+    homeContent.classList.remove("hidden");
 })
