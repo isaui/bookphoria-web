@@ -8,7 +8,8 @@ window.addEventListener('resize', ()=>{
         return;
     }
     const screenWidth = window.innerWidth;
-    if(screenWidth >= 1024){
+    let maxWidth = 1024;
+    if(screenWidth >= maxWidth){
         if(isMobileNavbarOpen){
             closeMobileNavbar()
         }
