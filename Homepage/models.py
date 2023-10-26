@@ -2,8 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django import forms
-from .models import Review
 from django.contrib.auth.models import User
 
 

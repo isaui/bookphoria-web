@@ -31,4 +31,8 @@ class History(models.Model):
     action = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
 
+class ReviewForm(forms.Form):
+    rating = forms.IntegerField(label='Rating', min_value=1, max_value=5)
+    text = forms.CharField(label='Review', widget=forms.Textarea)
+
 
