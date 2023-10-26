@@ -15,17 +15,17 @@
                 <h1 class="text-lg font-bold">Koleksi Buku</h1>
                 {% include "partials/dropdown.html" %}
             </div>
-            <div class="flex  w-full px-2">
+            <div id="top-divider"class="flex  w-full px-2">
                 <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
             </div>
     
             <div id="books-card-container" class="grid  md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1 grid-flow-row auto-rows-max">  
             </div>
-            <div class="flex  w-full px-2">
+            <div id="bottom-divider" class="flex  w-full px-2">
             <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
             </div>
-            <div class="w-full my-4 flex items-center justify-center">
-                <button class="h-12 w-auto px-4 py-3 w-[18rem] max-w-[80vw] text-white text-lg bg-indigo-700 hover:bg-indigo-800 rounded-md">Lihat Semua Buku</button>
+            <div id="all-books-button" class="w-full my-4 flex items-center justify-center">
+                <a href="/all-books"><button class="h-12 w-auto px-5 py-1 w-[20rem] max-w-[80vw] text-white text-base bg-violet-950 hover:bg-indigo-950 rounded-md">Lihat Semua Buku</button></a>
             </div>
             </div>
             </div>
