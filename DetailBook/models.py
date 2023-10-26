@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.urls import reverse
 
 # Create your models here.
 class Author(models.Model):
@@ -25,6 +26,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100, blank=True, null=True)
     published_date = models.DateField(blank=True, null=True)
     language = models.CharField(max_length=10)
+    slug = models.SlugField(max_length=255)
     currencyCode= models.CharField(max_length=10, blank=True, null=True)
     is_ebook = models.BooleanField()
     pdf_available = models.BooleanField()
@@ -41,3 +43,8 @@ class Book(models.Model):
     page_count = models.IntegerField(default=1,
         validators=[MinValueValidator(1)]
     )
+    
+    def get_absolute_url(self):
+        return reverse("DetailBook:book_detail", args=[self.slug])
+    
+    

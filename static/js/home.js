@@ -173,9 +173,12 @@ const setCarouselBooks = (res) => {
                         <div  class="mt-1 text-[#C52A62] font-bold text-sm line-clamp-2">
                         ${book.currencyCode && book.price? `${book.currencyCode} <span>${book.price}</span>` : 'FREE'}
                         </div>
-                        <a class="mt-auto w-full max-w-[16rem] flex items-center justify-center  text-sm md:text-base text-white py-2 rounded-md bg-slate-950">
-                            Lihat Detail Buku
+                        <a href="{% url 'Bookphoria:book_detail' book.pk %}" class="mt-auto w-full max-w-[16rem] flex items-center justify-center text-sm md:text-base text-white py-2 rounded-md bg-slate-950">
+                            <button>
+                                Lihat Detail Buku
+                            </button
                         </a>
+
                     </div>
                 </div>
                 </div>
@@ -184,6 +187,18 @@ const setCarouselBooks = (res) => {
           booksString += bookString;
         });
         carousel.innerHTML = booksString;
+
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const detailButtons = document.querySelectorAll('.lihat-detail-buku');
+        //     detailButtons.forEach((button, index) => {
+        //         button.addEventListener('click', () => {
+        //             const bookId = button.getAttribute('data-book-id');
+        //             window.location.href = `/book/${bookId}/`;
+        //         });
+        //     });
+        // });
+        
+
         
     } catch (error) {
         console.log(error)
