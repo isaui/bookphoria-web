@@ -3,11 +3,11 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from Bookphoria.forms import ProductForm
+from Bookphoria.forms import ReviewForm
 from django.http import HttpResponse
 from django.core import serializers
 from django.urls import reverse
-from Bookphoria.models import Product, UserProfile, UserProfileForm
+from Bookphoria.models import Review, UserProfile, UserProfileForm
 from django.contrib import messages
 from django.db.models import Sum
 from django.contrib.auth import authenticate, login, logout
@@ -63,7 +63,7 @@ def create_profile(request):
             return redirect('profile')
     else:
         form = UserProfileForm()
-    return render(request, 'create_profile.html', {'form': form})
+    return render(request, 'user.html', {'form': form})
 
 def view_profile(request):
     user = request.user
@@ -73,11 +73,11 @@ def view_profile(request):
             form.save()
     else:
         form = UserProfileForm(instance=user)
-    return render(request, 'profile.html', {'form': form})
+    return render(request, 'user.html', {'form': form})
 
 def review_list(request):
     reviews = Review.objects.all()
-    return render(request, 'review_list.html', {'reviews': reviews})
+    return render(request, 'user.html', {'reviews': reviews})
 
 def add_review(request, product_id):
     if request.method == 'POST':
@@ -85,14 +85,14 @@ def add_review(request, product_id):
         if form.is_valid():
             rating = form.cleaned_data['rating']
             text = form.cleaned_data['text']
-            product = Product.objects.get(pk=product_id)  # Gantilah Product dengan model yang sesuai
+            book = Book.objects.get(pk=product_id)  # Gantilah Product dengan model yang sesuai
 
             # Simpan review ke basis data
-            review = Review(user=request.user, product=product, rating=rating, text=text)
+            review = Review(user=request.user, product=book, rating=rating, text=text)
             review.save()
             return redirect('review_list')  # Redirect ke halaman daftar review
     else:
         form = ReviewForm()
 
-    return render(request, 'add_review.html', {'form': form})
+    return render(request, 'user.html', {'form': form})
 
