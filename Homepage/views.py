@@ -47,6 +47,7 @@ def get_books_json(request):
             'epub_link': book.epub_link,
             'maturity_rating': book.maturity_rating,
             'page_count': book.page_count,
+            'user_publish_time': book.user_publish_time
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
