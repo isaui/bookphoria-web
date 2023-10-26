@@ -53,7 +53,7 @@ const validateSearch = () => {
           }).showToast();
     }
     console.log('search-url: ', searchText)
-    const searchUrl = `/search-books/q=${searchText}`;
+    const searchUrl = `/search-books/${sCurrentSearchCategory}/${searchText}`;
     window.location.href = searchUrl;
 
 }
