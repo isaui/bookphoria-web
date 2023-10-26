@@ -51,8 +51,3 @@ def get_books_json(request):
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
-
-def get_profile(request, username):
-    user = username
-    context = {'user': user}
-    return render(request, 'profile.html', context)

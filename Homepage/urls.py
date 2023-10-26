@@ -1,11 +1,10 @@
 from django.urls import path
-from .views import home, get_books_json, all_books_page, get_categories, get_profile
+from .views import home, get_books_json, all_books_page, get_categories
 app_name = 'Homepage'
 
 urlpatterns = [
     path('', home, name='home'),
     path('get-books/', get_books_json, name='get-books' ),
     path('all-books/', all_books_page, name='all-books-page'),
-    path('profile/<str:username>/', get_profile, name='get-profile'),
     path('get-categories/', get_categories, name='get-categories')
 ]
