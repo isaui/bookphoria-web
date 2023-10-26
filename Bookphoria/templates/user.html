@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil Pengguna</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #f0f7ff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+
+        p {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .like-book {
+            color: #007BFF;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .like-book:hover {
+            color: #0056b3;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat datang, {{ user.username }}!</h1>
+    
+    <h2>Profil Pengguna</h2>
+    <p>Nama: {{ user.userprofile.full_name }}</p>
+    <p>Gambar Profil: <img src="{{ user.userprofile.profile_picture.url }}" width="100" height="100" alt="Gambar Profil"></p>
+
+    <h2>Last Login</h2>
+    <p>Last Login: {{ user.last_login }}</p>
+
+    <h2>Fitur Like Book</h2>
+    <p>
+        Anda dapat menyukai buku di bawah ini:
+        <ul>
+            {% for book in liked_books %}
+                <li>{{ book.title }} - 
+                    <a href="javascript:void(0);" class="like-book" data-book-id="{{ book.id }}">Suka</a>
+                </li>
+            {% empty %}
+                <li>Tidak ada buku yang Anda sukai.</li>
+            {% endfor %}
+        </ul>
+    </p>
+
+    <h2>Pembaruan Profil</h2>
+    <p><a href="{% url 'view_profile' %}">Lihat/Mengedit Profil</a></p>
+
+    <h2>Hapus Akun</h2>
+    <p><a href="{% url 'delete_account' %}">Hapus Akun</a></p>
+
+    <script>
+        $(document).ready(function() {
+            // Menangani klik pada tombol "Suka" buku dengan AJAX
+            $(".like-book").click(function() {
+                var bookId = $(this).data("book-id");
+                var likeButton = $(this);
+
+                $.ajax({
+                    url: "{% url 'like_book' 0 %}".replace('0', bookId),
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.liked) {
+                            likeButton.text("Sudah Disukai");
+                        }
+                    },
+                    error: function() {
+                        alert("Terjadi kesalahan saat menyukai buku.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

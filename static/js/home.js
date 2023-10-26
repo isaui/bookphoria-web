@@ -5,6 +5,7 @@ const dropdownContent = document.getElementById("dropdownDelay");
 const dropdownButtonsContent = dropdownContent.querySelectorAll("button");
 const dropdownIcon = document.getElementById("homeDropdownIcon");
 const homeContent = document.getElementById("homeContent");
+
 const MAX_HOMEPAGEBOOKS = 12;
 var currentValue = 'Terbaru';
 var isDropdownOpen = false;
@@ -29,6 +30,32 @@ const getBooks = async ()=>{
     }
 
 }
+const  userPublishTime = (timestamp) => {
+    // Konversi timestamp ke objek Date
+    const eventTime = new Date(timestamp);
+  
+    // Waktu saat ini
+    const currentTime = new Date();
+  
+    // Hitung selisih waktu dalam milidetik
+    const timeDifference = currentTime - eventTime;
+  
+    // Hitung selisih waktu dalam detik, menit, jam, dan hari
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+  
+    if (days >= 2) {
+      return `${days} hari yang lalu`;
+    } else if (hours >= 1) {
+      return `${hours} jam yang lalu`;
+    } else if (minutes >= 1) {
+      return `${minutes} menit yang lalu`;
+    } else {
+      return 'Baru saja';
+    }
+  }
 
 window.addEventListener("load", ()=>{
     dropdownCurrentText.textContent = currentValue;
@@ -117,6 +144,7 @@ function getRandomElementsFromArray(array, numElements) {
   }
 
 const setCarouselBooks = (res) => {
+    
     const carousel = document.getElementById('carousel');
     let booksString = '';
     try {
@@ -190,8 +218,9 @@ const setCarouselBooks = (res) => {
     }
 }
 const setHomepageBooks = (res) => {
-    const booksCardContainer = document.getElementById('book-cards-container');
-    res = res.slice(0,MAX_HOMEPAGEBOOKS);
+    res = res.splice(0, MAX_HOMEPAGEBOOKS)
+    const booksCardContainer = document.getElementById('books-card-container');
+    console.log('ini books card container', booksCardContainer);
     let booksString = '';
     try {
         res.forEach((book,index) => {
@@ -199,10 +228,10 @@ const setHomepageBooks = (res) => {
             const isSecondLast = index == res.length -2;
             const isThirdLast = index == res.length -3;
             const bookString = `
-            <div  class="">
-                    <div class=" px-2  flex  min-h-[13rem]  py-2">
+            <div  class="flex-auto flex flex-col  ">
+                    <div class="  w-full px-2 grow flex  min-h-[13rem]  py-2">
                         <img class="rounded-md h-[10rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
-                        <div class=" pl-3 flex-1 flex flex-col">
+                        <div class=" pl-3 flex-1 flex flex-col min-h-full ">
                             <div class="flex  justify-between items-start ">
                             <div class="mt-1 mr-2">
                             <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title : 'No Title'}</h1>
@@ -250,11 +279,11 @@ const setHomepageBooks = (res) => {
                                 ${book.currencyCode && book.price? `${book.currencyCode} <span>${book.price}</span>` : 'FREE'}
                             </div>
                             <div class="mt-auto ml-auto text-xs text-gray-500">
-                                2 hari yang lalu
+                                ${userPublishTime(book.user_publish_time)}
                             </div>
                         </div>
                     </div>
-                    <div class="border-b border-[#460C90] w-full opacity-20 ${isFirstLast? ' hidden ' : isSecondLast? `${res.length % 2 == 0? ` md:hidden ` :
+                    <div class="mt-auto border-b border-[#460C90] w-full opacity-20 ${isFirstLast? ' hidden ' : isSecondLast? `${res.length % 2 == 0? ` md:hidden ` :
                      res.length % 3 == 0? ` lg:hidden `:' '}`: isThirdLast? `${res.length % 3 == 0? ` lg:hidden `: ``}` : ``}">
                     </div>
                     </div>
@@ -270,5 +299,5 @@ const setHomepageBooks = (res) => {
 
 window.addEventListener("DOMContentLoaded", async ()=>{
     await getBooks();
-    homeContent.classList.remove("hidden"); 
+    homeContent.classList.remove("hidden");
 })
