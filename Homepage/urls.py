@@ -7,5 +7,4 @@ urlpatterns = [
     path('get-books/', get_books_json, name='get-books' ),
     path('all-books/', all_books_page, name='all-books-page'),
     path('books-get-categories/', get_categories, name='get-categories'),
-    
 ]

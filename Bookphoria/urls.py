@@ -22,7 +22,7 @@ from Bookphoria.views import login_user
 from Bookphoria.views import logout_user
 from django.urls import path
 from Bookphoria.models import Like
-from . import views
+from Bookphoria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +35,5 @@ urlpatterns = [
     path('likes/', Like, name='liked_book'),
     path('create/', views.create_profile, name='create_profile'),
     path('view/', views.view_profile, name='view_profile'),  
+    
 ]
