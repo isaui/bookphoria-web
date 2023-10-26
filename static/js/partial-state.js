@@ -1,5 +1,5 @@
 var isMobileNavbarOpen = false;
-var isSidebarOpen = false;
+let isSidebarOpen = false;
 
 window.addEventListener('resize', ()=>{
     const mobileSearchButton = document.getElementById("mobile-search-button");
