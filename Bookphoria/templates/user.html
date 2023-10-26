@@ -104,4 +104,32 @@
         });
     </script>
 </body>
+<head>
+    <title>Daftar Review</title>
+</head>
+<body>
+    <h1>Daftar Review</h1>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>Rating:</strong> {{ review.rating }}<br>
+                <strong>Review oleh:</strong> {{ review.user.username }}<br>
+                <strong>Produk yang direview:</strong> {{ review.product.name }}<br>
+                <strong>Review:</strong> {{ review.text }}
+            </li>
+        {% empty %}
+            <li>Tidak ada review yang tersedia.</li>
+        {% endfor %}
+    </ul>
+</body>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Tambah Review</button>
+</form>
+<a href="{% url 'home:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
 </html>
