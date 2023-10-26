@@ -5,9 +5,68 @@ var currentBooks = [];
 var currentfilterBooks= [];
 var categoryMap = new Map();
 var currentSearchCategory = 'All';
-
-
+var isBooksDropdownOpen = false;
+var isBooksDropdownMobileOpen = false;
+let startX = 0;
+let endX = 0;
+const bookDropdownButton = document.querySelectorAll(".dropdown-button-xl");
+//document.getElementsByClassName()
+const bookDropdownContent = document.querySelectorAll(".books-dropdown-content");
+const bookDropdownValues = document.querySelectorAll(".books-dropdown-values");
+const currentBooksDropdownValuesElement = document.querySelectorAll(".books-dropdown-current-value");
 const categoriesContainer = document.getElementById('categories-container');
+const bookDropdownSVG = document.querySelectorAll('.books-dropdown-svg');
+
+
+const pcSearchInput = document.getElementById('pc-search-input');
+const pcSearchAnswerBtn = document.getElementById('pc-search-answer');
+const mobileSearchInput = document.getElementById('mobile-search-input');
+const mobileSearchAnswerBtn = document.getElementById('mobile-search-answer');
+let searchText = mobileSearchInput.value;
+mobileSearchInput.addEventListener('input', (event) => {
+    searchText = event.target.value;
+    pcSearchInput.value = searchText;
+ });
+pcSearchInput.addEventListener('input', (event) => {
+    searchText = event.target.value;
+    mobileSearchInput.value = searchText;
+ });
+
+const validateSearch = () => {
+    if(searchText.trim() == ''){
+        return Toastify({
+            text: "Maaf teks pencarian masih kosong",
+            duration: 3000, // Durasi tampilan toast (dalam milidetik)
+            style: {
+              background: 'red', // Warna latar belakang untuk pesan sukses
+              color: 'white', // Warna teks untuk pesan sukses
+            },
+            close:true
+          }).showToast();
+    }
+    const searchUrl = `/search-books/q=${searchText}`;
+    window.location.href = searchUrl;
+
+}
+
+pcSearchAnswerBtn.addEventListener('click', ()=> {
+    validateSearch()
+})
+mobileSearchAnswerBtn.addEventListener('click', ()=> {
+    validateSearch()
+})
+
+bookDropdownButton.forEach((btn)=>{
+    btn.addEventListener('click', ()=>{
+        console.log('INFOKAN')
+        console.log(bookDropdownSVG)
+        toggleBooksDropdown()
+      })
+})
+
+let mode = () => window.innerWidth < 768 ? 'MOBILE' : window.innerWidth < 1024? 'MEDIUM' : 'LARGE';
+
+
 var currentPreferences = {
     sortBy: 'TERBARU',
     minYear: '',
@@ -37,7 +96,66 @@ const scrollThreshold = 100;
 let prevWidth = window.innerWidth;
 const booksSidebar = document.getElementById('books-sidebar');
 var isBooksSidebarOpen = false;
+const booksDropdownKey = []
 
+const setMode = () => {
+    if(mode() == 'MOBILE'){
+        bookDropdownContent[0].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `;
+        bookDropdownSVG[0].classList.remove('rotate-180');
+        isBooksDropdownOpen = false;
+    }
+    else{
+        bookDropdownContent[1].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `;
+        bookDropdownSVG[1].classList.remove('rotate-180');
+        isBooksDropdownMobileOpen = false;
+    }
+
+}
+window.addEventListener('resize', setMode )
+
+window.addEventListener('click', (event)=> {
+    if(mode()== 'MOBILE'){
+        if(! bookDropdownButton[1].contains(event.target)){
+            return closeBooksDropdown();
+        }
+    }
+    else{
+        if(! bookDropdownButton[0].contains(event.target)){
+            return closeBooksDropdown();
+        }
+    }
+})
+setMode()
+const openBooksDropdown = () => {
+    console.log('OKEE')
+    if(mode() == 'MOBILE'){
+        bookDropdownContent[1].className = `max-h-[24rem] absolute top-14 left-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `
+        isBooksDropdownMobileOpen = true;
+
+    }
+    else{
+        bookDropdownContent[0].className = `max-h-[24rem] absolute top-14 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44`
+        isBooksDropdownOpen = true;
+    }
+    bookDropdownSVG.forEach(svg => {
+        if(! svg.classList.contains('rotate-180')){
+            svg.classList.add('rotate-180')
+           }
+    });
+}
+const closeBooksDropdown = () => {
+    if(mode() == 'MOBILE'){
+        bookDropdownContent[1].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `
+        isBooksDropdownMobileOpen = false;
+    }
+    else{
+        bookDropdownContent[0].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44`
+        isBooksDropdownOpen = false;
+    }
+    bookDropdownSVG.forEach(svg => {
+        svg.classList.remove('rotate-180');
+    });
+}
 const setSidebarStateResize = () => {
     const currentWidth = window.innerWidth;
     const isMedium = (width) => width >= 768 && width < 1024;
@@ -46,34 +164,39 @@ const setSidebarStateResize = () => {
 
     if((isMedium(currentWidth) || isSmall(currentWidth)) && isLarge(prevWidth)){
         if(!isBooksSidebarOpen){
-            hideSidebar()
+            hideBookSidebar()
         }
+    }
+
+    if(isLarge(currentWidth) && isBooksSidebarOpen){
+        hideBookSidebar()
     }
 
     if(isLarge(currentWidth)){
         booksSidebar.style.transform = 'translateX(0)'
+        sidebarBackground.style.display = 'none'
     }
 
     prevWidth = currentWidth;
 }
 
 preferenceButton.addEventListener('click', ()=> {
-    openSidebar()
+    openBookSidebar()
 })
 window.addEventListener('resize', ()=> {
     setSidebarStateResize()
 })
 setSidebarStateResize()
 
-const hideSidebar = () => {
+const hideBookSidebar = () => {
     sidebarBackground.style.display = 'none';
-    booksSidebar.style.transform = 'translateX(22rem)';
+    booksSidebar.style.transform = 'translateX(28rem)';
     isBooksSidebarOpen = false;
 }
 sidebarBackground.addEventListener('click', ()=>{
-    hideSidebar()
+    hideBookSidebar()
 })
-const openSidebar = () => {
+const openBookSidebar = () => {
     sidebarBackground.style.display = 'flex'
     booksSidebar.style.transform = 'translateX(0)'
     isBooksSidebarOpen = true;
@@ -97,7 +220,7 @@ const  userPublishTime = (timestamp) => {
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
   
-    if (days >= 2) {
+    if (days >= 1) {
       return `${days} hari yang lalu`;
     } else if (hours >= 1) {
       return `${hours} jam yang lalu`;
@@ -251,9 +374,45 @@ const getPreferences = () => {
     // Mendapatkan nilai "Availability"
     preferences.availability = document.querySelector('input[name="availability"]:checked').value;
 
+    //if(preferences.minPrice )
+
     if(preferences.minPrice != "" && preferences.maxPrice != ""){
         if(parseFloat(preferences.minPrice) > parseFloat(preferences.maxPrice)){
             showError('Harga minimal tidak boleh melebihi harga maksimal');
+            error = true;
+        }
+    }
+
+    if(preferences.minPrice != ""){
+        if(parseFloat(preferences.minPrice) < 0){
+            showError('Harga tidak boleh negatif');
+            error = true;
+        }
+    }
+    if(preferences.maxPrice != ""){
+        if(parseFloat(preferences.maxPrice) < 0){
+            showError('Harga tidak boleh negatif');
+            error = true;
+        }
+    }
+
+    if(preferences.minYear != ""){
+        if(parseFloat(preferences.minYear) < 1978){
+            showError('Tahun minimal adalah 1978');
+            error = true;
+        }
+        if(parseFloat(preferences.minYear) > 2023){
+            showError('Tahun maksimal adalah 2023');
+            error = true;
+        }
+    }
+    if(preferences.maxYear != ""){
+        if(parseFloat(preferences.maxYear) < 1978){
+            showError('Tahun minimal adalah 1978');
+            error = true;
+        }
+        if(parseFloat(preferences.maxYear) > 2023){
+            showError('Tahun maksimal adalah 2023');
             error = true;
         }
     }
@@ -263,6 +422,7 @@ const getPreferences = () => {
             showError('Tahun minimal tidak boleh melebihi tahun maksimal');
             error = true;
         }
+        
     }
     if(error){
         document.getElementById('minPrice').value = "";
@@ -419,17 +579,21 @@ const setBooks = (res) => {
 }
 
 const handleCategoriesContainerResize = () => {
-    if(categoriesContainer.scrollWidth > categoriesContainer.clientWidth){
+    const padding = 4 * parseFloat(getComputedStyle(categoriesContainer).fontSize);
+    if(categoriesContainer.scrollWidth - padding > categoriesContainer.clientWidth){
         if(categoriesContainer.clientWidth + categoriesContainer.scrollLeft 
-        >= categoriesContainer.scrollWidth){
+        >= categoriesContainer.scrollWidth - padding){
+            console.log('SINI 1')
             prevCategoriesButton.style.display = 'flex';
             nextCategoriesButton.style.display = 'none';
         }
         else if(categoriesContainer.scrollLeft === 0){
+            console.log('SINI 2')
             prevCategoriesButton.style.display = 'none';
             nextCategoriesButton.style.display = 'flex';
         }
         else{
+            console.log('SINI 3')
             prevCategoriesButton.style.display = 'flex';
             nextCategoriesButton.style.display = 'flex';
         }
@@ -443,6 +607,40 @@ nextCategoriesButton.addEventListener('click', () => {
 // Menggeser scroll ke kanan
 categoriesContainer.scrollLeft += 450; // Sesuaikan dengan jumlah pixel yang Anda inginkan
 });
+
+categoriesContainer.addEventListener("touchstart", (e)=> {
+    startX = e.touches[0].clientX;
+})
+categoriesContainer.addEventListener("touchend", (e)=> {
+    endX = e.changedTouches[0].clientX;
+    const deltaX = startX - endX;
+    if(deltaX > 2){
+        categoriesContainer.scrollLeft += deltaX
+    }
+    else if(deltaX < -2){
+        categoriesContainer.scrollLeft -= deltaX
+    }
+})
+
+const toggleBooksDropdown = () => {
+    const currentMode = mode();
+    if(currentMode == 'MOBILE' || currentMode == 'MEDIUM'){
+        if(isBooksDropdownMobileOpen){
+            closeBooksDropdown()
+        }
+        else{
+            openBooksDropdown()
+        }
+    }
+    else {
+        if(isBooksDropdownOpen){
+            closeBooksDropdown()
+        }
+        else {
+            openBooksDropdown()
+        }
+    }
+}
 
 // Menambahkan event listener pada tombol "prev" (kiri)
 prevCategoriesButton.addEventListener('click', () => {
@@ -499,16 +697,69 @@ const setCategoriesBar = (categoriesData) => {
     addEventListenerToCategoryButton(categoriesData)
 }
 
-//const getCategoriesList = async () => {
-  //  const resJson = await fetch('/books-get-categories/');
-  //  const res = await resJson.json();
-//}
-
 const setCategorySearchList = () => {
+    try {
+        let innerHTML = ``
+        for(let [key,val] of categoryMap){
+        const  htmlString = `
+        <div  data-value="${key}" name="book-dropdown-values-${key}" class=" block w-full px-4 py-2 hover:bg-indigo-800 " >${key}</div>`;
+        innerHTML += htmlString;
+        booksDropdownKey.push(key)
+    }
+    
+    bookDropdownValues.forEach((bookDropdownValue)=>{
+        bookDropdownValue.innerHTML = innerHTML;
+    })
+    
     for(let [key,val] of categoryMap){
+        const selector = "book-dropdown-values-"+key;
+        const buttons = document.getElementsByName(selector);
+        console.log(buttons)
+        buttons.forEach((btn)=>{
+            btn.addEventListener('click', ()=> {
+                closeBooksDropdown();
+                console.log('hei')
+                currentBooksDropdownValuesElement.forEach((ele)=>{
+                    ele.textContent = key;
+                });
+                currentSearchCategory = key
+                establishBooksDropdownColor();
+            })
+        })
         
     }
+    } catch (error) {
+        console.log(error)
+    }
 }
+
+
+
+const establishBooksDropdownColor = () =>{
+    try {
+        booksDropdownKey.forEach(key =>{
+            const selector = "book-dropdown-values-"+key;
+            console.log(selector)
+            const elements = document.getElementsByName(selector);
+            if(elements.length > 0){
+                elements.forEach((element)=>{
+                    if(currentSearchCategory == key){
+                        element.classList.add("bg-indigo-800")
+                    }
+                    else{
+                        if(element.classList.contains("bg-indigo-800")){
+                            element.classList.remove("bg-indigo-800")
+                        }
+                    }
+                })
+                
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 const getCategories =  () => {
     //console.log('sini')
@@ -521,11 +772,18 @@ window.addEventListener("load", async ()=> {
         await getBooks();
         getCategories();
         categoriesOverlay.classList.remove('hidden');
+        console.log('INFO B')
         setSelectedCategory('All');
-        console.log('aduh')
+        console.log('INFO C')
+        setCategorySearchList();
+        console.log('INFO 1')
+        establishBooksDropdownColor();
+        console.log('INFO 2')
         homeContent.classList.remove('hidden');
         loadingSpinner.style.display = 'none';
         handleCategoriesContainerResize();
+        console.log(bookDropdownButton)
+        console.log(bookDropdownContent)
     } catch (error) {
         
     }
