@@ -44,7 +44,7 @@ const validateSearch = () => {
             close:true
           }).showToast();
     }
-    const searchUrl = `/search-books/q=${searchText}`;
+    const searchUrl = `/search-books/${currentSearchCategory}/${searchText}`;
     window.location.href = searchUrl;
 
 }
@@ -618,7 +618,7 @@ categoriesContainer.addEventListener("touchend", (e)=> {
         categoriesContainer.scrollLeft += deltaX
     }
     else if(deltaX < -2){
-        categoriesContainer.scrollLeft -= deltaX
+        categoriesContainer.scrollLeft += deltaX
     }
 })
 
