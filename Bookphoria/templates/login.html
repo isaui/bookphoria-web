@@ -6,6 +6,9 @@
 
 {% block content %}
 <div class="login-container">
+    <div class="login-header">
+        <h1>Bookphoria</h1>
+    </div>
     <div class="login-form">
         <h1>Login</h1>
         <form method="POST" id="login-form">
@@ -34,22 +37,31 @@
 
 <style>
     body {
-        background-color: #f0f7ff;
+        background-color: #800080; /* Warna latar belakang ungu terong */
+        margin: 0;
     }
 
     .login-container {
-        max-width: 400px;
-        margin: 0 auto;
-        background-color: #fff;
-        border: 1px solid #b3c5d1;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
         text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff; /* Warna latar belakang putih pada container login */
+        padding: 20px; /* Padding untuk memberikan jarak antara konten dan tepi container */
+        border-radius: 10px; /* Memberikan sudut bulat pada container */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     }
 
     .login-form h1 {
         color: #007BFF;
+    }
+
+    .login-header {
+        color: #1e3a8a;
+        font-size: 2rem; 
+        font-weight: bold; /* Tebal */
+        margin: 0;
     }
 
     .form-control {
@@ -89,5 +101,12 @@
     a:hover {
         text-decoration: underline;
     }
+    .bookphoria-header {
+            text-align: center;
+            color: #1e3a8a; /* Warna biru tua untuk judul "Bookphoria" */
+            font-size: 2rem; /* Ukuran teks yang sesuai */
+            font-weight: bold; /* Tebal */
+            margin: 20px 0; /* Memberikan jarak atas dan bawah dari judul */
+        }
 </style>
 {% endblock content %}
