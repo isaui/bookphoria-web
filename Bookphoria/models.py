@@ -33,5 +33,3 @@ class History(models.Model):
 class ReviewForm(forms.Form):
     rating = forms.IntegerField(label='Rating', min_value=1, max_value=5)
     text = forms.CharField(label='Review', widget=forms.Textarea)
-
-
