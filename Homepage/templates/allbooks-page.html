@@ -24,183 +24,185 @@
 
     </div>
 
-    <div id="books-sidebar"  class="books-sidebar translate-x-[28rem] lg:translate-x-0 transition-transform duration-700 transform  flex fixed flex-col py-2 text-slate-800    px-4 w-full lg:pt-16 top-0 right-0 bg-gray-200 max-h-[100vh] min-h-screen max-w-[60%] md:max-w-[35%] lg:max-w-[25%]">
-        
-        <h1 class="w-full text-2xl font-bold lg:mt-3 ">BOOKS PREFERENCE</h1>
+    <div id="books-sidebar"  class=" books-sidebar translate-x-[28rem]  lg:translate-x-0 transition-transform duration-700 transform  flex fixed flex-col  text-slate-800    px-4 w-full  top-0 right-0 bg-gray-200 max-h-[100vh] min-h-screen max-w-[60%] md:max-w-[35%] lg:max-w-[25%]">
+      <div class="relative flex flex-col w-full h-full  lg:pt-16 min-h-screen max-h-[100vh] py-2">
+        <h1 class="w-full text-2xl font-bold lg:mt-3 ">Book Preference</h1>
         <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base">Sort By</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="sortBy" value="TERBARU" checked>
-                  <span class="ml-2">Terbaru</span>
+          <h1 class="text-base">Sort By</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="sortBy" value="TERBARU" checked>
+                <span class="ml-2">Terbaru</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="TERLAMA">
+                <span class="ml-2">Terlama</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="PALING_BANYAK_DISUKAI">
+                <span class="ml-2">Paling Banyak Disukai</span>
+              </label>
+              <label class="flex items-center mr-2">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="REVIEW_TERBANYAK">
+                  <span class="ml-2">Review Terbanyak</span>
                 </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="TERLAMA">
-                  <span class="ml-2">Terlama</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="PALING_BANYAK_DISUKAI">
-                  <span class="ml-2">Paling Banyak Disukai</span>
-                </label>
-                <label class="flex items-center mr-2">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="REVIEW_TERBANYAK">
-                    <span class="ml-2">Review Terbanyak</span>
-                  </label>
-              </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base mb-1">Year Range</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <div class="flex space-x-4 items-center">
-                    <div class="w-1/2">
-                      <div class="relative rounded-md shadow-sm">
-                        <input type="number" min="1978" max="2023"  name="minYear" id="minYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Min Year">
-                
-                    </div>
-                    </div>
-                  
-                    <div class="w-1/2">
-                      <div class="relative rounded-md shadow-sm">
-                        <input type="number" max="2023" min="1978" name="maxYear" id="maxYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Max Year"> 
-                    </div>
-                    </div>
-                  </div>
             </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base">Maturity Rating</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="maturity" value="ALL" checked>
-                  <span class="ml-2">All</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="NOT_MATURE">
-                  <span class="ml-2">Not Mature</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="MATURE">
-                  <span class="ml-2">Mature</span>
-                </label>
-              </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base">Saleability Option</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="saleability" value="ALL" checked>
-                  <span class="ml-2">All</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="FREE">
-                  <span class="ml-2">Available for Free</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="PAID">
-                  <span class="ml-2">Paid Purchase</span>
-                </label>
-              </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col  items-start ">
-            <h1 class="text-base mb-1">Average Ratings</h1>
-            <div class="flex flex-col text-sm items-start flex-wrap grow">
-                <label class="flex items-center mb-1">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="default" checked>
-                    <span class="ml-2">Default</span>
-                </label>
-                <label class="flex items-center mb-1">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="4-up">
-                    <div class="ml-2 rating text-yellow-400 text-sm">
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="far fa-star"></span>
-                    </div> 
-                    <span class="ml-2">& Up</span>
-                </label>
-                <label class="flex items-center mb-1">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="3-up">
-                    <div class="ml-2 rating text-yellow-400 text-sm">
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                    </div> 
-                    <span class="ml-2">& Up</span>
-                </label>
-                <label class="flex items-center mb-1">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="2-up">
-                    <div class="ml-2 rating text-yellow-400 text-sm">
-                        <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                    </div> 
-                    <span class="ml-2">& Up</span>
-                </label>
-                <label class="flex items-center mb-1">
-                    <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="1-up">
-                    <div class="ml-2 rating text-yellow-400 text-sm">
-                        <span class="fas fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                        <span class="far fa-star"></span>
-                    </div> 
-                    <span class="ml-2">& Up</span>
-                </label>
-                
-
-              </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base mb-1">Price Range</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <div class="flex space-x-4 items-center">
-                    <div class="w-1/2">
-                      <div class="relative rounded-md shadow-sm">
-                        <input type="number" min="0" name="minPrice" id="minPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Minimum Price">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
-                            IDR
-                          </div>
-                    </div>
-                    </div>
-                  
-                    <div class="w-1/2">
-                      <div class="relative rounded-md shadow-sm">
-                        <input type="number" min="0" name="maxPrice" id="maxPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Maximum Price"> 
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
-                            IDR
-                          </div>
-                    </div>
-                    </div>
-                  </div>
-            </div>
-        </div>
-        <div class="w-full mt-2 flex flex-col items-start ">
-            <h1 class="text-base">Availability</h1>
-            <div class="flex  text-sm items-center flex-wrap grow">
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="availability" value="default" checked>
-                  <span class="ml-2">Default</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="PDF">
-                  <span class="ml-2">PDF</span>
-                </label>
-                <label class="flex items-center mr-2">
-                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="EPUB">
-                  <span class="ml-2">EPUB</span>
-                </label>
-              </div>
-        </div>
-        <div class="w-full  mt-auto mb-2">
-            <button id="apply-preference" class="bg-violet-600 w-full rounded-md text-white px-2 py-2 flex items-center justify-center text-xl">APPLY</button>
-        </div>
       </div>
+      <div class="w-full mt-2 flex flex-col items-start ">
+          <h1 class="text-base mb-1">Year Range</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <div class="flex space-x-4 items-center">
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="1978" max="2023"  name="minYear" id="minYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Min Year">
+              
+                  </div>
+                  </div>
+                
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" max="2023" min="1978" name="maxYear" id="maxYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Max Year"> 
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start ">
+          <h1 class="text-base">Maturity Rating</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="maturity" value="ALL" checked>
+                <span class="ml-2">All</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="NOT_MATURE">
+                <span class="ml-2">Not Mature</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="MATURE">
+                <span class="ml-2">Mature</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start ">
+          <h1 class="text-base">Saleability Option</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="saleability" value="ALL" checked>
+                <span class="ml-2">All</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="FREE">
+                <span class="ml-2">Available for Free</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="PAID">
+                <span class="ml-2">Paid Purchase</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col  items-start ">
+          <h1 class="text-base mb-1">Average Ratings</h1>
+          <div class="flex flex-col text-sm items-start flex-wrap grow">
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="default" checked>
+                  <span class="ml-2">Default</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="4-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="3-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="2-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="1-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              
+
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start ">
+          <h1 class="text-base mb-1">Price Range</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <div class="flex space-x-4 items-center">
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="0" name="minPrice" id="minPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Minimum Price">
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
+                          IDR
+                        </div>
+                  </div>
+                  </div>
+                
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="0" name="maxPrice" id="maxPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Maximum Price"> 
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
+                          IDR
+                        </div>
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start ">
+          <h1 class="text-base">Availability</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="availability" value="default" checked>
+                <span class="ml-2">Default</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="PDF">
+                <span class="ml-2">PDF</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="EPUB">
+                <span class="ml-2">EPUB</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full  mt-auto ">
+          <button id="apply-preference" class=" mb-2 mt-2 bg-violet-600 w-full rounded-md text-white px-2 py-2 flex items-center justify-center text-xl">APPLY</button>
+      </div>
+      </div>
+      
+    </div>
 
     <div id="homeContent" class="hidden relative w-screen lg:max-w-[75%] max-w-[96vw] min-h-screen  flex flex-col pt-28 md:pt-32 items-center max-w-[1240px] mx-auto lg:mx-0 lg:pr-2">
         
