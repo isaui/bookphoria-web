@@ -1,50 +1,35 @@
-from django.shortcuts import render
-from django.http import JsonResponse
-from .models import Book, Review
+from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponseRedirect
+from .models import Review
+from .forms import ReviewForm
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import user_passes_test
+
 
 # Create your views here.
 
-def home(request):
-    return render(request, "home.html")
+
+
+def is_user_not_admin(user):
+    return not user.is_superuser
 
 @csrf_exempt
-def get_books_json(request):
-    books = Book.objects.prefetch_related('authors', 'images', 'categories').all()
-    book_list = []
-    for book in books:
-        book_data  = {
-            'title': book.title,
-            'subtitle': book.subtitle,
-            'description': book.description,
-            'authors': [author.name for author in book.authors.all()],
-            'publisher': book.publisher,
-            'published_date': book.published_date.strftime('%Y-%m-%d') if book.published_date else None,
-            'language': book.language,
-            'currencyCode': book.currencyCode,
-            'is_ebook': book.is_ebook,
-            'pdf_available': book.pdf_available,
-            'pdf_link': book.pdf_link,
-            'thumbnail': book.thumbnail,
-            'categories': [category.name for category in book.categories.all()],
-            'images':[imageUrl.url for imageUrl in book.images.all()],
-            'price': book.price,
-            'saleability': book.saleability,
-            'buy_link': book.buy_link,
-            'epub_available': book.epub_available,
-            'epub_link': book.epub_link,
-            'maturity_rating': book.maturity_rating,
-            'page_count': book.page_count,
-        }
-        book_list.append(book_data)
-    return JsonResponse({'books': book_list})
-
+@user_passes_test(is_user_not_admin)
 def review_rate(request):
-    if request.method == "GET":
-        book_id = request.GET.get("book_id")
+    if request.method == "POST":
+        book_id = request.POST.get("book_id")
         book = Book.objects.get(id=book_id)
-        review = request.GET.get("review")
-        rate = request.GET.get("rate")
+        review = request.POST.get("review", "")
+        rate = request.POST.get("rate")
+        photo = request.FILES.get("photo", None)
         user = request.user
-        Review(user=user, book=book, review=review, rate=rate).save()
-        return redirect("book_detail", id=book_id)
+        publish = Review(book=book, review=review, rate=rate, user=user)
+        # Check if photo is provided
+        if photo:
+            publish.photo = photo
+        publish.save()
+        response_data = {'status': 'success', 'message': 'Review added successfully'}
+        return JsonResponse(response_data)
+        # return redirect("book_detail", id=book_id) # "book_detail" sesuaiin sm path Detail Book Jocelyn
+        # return render (request, "review.html")
