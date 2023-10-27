@@ -4,4 +4,5 @@ app_name = 'Dashboard'
 
 urlpatterns = [
     path('', get_profile, name='get-profile'),
+    # path('add-book/', add_book, name='add-book'),
 ]

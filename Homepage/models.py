@@ -30,7 +30,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100, blank=True, null=True)
     published_date = models.DateField(blank=True, null=True)
     language = models.CharField(max_length=10)
-    currencyCode= models.CharField(max_length=10, blank=True, null=True)
+    currencyCode = models.CharField(max_length=10, blank=True, null=True)
     is_ebook = models.BooleanField()
     pdf_available = models.BooleanField()
     pdf_link = models.URLField(blank=True, null=True)
@@ -51,8 +51,3 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-    
-
-    
-
-
