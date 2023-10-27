@@ -33,8 +33,7 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('review_list/', views.review_list, name='review_list'),
     path('add_review/<int:product_id>/', views.add_review, name='add_review'),
-    path('likes/', Like, name='liked_book'),
+    path('likes/<int:product_id>/', Like, name='like_book'),
     path('create/', views.create_profile, name='create_profile'),
     path('view/', views.view_profile, name='view_profile'),  
-    
 ]

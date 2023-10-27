@@ -77,9 +77,6 @@
     <h2>Pembaruan Profil</h2>
     <p><a href="{% url 'view_profile' %}">Lihat/Mengedit Profil</a></p>
 
-    <h2>Hapus Akun</h2>
-    <p><a href="{% url 'delete_account' %}">Hapus Akun</a></p>
-
     <script>
         $(document).ready(function() {
             // Menangani klik pada tombol "Suka" buku dengan AJAX
@@ -127,7 +124,7 @@
     {{ form.as_p }}
     <button type="submit">Tambah Review</button>
 </form>
-<a href="{% url 'home:logout' %}">
+<a href="{% url 'logout' %}">
     <button>
         Logout
     </button>
