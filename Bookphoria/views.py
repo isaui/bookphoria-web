@@ -63,6 +63,7 @@ def create_profile(request):
         form = UserProfileForm()
     return render(request, 'user.html', {'form': form})
 
+@login_required
 def view_profile(request):
     user = request.user
     if request.method == 'POST':

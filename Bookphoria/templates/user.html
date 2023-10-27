@@ -60,20 +60,6 @@
     <h2>Last Login</h2>
     <p>Last Login: {{ user.last_login }}</p>
 
-    <h2>Fitur Like Book</h2>
-    <p>
-        Anda dapat menyukai buku di bawah ini:
-        <ul>
-            {% for book in liked_books %}
-                <li>{{ book.title }} - 
-                    <a href="javascript:void(0);" class="like-book" data-book-id="{{ book.id }}">Suka</a>
-                </li>
-            {% empty %}
-                <li>Tidak ada buku yang Anda sukai.</li>
-            {% endfor %}
-        </ul>
-    </p>
-
     <h2>Pembaruan Profil</h2>
     <p><a href="{% url 'view_profile' %}">Lihat/Mengedit Profil</a></p>
 
@@ -100,30 +86,9 @@
             });
         });
     </script>
+
+
 </body>
-<head>
-    <title>Daftar Review</title>
-</head>
-<body>
-    <h1>Daftar Review</h1>
-    <ul>
-        {% for review in reviews %}
-            <li>
-                <strong>Rating:</strong> {{ review.rating }}<br>
-                <strong>Review oleh:</strong> {{ review.user.username }}<br>
-                <strong>Produk yang direview:</strong> {{ review.product.name }}<br>
-                <strong>Review:</strong> {{ review.text }}
-            </li>
-        {% empty %}
-            <li>Tidak ada review yang tersedia.</li>
-        {% endfor %}
-    </ul>
-</body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Tambah Review</button>
-</form>
 <a href="{% url 'logout' %}">
     <button>
         Logout
