@@ -23,6 +23,7 @@ class Category(models.Model):
 
 
 class Book(models.Model):
+    user = models.CharField(max_length=255, blank=False, null=False)
     title = models.CharField(max_length=255, blank=False, null=False)
     subtitle = models.CharField(max_length=255, blank=True, null=True )
     description = models.TextField(blank=True, null=True)

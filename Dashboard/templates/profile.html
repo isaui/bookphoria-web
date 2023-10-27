@@ -20,7 +20,7 @@
                 <h3 class="texl-xl font-bold mb-4">
                     {{ user }}'s Books
                 </h3>
-                <div id="book-list" class="flex w-full h-32 gap-5 overflow-x-auto bg-">
+                <div id="book-list" class="flex w-full h-32 gap-5 overflow-x-auto items-center align-middle justify-center">
                     <!-- <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/01/Takanashi-Kiara_thumb.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%81%84%E3%81%AA%E3%81%AB%E3%81%99.png"/>
@@ -108,17 +108,17 @@
                                 <div class="flex flex-col gap-4">
                                     <div>
                                         <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-                                        <input type="file" name="thumbnail" id="thumbnail" onchange="validateSize(this)" accept="image/*" class="text-gray-900" required/>
+                                        <input type="file" name="thumbnail" id="thumbnail" onchange="validateSize(this)" accept="image/*" class="text-gray-900"/>
                                     </div>
                                     <div class="flex md:flex-row flex-col md:gap-8 gap-4 justify-between">
                                         <div class="flex flex-col w-full gap-4">
                                             <div>
                                                 <label for="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
-                                                <input type="text" name="author" id="author" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="J. K. Rowling" required>
+                                                <input type="text" name="author" id="author" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="J. K. Rowling">
                                             </div>
                                             <div>
-                                                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                                <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Harry Potter" required>
+                                                <label for="book_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                                                <input type="text" name="book_title" id="book_title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Harry Potter">
                                             </div>
                                             <div>
                                                 <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
@@ -155,10 +155,10 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                        <textarea name="desc" id="desc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Harry Potter" required></textarea>
+                                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                        <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Lorem ipsum dolor sit amet"></textarea>
                                     </div>
-                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button>
+                                    <button id="submit_new_book" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button>
                                 </div>
                             </form>
                         </div>
@@ -169,30 +169,37 @@
     <script>
         async function refreshBookList() {
             const bookList = document.getElementById("book-list")
-            const response = await fetch("/get-books")
+            const response = await fetch("/profile/get-books")
             console.log("====================================")
             console.log(response)
             const data = await response.json()
             console.log(data)
             console.log("====================================")
             bookList.innerHTML = ""
-            data.books.forEach(book => {
-                bookList.innerHTML += "\n" +
-                    `<img src="${book.thumbnail}" class="w-full h-full object-contain shadow-xl"/>`
-            })
+            if (data.books.length == 0){
+                bookList.innerHTML = `<p>You have no books :(</p>`
+            } else {
+                data.books.forEach(book => {
+                    bookList.innerHTML += "\n" +
+                        `<img src="${book.thumbnail}" class="w-full h-full object-contain shadow-xl"/>`
+                })
+            }
         }
 
         refreshBookList()
 
         function addBook() {
-            fetch("{% url 'Dashboard:add-book' %}", {
+            fetch("{% url 'Dashboard:add_book' %}", {
                 method: "POST",
                 body: new FormData(document.querySelector('#add-book-form'))
             }).then(refreshBookList)
 
             document.getElementById("add-book-form").reset()
-            return false
+            document.querySelector('[data-modal-hide="add-book-modal"]').click()
+
         }
+
+        document.getElementById("submit_new_book").onclick = addBook
 
         function validateSize(input) {
             const fileSize = input.files[0].size / 1024 / 1024; // in MiB
