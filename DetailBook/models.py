@@ -1,6 +1,9 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.urls import reverse
+from django.utils import timezone
+from Homepage.models import Book
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Author(models.Model):
@@ -18,6 +21,15 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+class Comment(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='comments')
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.content[:20]
+
+    
 class Book(models.Model):
     title = models.CharField(max_length=255, blank=False, null=False)
     subtitle = models.CharField(max_length=255, blank=True, null=True )
@@ -26,7 +38,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100, blank=True, null=True)
     published_date = models.DateField(blank=True, null=True)
     language = models.CharField(max_length=10)
-    slug = models.SlugField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     currencyCode= models.CharField(max_length=10, blank=True, null=True)
     is_ebook = models.BooleanField()
     pdf_available = models.BooleanField()
@@ -43,8 +55,13 @@ class Book(models.Model):
     page_count = models.IntegerField(default=1,
         validators=[MinValueValidator(1)]
     )
+    user_publish_time = models.DateTimeField(blank=True, null=True, default= timezone.now)
+    user_last_edit_time = models.DateTimeField(blank=True, null=True)
     
     def get_absolute_url(self):
-        return reverse("DetailBook:book_detail", args=[self.slug])
+        return reverse('book_detail', args=[self.slug])
     
+    def __str__(self):
+        return self.title
+     
     

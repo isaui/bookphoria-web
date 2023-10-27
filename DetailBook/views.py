@@ -1,9 +1,13 @@
+import json
 from django.shortcuts import get_object_or_404, render
-from django.http import JsonResponse
-from .models import Book, Category
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
+from DetailBook.forms import CommentForm
+from DetailBook.models import Comment
+from Homepage.models import Book, Category
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-#from django.contrib.auth.mixins import LoginRequiredMixin, SingleObjectMixin
+from django.core import serializers
+import json
 
 def home(request):
     return render(request, "home.html")
@@ -42,7 +46,7 @@ def get_books_json(request):
             'pdf_link': book.pdf_link,
             'thumbnail': book.thumbnail,
             'categories': [category.name for category in book.categories.all()],
-            'images':[imageUrl.url for imageUrl in book.images.all()],
+            'images': [imageUrl.url for imageUrl in book.images.all()],
             'price': book.price,
             'saleability': book.saleability,
             'buy_link': book.buy_link,
@@ -54,29 +58,58 @@ def get_books_json(request):
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
 
-def book_detail(request, slug):
-    book = get_object_or_404(Book, slug=slug)
-    context = {'book': book}
-    return render(request, 'DetailBook/book_detail.html', context)
+def book_detail(request, id):
+    book = Book.objects.prefetch_related('authors', 'images', 'categories').get(pk = id)
+    book = {
+        'pk':book.pk,
+        'title': book.title,
+        'subtitle': book.subtitle,
+        'description': book.description,
+        'authors': [author.name for author in book.authors.all()],
+        'publisher': book.publisher,
+        'published_date': book.published_date.strftime('%Y-%m-%d') if book.published_date else None,
+        'language': book.language,
+        'currencyCode': book.currencyCode,
+        'is_ebook': book.is_ebook,
+        'pdf_available': book.pdf_available,
+        'pdf_link': book.pdf_link,
+        'thumbnail': book.thumbnail,
+        'categories': [category.name for category in book.categories.all()],
+        'images': [imageUrl.url for imageUrl in book.images.all()],
+        'price': book.price,
+        'saleability': book.saleability,
+        'buy_link': book.buy_link,
+        'epub_available': book.epub_available,
+        'epub_link': book.epub_link,
+        'maturity_rating': book.maturity_rating,
+        'page_count': book.page_count,
+    }
+    book['authors'] = ", ".join(book['authors'])
+    book['categories'] = ", ".join(book['categories'])
+    comment_form = CommentForm()
+    context = {'book': book, 'comment_form': comment_form}
+    return render(request, 'book_detail.html', context)
 
-#class BaseDetailView(SingleObjectMixin, View):
-    """A base view for displaying a single object."""
 
-    #def get(self, request, *args, **kwargs):
-        #self.object = self.get_object()
-        #context = self.get_context_data(object=self.object)
-      #  return self.render_to_response(context)
-    
-#class DetailView(SingleObjectTemplateResponseMixin, BaseDetailView):
-    """
-    Render a "detail" view of an object.
+@csrf_exempt
+def add_comment_ajax(request):
+    data = json.loads(request.body)
+    print(data)
+    book = Book.objects.prefetch_related('authors', 'images', 'categories').get(pk=data['bookId'])
+    print(book)
+    if request.method == 'POST':
+        
+        try:
+            new_comment = Comment(content=data['comment'], book=book)
+            new_comment.save()
+            return JsonResponse({'status':201})
+        except Exception as e:
+            print(e)
+        
+    return HttpResponseNotFound()
 
-    By default this is a model instance looked up from `self.queryset`, but the
-    view will support display of *any* object by overriding `self.get_object()`.
-    """
-#@login_required
-#class BookDetailView(DetailView):
- #   model = Book
-   # context_object_name = "book"
-  #  template_name = "book_detail.html"
-    #login_url = "/accounts/login/"
+
+def get_comment_json(request):
+    comment = Comment.objects.all()
+    print(comment)
+    return HttpResponse(serializers.serialize('json', comment))

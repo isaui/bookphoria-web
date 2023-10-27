@@ -1,37 +1,197 @@
 {% extends 'base.html' %}
 
-{% block title %}
-<title>{{ book.title }}</title>
-{% endblock title %}
 
 {% block content %}
-<div>
-  <div>
-    <div>
-      <div>
-        <img src="{{ book.images}}" />
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="img-container" style="background-color: transparent;">
+        <img src={{ book.thumbnail }} alt="Deskripsi Gambar" style="width: 100%; height: 100%; object-fit: contain; background-color: transparent;">
       </div>
-      <div>
-        <div>
-          <h5><a href="">{{ book.title }}</a></h5>
-          <p>Author: {{ book.authors }}</p>
-          <p>Category: {{ book.categories }}</p>
-          <p>Publisher: {{ book.publisher }}</p>
-          <p>Description: {{ book.description | safe}}</p>
-          <p>Language: {{ book.language }}</p>
-          <p>Pages: {{ book.page_count }}</p>
-          <p>Publised Date: {{ book.publised_date }}</p>
-          <p>Price: {{ book.price }}</p>
-          {% if book.epub_available %}
+    </div>
+    <div id="bookId" style="display: none;" data-value="{{ book.pk }}"></div>
+    <div class="col-md-8">
+      <div class="card" style="border-color: #460C90; border-radius: 10px;">
+        <div class="card-body" id="card-body">
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Title</span>
+            <span class="info-content">{{ book.title }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Author</span>
+            <span class="info-content">{{ book.authors }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Category</span>
+            <span class="info-content">{{ book.categories }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Publisher</span>
+            <span class="info-content">{{ book.publisher }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Language</span>
+            <span class="info-content">{{ book.language }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Pages</span>
+            <span class="info-content">{{ book.page_count }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Published Date</span>
+            <span class="info-content">{{ book.published_date }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Price</span>
+            <span class="info-content">{{ book.currencyCode }} {{ book.price }} </span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Description</span>
+            <span class="info-content">{{ book.description }}</span>
+          </div>
+          
+          {% if book.epub_link|length != 0 %}
             <a href="{{ book.epub_link }}" download>
-              <button type="submit">Download E-Book</button>
+              <button type="submit" class="btn" style="background-color: #460C90; color: #FFFFFF;">Download E-Book</button>
             </a>
           {% else %}
             <p>E-Book not available for download.</p>
           {% endif %}
+
+          <div id="comments-container">
+            <!-- Daftar komentar akan ditampilkan di sini -->
+          </div>
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Comment</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" onsubmit="return false;">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Comment:</label>
+                                <input type="text" class="form-control" id="name" name="name"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #808080; margin-top: 10px;">Close</button>
+                        <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment by AJAX</button>
+
+
+          {% comment %} <div class="mt-4">
+            <form id="comment-form">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="button" class="btn btn-primary" id="ajax-comment-button">Add Komen by AJAX</button>
+            </form>
+            
+            <div id="comments-section">
+                <h3>Komentar:</h3>
+                {% for comment in book.comments.all %}
+                    <p>{{ comment.user }}: {{ comment.content }}</p>
+                {% endfor %}
+            </div> {% endcomment %}
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+{% comment %} <script>
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    // Mengambil tinggi elemen card-body
+    var cardBodyHeight = document.getElementById('card-body').offsetHeight;
+    
+    // Menetapkan tinggi elemen img-container sesuai dengan tinggi card-body
+    var imgContainer = document.querySelector('.img-container');
+    imgContainer.style.height = cardBodyHeight + 'px';
+  });
+</script> {% endcomment %}
+
+
+<script>
+  const bookEle = document.getElementById('bookId')
+  async function getComment() {
+    return fetch("{% url 'DetailBook:get_comment_json' %}").then((res) => res.json())
+  }
+
+  async function refreshComments() {
+    const commentsContainer = document.getElementById("comments-container");
+    commentsContainer.innerHTML = ""; // Clear the container before adding new comments
+  
+    const comments = await getComment();
+    comments.forEach((comment) => {
+      const commentElement = document.createElement("p");
+      console.log(comment.fields)
+      commentElement.textContent = `Anonim: ${comment.fields.content}`;
+      commentsContainer.appendChild(commentElement);
+    });
+  }
+  
+  
+  // Panggil refreshComments saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", refreshComments);
+
+  async function addComment() {
+    const bookId = bookEle.getAttribute('data-value')
+    console.log(bookEle.getAttribute('data-value'), 'ini')
+    const comment = document.getElementById("name").value
+    const res = await fetch(`/details/add-comment-ajax/`, {
+      method: "POST",
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({'comment':comment, 'bookId': bookId})
+    });
+    console.log('berhasil')
+    const result =  await res.json()
+    refreshComments() 
+    document.getElementById("form").reset();
+    return false;
+  }
+  
+
+  document.getElementById("button_add").onclick = addComment
+</script>
+
+
+<style>
+  .info-row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .info-title {
+    min-width: 150px;
+  }
+  
+  .info-content {
+    flex-grow: 1;
+    background-color: #F7F7F7; /* Warna backdrop */
+    padding: 5px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-x: auto;  /* Menambahkan scrollbar horizontal jika diperlukan */
+}
+
+</style>
+
+
+
 {% endblock content %}
