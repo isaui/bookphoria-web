@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import review_rate
+from .views import create_review
 
 app_name = 'ReviewApp'
 
 urlpatterns = [
-    path('review/', review_rate, name='review'),
+    path('review/', create_review, name='review'),
 ]

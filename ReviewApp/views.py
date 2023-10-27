@@ -1,9 +1,11 @@
+import datetime
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponseRedirect
 from .models import Review
 from .forms import ReviewForm
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import user_passes_test
 
 
@@ -14,9 +16,10 @@ from django.contrib.auth.decorators import user_passes_test
 def is_user_not_admin(user):
     return not user.is_superuser
 
-@csrf_exempt
+
 @user_passes_test(is_user_not_admin)
-def review_rate(request):
+@csrf_exempt
+def create_review(request):
     if request.method == "POST":
         book_id = request.POST.get("book_id")
         book = Book.objects.get(id=book_id)
@@ -24,7 +27,7 @@ def review_rate(request):
         rate = request.POST.get("rate")
         photo = request.FILES.get("photo", None)
         user = request.user
-        publish = Review(book=book, review=review, rate=rate, user=user)
+        publish = Review(book_id=book_id, book=book, review=review, rate=rate, user=user)
         # Check if photo is provided
         if photo:
             publish.photo = photo
@@ -33,3 +36,4 @@ def review_rate(request):
         return JsonResponse(response_data)
         # return redirect("book_detail", id=book_id) # "book_detail" sesuaiin sm path Detail Book Jocelyn
         # return render (request, "review.html")
+
