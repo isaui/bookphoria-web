@@ -20,15 +20,15 @@
                 <h3 class="texl-xl font-bold mb-4">
                     {{ user }}'s Books
                 </h3>
-                <div class="flex h-32 gap-5 overflow-x-auto">
-                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
+                <div id="book-list" class="flex w-full h-32 gap-5 overflow-x-auto bg-">
+                    <!-- <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/01/Takanashi-Kiara_thumb.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%81%84%E3%81%AA%E3%81%AB%E3%81%99.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%81%90%E3%82%89.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/10/IRyS_list_thumb.png"/>
                     <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/07/Nerissa-Ravencroft_list_thumb.png"/>
-                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/02/FriendA_thumb.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/02/FriendA_thumb.png"/> -->
                 </div>
                 <button data-modal-target="add-book-modal" data-modal-toggle="add-book-modal" type="button" class="mt-4 w-full py-2 bg-violet-950 hover:bg-indigo-950 text-white rounded-xl" data-bs-toggle="modal" data-bs-target="#exampleModal">Add More Book</button>
             </div>
@@ -167,7 +167,32 @@
             </div> 
         </section>
     <script>
+        async function refreshBookList() {
+            const bookList = document.getElementById("book-list")
+            const response = await fetch("/get-books")
+            console.log("====================================")
+            console.log(response)
+            const data = await response.json()
+            console.log(data)
+            console.log("====================================")
+            bookList.innerHTML = ""
+            data.books.forEach(book => {
+                bookList.innerHTML += "\n" +
+                    `<img src="${book.thumbnail}" class="w-full h-full object-contain shadow-xl"/>`
+            })
+        }
 
+        refreshBookList()
+
+        function addBook() {
+            fetch("{% url 'Dashboard:add-book' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#add-book-form'))
+            }).then(refreshBookList)
+
+            document.getElementById("add-book-form").reset()
+            return false
+        }
 
         function validateSize(input) {
             const fileSize = input.files[0].size / 1024 / 1024; // in MiB
