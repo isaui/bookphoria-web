@@ -53,6 +53,7 @@ class Book(models.Model):
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     review = models.TextField(max_length=255, blank=True, null=True)
     rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])

@@ -11,13 +11,10 @@ from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 
+def home(request):
+    return render(request, "home.html")
 
-
-def is_user_not_admin(user):
-    return not user.is_superuser
-
-
-@user_passes_test(is_user_not_admin)
+@user_passes_test(lambda u: not u.is_staff, login_url='/your-login-url/')
 @csrf_exempt
 def create_review(request):
     if request.method == "POST":
@@ -32,8 +29,6 @@ def create_review(request):
         if photo:
             publish.photo = photo
         publish.save()
-        response_data = {'status': 'success', 'message': 'Review added successfully'}
-        return JsonResponse(response_data)
-        # return redirect("book_detail", id=book_id) # "book_detail" sesuaiin sm path Detail Book Jocelyn
-        # return render (request, "review.html")
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
 
