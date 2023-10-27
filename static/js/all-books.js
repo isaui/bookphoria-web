@@ -16,13 +16,15 @@ const bookDropdownValues = document.querySelectorAll(".books-dropdown-values");
 const currentBooksDropdownValuesElement = document.querySelectorAll(".books-dropdown-current-value");
 const categoriesContainer = document.getElementById('categories-container');
 const bookDropdownSVG = document.querySelectorAll('.books-dropdown-svg');
-
+let firstTime = true;
 
 const pcSearchInput = document.getElementById('pc-search-input');
 const pcSearchAnswerBtn = document.getElementById('pc-search-answer');
 const mobileSearchInput = document.getElementById('mobile-search-input');
 const mobileSearchAnswerBtn = document.getElementById('mobile-search-answer');
-let searchText = mobileSearchInput.value;
+
+let searchText = '';
+
 mobileSearchInput.addEventListener('input', (event) => {
     searchText = event.target.value;
     pcSearchInput.value = searchText;
@@ -317,6 +319,10 @@ const setBooksPreference = () => {
     currentfilterBooks = [...books];
     console.log('ini buku yang anda minta-> ', books);
     wrapperSetBooks(currentfilterBooks);
+    if(mode() != 'LARGE'){
+        hideBookSidebar()
+    }
+    
 }
 
 applyPreferenceBtn.addEventListener('click', ()=> {
@@ -767,13 +773,16 @@ const getCategories =  () => {
     setCategoriesBar(categoryMap)
 }
 window.addEventListener("load", async ()=> {
-    
+    console.log('--------------');
+    console.log(searchText)
+    console.log('')
     try {
         await getBooks();
         getCategories();
         categoriesOverlay.classList.remove('hidden');
         console.log('INFO B')
         setSelectedCategory('All');
+        firstTime = false
         console.log('INFO C')
         setCategorySearchList();
         console.log('INFO 1')

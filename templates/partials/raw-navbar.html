@@ -1,0 +1,301 @@
+<div id="navbar" class="fixed z-20 top-0  left-0 flex flex-col items-center w-full ">
+    <div class="w-full relative z-40 bg-violet-950 px-4 md:px-8 flex text-xl items-center  py-3 ">
+        <h1 class="mrv-auto text-white">BOOKPHORIA.</h1>
+        <div class=" mx-auto  hidden md:flex text-white text-base lg:text-lg justify-start items-center space-x-4 lg:space-x-8">
+            <a href="/">Home</a>
+            <a href="/all-books">All Books</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Account</a>
+        </div>
+        <div  id="mobile-search-button" class="ml-auto lg:hidden text-white flex items-center ">
+            <svg class="w-4 h-4" onclick="toggleMobileNavbar();" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+            <div onclick="openSidebar()" class="md:hidden ml-6 fas fa-bars  text-white">
+            </div>
+        </div>
+        <div class=" hidden lg:flex grow max-w-[40%]">
+            <div class="flex grow">
+                <label for="search-dropdown" class="search-dropdown mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
+                <div class="relative flex items-center justify-center">
+                    <button  data-dropdown-toggle="dropdown" class="dropdown-button-xl flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
+                        <span  class="books-dropdown-current-value">All</span> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                    </button>
+                    <div  class="books-dropdown-content hidden absolute top-12 right-0 z-20 ">
+                        <ul  class="books-dropdown-values flex flex-col py-2 text-sm text-gray-700  rounded-lg shadow w-44 overflow-y-auto bg-violet-950 dark:text-gray-200 h-[24rem]">
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terbaru">Terbaru</button>
+                          </li>
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terlama">Terlama</button>
+                          </li>
+                          <li>
+                            <button class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Paling Banyak Disukai">Paling Banyak Disukai</button>
+                          </li>
+                          <li>
+                            <button class="block w-full  px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Review Terbanyak">Review Terbanyak</button>
+                          </li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="relative  grow">
+                    <input type="search" id="pc-search-input" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
+                    <button  id="pc-search-answer" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 ">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-search-bar" class="absolute top-12 left-0 flex justify-center items-center w-full py-3 px-4 bg-violet-950  transform -translate-y-96 transition-transform duration-300 ease-in-out">
+        <div class="mx-auto flex  w-[90vw] max-w-[90vw]">
+            <div class="flex grow">
+                <label for="books-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
+                <div class="relative flex items-center justify-center">
+                    <button  data-dropdown-toggle="dropdown" class="dropdown-button-xl flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
+                        <span  class="books-dropdown-current-value truncate max-w-[5rem]">All</span> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                    </button>
+                    <div  class="books-dropdown-content hidden absolute top-12 left-0 z-20 ">
+                        <ul  class="books-dropdown-values flex flex-col py-2 text-sm   rounded-lg shadow w-44 overflow-y-auto bg-violet-950 text-gray-200 h-[24rem]">
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terbaru">Terbaru</button>
+                          </li>
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terlama">Terlama</button>
+                          </li>
+                          <li>
+                            <button class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Paling Banyak Disukai">Paling Banyak Disukai</button>
+                          </li>
+                          <li>
+                            <button class="block w-full  px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Review Terbanyak">Review Terbanyak</button>
+                          </li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="relative grow">
+                    <input type="search" id="mobile-search-input"  class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
+                    <button id="mobile-search-answer" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 ">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    let mode = () => window.innerWidth < 768 ? 'MOBILE' : window.innerWidth < 1024? 'MEDIUM' : 'LARGE';
+    let currentSearchCategory = 'All';
+    let categories = ['All'];
+    let isBooksDropdownOpen = false;
+    let isBooksDropdownMobileOpen = false;
+    const bookDropdownButton = document.querySelectorAll(".dropdown-button-xl");
+    const bookDropdownContent = document.querySelectorAll(".books-dropdown-content");
+    const bookDropdownValues = document.querySelectorAll(".books-dropdown-values");
+    const currentBooksDropdownValuesElement = document.querySelectorAll(".books-dropdown-current-value");
+    const bookDropdownSVG = document.querySelectorAll('.books-dropdown-svg');
+    
+    bookDropdownButton.forEach((btn)=>{
+        btn.addEventListener('click', ()=>{
+            console.log('INFOKAN')
+            console.log(bookDropdownSVG)
+            toggleBooksDropdown()
+          })
+    })
+
+    const fetchCategory = async () => {
+        const resJson = await fetch('/get-categories/');
+        const res = await resJson.json();
+        setCategories(res.categories);
+    }
+
+    const setCategories = (res) => {
+        categories = ['All', ...res];
+        let innerHTML = ``;
+        for(const key of categories){
+            const  htmlString = `
+            <div  data-value="${key}" name="book-dropdown-values-${key}" class=" block w-full px-4 py-2 hover:bg-indigo-800 " >${key}</div>`;
+            innerHTML += htmlString;
+        }
+        bookDropdownValues.forEach((dropdownValue)=>{
+            dropdownValue.innerHTML = innerHTML
+        })
+        for(const key of categories){
+        const selector = "book-dropdown-values-"+key;
+        const buttons = document.getElementsByName(selector);
+        console.log(buttons)
+        buttons.forEach((btn)=>{
+            btn.addEventListener('click', ()=> {
+                closeBooksDropdown();
+                console.log('hei')
+                currentBooksDropdownValuesElement.forEach((ele)=>{
+                    ele.textContent = key;
+                });
+                currentSearchCategory = key
+                establishBooksDropdownColor();
+            })
+        })   
+    }
+    }
+
+    const establishBooksDropdownColor = () =>{
+    try {
+        categories.forEach(key =>{
+            const selector = "book-dropdown-values-"+key;
+            console.log(selector)
+            const elements = document.getElementsByName(selector);
+            if(elements.length > 0){
+                elements.forEach((element)=>{
+                    if(currentSearchCategory == key){
+                        element.classList.add("bg-indigo-800")
+                    }
+                    else{
+                        if(element.classList.contains("bg-indigo-800")){
+                            element.classList.remove("bg-indigo-800")
+                        }
+                    }
+                })
+                
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+    const toggleBooksDropdown = () => {
+        const currentMode = mode();
+        if(currentMode == 'MOBILE' || currentMode == 'MEDIUM'){
+            if(isBooksDropdownMobileOpen){
+                closeBooksDropdown()
+            }
+            else{
+                openBooksDropdown()
+            }
+        }
+        else {
+            if(isBooksDropdownOpen){
+                closeBooksDropdown()
+            }
+            else {
+                openBooksDropdown()
+            }
+        }
+    }
+
+    const setMode = () => {
+        if(mode() == 'MOBILE'){
+            bookDropdownContent[0].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `;
+            bookDropdownSVG[0].classList.remove('rotate-180');
+            isBooksDropdownOpen = false;
+        }
+        else{
+            bookDropdownContent[1].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `;
+            bookDropdownSVG[1].classList.remove('rotate-180');
+            isBooksDropdownMobileOpen = false;
+        }
+    
+    }
+    setMode()
+    window.addEventListener('resize', setMode )
+    window.addEventListener('click', (event)=> {
+        if(mode()== 'MOBILE'){
+            if(! bookDropdownButton[1].contains(event.target)){
+                return closeBooksDropdown();
+            }
+        }
+        else{
+            if(! bookDropdownButton[0].contains(event.target)){
+                return closeBooksDropdown();
+            }
+        }
+    })
+    const openBooksDropdown = () => {
+        console.log('OKEE')
+        if(mode() == 'MOBILE'){
+            bookDropdownContent[1].className = `max-h-[24rem] absolute top-14 left-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `
+            isBooksDropdownMobileOpen = true;
+    
+        }
+        else{
+            bookDropdownContent[0].className = `max-h-[24rem] absolute top-14 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44`
+            isBooksDropdownOpen = true;
+        }
+        bookDropdownSVG.forEach(svg => {
+            if(! svg.classList.contains('rotate-180')){
+                svg.classList.add('rotate-180')
+               }
+        });
+    }
+    const closeBooksDropdown = () => {
+        if(mode() == 'MOBILE'){
+            bookDropdownContent[1].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44 `
+            isBooksDropdownMobileOpen = false;
+        }
+        else{
+            bookDropdownContent[0].className = `max-h-[24rem] hidden absolute top-12 right-0 z-20  bg-violet-700 divide-y divide-gray-100 rounded-lg shadow w-44`
+            isBooksDropdownOpen = false;
+        }
+        bookDropdownSVG.forEach(svg => {
+            svg.classList.remove('rotate-180');
+        });
+    }
+    
+
+    const pcSearchInput = document.getElementById('pc-search-input');
+    const pcSearchAnswerBtn = document.getElementById('pc-search-answer');
+    const mobileSearchInput = document.getElementById('mobile-search-input');
+    const mobileSearchAnswerBtn = document.getElementById('mobile-search-answer');
+
+    let searchTextInput = '';
+    mobileSearchInput.addEventListener('input', (event) => {
+        console.log('TERJADI SESUATUUU')
+        searchTextInput = event.target.value;
+        pcSearchInput.value = searchTextInput;
+        });
+    pcSearchInput.addEventListener('input', (event) => {
+        searchTextInput = event.target.value;
+        mobileSearchInput.value = searchTextInput;
+        });
+
+    const validateSearch = () => {
+        if(searchTextInput.trim() == ''){
+            return Toastify({
+                text: "Maaf teks pencarian masih kosong",
+                duration: 3000, // Durasi tampilan toast (dalam milidetik)
+                style: {
+                background: 'red', // Warna latar belakang untuk pesan sukses
+                color: 'white', // Warna teks untuk pesan sukses
+                },
+                close:true
+            }).showToast();
+        }
+        const searchUrl = `/search-books/${currentSearchCategory}/${searchTextInput}`;
+        console.log(searchUrl)
+        window.location.href = searchUrl;
+    }
+
+    pcSearchAnswerBtn.addEventListener('click', ()=> {
+        validateSearch()
+    })
+    mobileSearchAnswerBtn.addEventListener('click', ()=> {
+        validateSearch()
+    })
+
+    window.addEventListener('load', async ()=> {
+        await fetchCategory();
+        establishBooksDropdownColor();
+        
+    })
+
+</script>
