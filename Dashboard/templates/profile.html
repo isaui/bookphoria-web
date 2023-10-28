@@ -104,8 +104,19 @@
                         </button>
                         <div class="px-6 py-6 lg:px-8">
                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Book</h3>
-                            <form id="add-book-form" class="space-y-6" action="#">
-                                <div class="flex flex-col gap-4">
+                            <form method="POST" id="add-book-form" class="space-y-6" action="#">
+                                {% csrf_token %}
+                                <table>
+                                    {{ form.as_table }}
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input type="submit" value="Add Product" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:cursor-pointer"/>
+                                            <!-- <button id="submit_new_book" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button> -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- <div class="flex flex-col gap-4">
                                     <div>
                                         <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
                                         <input type="file" name="thumbnail" id="thumbnail" onchange="validateSize(this)" accept="image/*" class="text-gray-900"/>
@@ -159,7 +170,7 @@
                                         <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Lorem ipsum dolor sit amet"></textarea>
                                     </div>
                                     <button id="submit_new_book" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -181,7 +192,7 @@
             } else {
                 data.books.forEach(book => {
                     bookList.innerHTML += "\n" +
-                        `<img src="${book.thumbnail}" class="w-full h-full object-contain shadow-xl"/>`
+                        `<img src="${book.thumbnail}" class="h-full w-auto object-contain shadow-xl"/>`
                 })
             }
         }

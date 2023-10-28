@@ -1,11 +1,17 @@
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, JsonResponse
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from Homepage.models import Book
+from Dashboard.forms import BookForm
+from Homepage.models import Book, Author, Category
 
 # @login_required
 def get_profile(request):
+    form = BookForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        add_book(request)
+        return HttpResponseRedirect(reverse('Dashboard:get-profile'))
     books = Book.objects.prefetch_related('authors', 'images', 'categories').all()
     book_list = []
     for book in books:
@@ -36,33 +42,27 @@ def get_profile(request):
         book_list.append(book.thumbnail)
         # print(book.thumbnail)
         # print(book_list)
-        context = {'books':book_list}
+    context = {
+        'books':book_list,
+        'form': form
+    }
     return render(request, 'profile.html', context)
 
 @csrf_exempt
 def add_book(request):
-    if request.method == 'POST':
-        user = request.user
-        thumbnail = request.POST.get("thumbnail")
-        author = request.POST.get("author")
-        book_title = request.POST.get("book_title")
-        category = request.POST.get("category")
-        publisher = request.POST.get("publisher")
-        language = request.POST.get("language")
-        page_count = request.POST.get("page_count")
-        pub_date = request.POST.get("pub-date")
-        currencyCode = request.POST.get("currencyCode")
-        description = request.POST.get("description")
-        price = request.POST.get("price")
+    form = BookForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        new_book = form.save(commit=False)
+        new_book.user = request.user
 
-        new_book = Book(user=user, thumbnail=thumbnail, description=description, author=author, title=book_title, category=category, publisher=publisher, language=language, page_count=page_count, published_date=pub_date, currencyCode=currencyCode, price=price)
         new_book.save()
 
-        print(Book.objects.filter(user=user).prefetch_related('authors', 'images', 'categories'))  
-
+        print(Book.objects.filter(user=new_book.user).prefetch_related('authors', 'images', 'categories'))  
         return HttpResponse(b"CREATED", status=201)
 
-    return HttpResponseNotFound()
+    context = {'form': form}
+    print("=======================NICE COKC=====================")
+    return render(request, 'add_book.html', context)
 
 @csrf_exempt
 def get_books_json(request):
