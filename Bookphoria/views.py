@@ -120,6 +120,24 @@ def add_review(request, product_id):
 def edit_profile(request):
     print(request.user)
     form = EditProfileForm(instance=request.user)
+    if (request.method == 'POST'):
+        fullname = request.POST.get('fullname')
+        age = request.POST.get('age')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        phone_number = request.POST.get('phone_number')
+        password= request.POST.get('password1')
+        userProfile = UserProfile.objects.get(user=request.user)
+        userProfile.fullname = fullname
+        userProfile.age = age
+        userProfile.country= country
+        userProfile.city = city
+        userProfile.phone_number= phone_number
+        userProfile.password = password
+        userProfile.user.set_password(password)
+        userProfile.user.save()
+        userProfile.save()
+        return redirect ('/view/')
     userProfile = UserProfile.objects.get(user=request.user)
     return render(request, 'edituser.html', {'form': form, 'userProfile':userProfile})
 
@@ -129,7 +147,7 @@ def edit_profilejson(request):
         data = json.loads(request.body)
         userId = data['id']
         userProfilenew = UserProfile.objects.get(pk=userId)
-        userProfilenew.fullname = data['full_name']
+        userProfilenew.fullname = data['fullname']
         userProfilenew.age = data['age']
         userProfilenew.country= data['country']
         userProfilenew.city = data['city']
@@ -139,6 +157,7 @@ def edit_profilejson(request):
         userProfilenew.user.save()
         userProfilenew.save()
         return HttpResponseRedirect(reverse('view_profile')) # Ganti 'profile' dengan URL profil pengguna
+
 
 
 @csrf_exempt
