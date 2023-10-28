@@ -1,7 +1,28 @@
+async function refreshReviewList() {
+  const reviewList = document.getElementById("review-list")
+  const response = await fetch("/profile/get-reviews")
+  const data = await response.json()
+  reviewList.innerHTML = ""
+  if (data.reviews.length == 0){
+      reviewList.innerHTML = `<p>No reviews yet</p>`
+  } else {
+      data.reviews.forEach(review => {
+          reviewList.innerHTML += "\n" +
+              `<div class="border-2 rounded-xl p-2 shadow-lg">` +
+              `<h4 class="font-extrabold">${review.title}</h4>` +
+              `<i class="fa-solid fa-star"> ${review.rating}</i>` +
+              `<br class="mb-4"/>` +
+              `${review.content}` +
+          `</div>`
+      })
+  }
+}
+
 async function refreshBookList() {
   const loading = document.getElementById('loading-text')
   try {
       loading.style.display = 'flex';
+      await refreshReviewList()
       const bookList = document.getElementById("book-list")
       const response = await fetch("/profile/get-books")
       console.log("====================================")

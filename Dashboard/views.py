@@ -5,8 +5,9 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from Dashboard.forms import BookForm
 from Homepage.models import Book, Author, Category
+from Bookphoria.models import Review
 
-# @login_required
+@login_required
 def get_profile(request):
     form = BookForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
@@ -99,3 +100,20 @@ def get_books_json(request):
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
+
+@csrf_exempt
+def get_reviews_json(request):
+    user = request.user
+    if not user.is_authenticated:
+        return HttpResponseForbidden()
+    print(user)
+    reviews = Review.objects.filter(user=user)
+    review_list = []
+    for review in reviews:
+        review_data  = {
+            'title': review.title,
+            'rating': review.rating,
+            'content': review.content,
+        }
+        review_list.append(review_data)
+    return JsonResponse({'reviews': review_list})

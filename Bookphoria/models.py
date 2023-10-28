@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django import forms
 from Homepage.models import Book
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -17,6 +18,9 @@ class UserProfileForm(forms.ModelForm):
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    rating = models.IntegerField(default=5,
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
