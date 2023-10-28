@@ -116,15 +116,30 @@ def add_review(request, product_id):
 
     return render(request, 'user.html', {'form': form})
 
+@csrf_exempt
 def edit_profile(request):
+    print(request.user)
     form = EditProfileForm(instance=request.user)
     userProfile = UserProfile.objects.get(user=request.user)
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('view_profile')  # Ganti 'profile' dengan URL profil pengguna
     return render(request, 'edituser.html', {'form': form, 'userProfile':userProfile})
+
+@csrf_exempt
+def edit_profilejson(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        userId = data['id']
+        userProfilenew = UserProfile.objects.get(pk=userId)
+        userProfilenew.fullname = data['full_name']
+        userProfilenew.age = data['age']
+        userProfilenew.country= data['country']
+        userProfilenew.city = data['city']
+        userProfilenew.phone_number= data ['phoneNumber']
+        userProfilenew.password = data['password']
+        userProfilenew.user.set_password(data['password'])
+        userProfilenew.user.save()
+        userProfilenew.save()
+        return HttpResponseRedirect(reverse('view_profile')) # Ganti 'profile' dengan URL profil pengguna
+
 
 @csrf_exempt
 def get_previous_edit_data_json(request):
@@ -143,3 +158,5 @@ def get_previous_edit_data_json(request):
 
     }
     return JsonResponse(userProfileData)
+
+
