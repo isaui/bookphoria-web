@@ -177,49 +177,6 @@
                 </div>
             </div> 
         </section>
-    <script>
-        async function refreshBookList() {
-            const bookList = document.getElementById("book-list")
-            const response = await fetch("/profile/get-books")
-            console.log("====================================")
-            console.log(response)
-            const data = await response.json()
-            console.log(data)
-            console.log("====================================")
-            bookList.innerHTML = ""
-            if (data.books.length == 0){
-                bookList.innerHTML = `<p>You have no books :(</p>`
-            } else {
-                data.books.forEach(book => {
-                    bookList.innerHTML += "\n" +
-                        `<img src="${book.thumbnail}" class="h-full w-auto object-contain shadow-xl"/>`
-                })
-            }
-        }
-
-        refreshBookList()
-
-        function addBook() {
-            fetch("{% url 'Dashboard:add_book' %}", {
-                method: "POST",
-                body: new FormData(document.querySelector('#add-book-form'))
-            }).then(refreshBookList)
-
-            document.getElementById("add-book-form").reset()
-            document.querySelector('[data-modal-hide="add-book-modal"]').click()
-
-        }
-
-        document.getElementById("submit_new_book").onclick = addBook
-
-        function validateSize(input) {
-            const fileSize = input.files[0].size / 1024 / 1024; // in MiB
-            if (fileSize > 2) {
-                alert('File size exceeds 2 MiB');
-                input.value = '';
-            }
-        }
-    </script>
     <script src="{% static 'js/profile.js' %}"></script>
     <script type="module" src="{% static 'js/firebase-upload.js' %}"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
