@@ -132,6 +132,7 @@ def get_books_json(request):
     book_list = []
     for book in books:
         book_data  = {
+            'id': book.pk,
             'title': book.title,
             'subtitle': book.subtitle,
             'description': book.description,

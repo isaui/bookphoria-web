@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Homepage',
     'Bookphoria',
-    'Dashboard'
+    'Dashboard',
+    'DetailBook',
 ]
 
 MIDDLEWARE = [
