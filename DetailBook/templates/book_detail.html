@@ -51,18 +51,21 @@
             <span class="info-content">{{ book.description }}</span>
           </div>
           
-          {% if book.epub_link|length != 0 %}
-            <a href="{{ book.epub_link }}" download>
+          {% if book.pdf_link|length != 0 %}
+            <a href="{{ book.pdf_link }}" download>
               <button type="submit" class="btn" style="background-color: #460C90; color: #FFFFFF;">Download E-Book</button>
             </a>
           {% else %}
             <p>E-Book not available for download.</p>
           {% endif %}
 
+          <div id="comments-title-container">
+            <h3 style="font-weight: bold; padding-top: 20px;">Comment</h3>
+          </div>
+        
           <div id="comments-container">
             <!-- Daftar komentar akan ditampilkan di sini -->
           </div>
-
 
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -88,40 +91,16 @@
             </div>
           </div>
 
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment by AJAX</button>
-
-
-          {% comment %} <div class="mt-4">
-            <form id="comment-form">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <button type="button" class="btn btn-primary" id="ajax-comment-button">Add Komen by AJAX</button>
-            </form>
-            
-            <div id="comments-section">
-                <h3>Komentar:</h3>
-                {% for comment in book.comments.all %}
-                    <p>{{ comment.user }}: {{ comment.content }}</p>
-                {% endfor %}
-            </div> {% endcomment %}
-
+          
         </div>
       </div>
     </div>
   </div>
 </div>
 
-{% comment %} <script>
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    // Mengambil tinggi elemen card-body
-    var cardBodyHeight = document.getElementById('card-body').offsetHeight;
-    
-    // Menetapkan tinggi elemen img-container sesuai dengan tinggi card-body
-    var imgContainer = document.querySelector('.img-container');
-    imgContainer.style.height = cardBodyHeight + 'px';
-  });
-</script> {% endcomment %}
+
 
 
 <script>
@@ -136,13 +115,19 @@
   
     const comments = await getComment();
     comments.forEach((comment) => {
-      const commentElement = document.createElement("p");
+      const commentElement = document.createElement("div");
+      commentElement.style.backgroundColor = '#f0f0f0';  // Menambahkan backdrop warna abu-abu
+      commentElement.style.padding = '10px';
+      commentElement.style.marginBottom = '10px';
+      
+      const commentText = document.createElement("p");
       console.log(comment.fields)
-      commentElement.textContent = `Anonim: ${comment.fields.content}`;
+      commentText.textContent = `Anonim: ${comment.fields.content}`;
+      commentElement.appendChild(commentText);
+      
       commentsContainer.appendChild(commentElement);
     });
   }
-  
   
   // Panggil refreshComments saat halaman dimuat
   document.addEventListener("DOMContentLoaded", refreshComments);
@@ -165,9 +150,9 @@
     return false;
   }
   
-
   document.getElementById("button_add").onclick = addComment
 </script>
+
 
 
 <style>
@@ -188,10 +173,8 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     overflow-x: auto;  /* Menambahkan scrollbar horizontal jika diperlukan */
-}
+  }
 
 </style>
-
-
 
 {% endblock content %}
