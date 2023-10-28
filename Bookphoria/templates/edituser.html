@@ -2,7 +2,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Edit Profil Pengguna</h1>
+<div class="edituser-container">
+    <div class="edituser-header">
+    <h1 style="color: #000;">Edit Profile</h1>
     <p id="user-profile-id"style="display: none;" data-id="{{userProfile.pk}}"></p>
     <form method="POST" id="edit_profile">
         {% csrf_token %}
@@ -68,4 +70,90 @@
             await getPreviousData()
         })
     </script>
+<style>
+    body {
+        background-color: #460C90; /* Warna latar belakang ungu terong */
+        margin: 0;
+    }
+
+    .edituser-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #460C90;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .edit-profile-form h1 {
+        color: #fff;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #003c80;
+        border-radius: 5px;
+        color: #000;
+    }
+
+    .btn.register-btn {
+        background-color: #0056b3 ;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn.edituser-btn:hover {
+        background-color: #003c80;
+    }
+
+    .error-message {
+        color: #dc3545;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const redirect = () => {
+        window.location.href = '/user/'
+    }
+    $(document).ready(function() {
+        $('#editprofile-form').submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "{% url 'edit_profile' %}",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function(data) {
+                    if (data.success) {
+                        $('#edituser success').text("Penyimpanan berhasil!");
+                        $('#edituser-error').empty();
+                    } else {
+                        $('#edituser-error').text(data.message);
+                        $('#edituser-success').empty();
+                    }
+                    redirect()
+                },
+                error: function() {
+                    $('#edituser-error').text("Terjadi kesalahan saat penyimpanan.");
+                    $('#edituser-success').empty();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
 {% endblock content %}

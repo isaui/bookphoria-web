@@ -26,7 +26,6 @@ from Homepage.models import Book
 
 def register(request):
     form = UserProfileForm()
-    print("silahkan" )
     if request.method == "POST":
         username= request.POST['username']
         fullname = request.POST['fullname']
@@ -36,11 +35,13 @@ def register(request):
         phone_number = request.POST['phone_number']
         password1 = request.POST['password1']
         password2 = request.POST['password2']#validasi password
+        if password1 != password2:
+            error_message = "Password yang dimasukkan tidak cocok. Silakan coba lagi."
+            return form
         user = User.objects.create_user(username=username, password=password1)
         user.save()
         user_profile = UserProfile(user=user,fullname = fullname, username=username, age=age, country=country, city=city, phone_number=phone_number)
         user_profile.save() 
-        print("silahkan lagi...")
         messages.success(request, 'Your account has been successfully created!')
         return redirect('/login')
     context = {'form':form}
