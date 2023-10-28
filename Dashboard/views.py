@@ -111,6 +111,7 @@ def get_reviews_json(request):
     review_list = []
     for review in reviews:
         review_data  = {
+            'thumbnail': review.thumbnail,
             'title': review.title,
             'rating': review.rating,
             'content': review.content,

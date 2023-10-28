@@ -17,6 +17,7 @@ class UserProfileForm(forms.ModelForm):
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    thumbnail = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=255)
     rating = models.IntegerField(default=5,
         validators=[MinValueValidator(0), MaxValueValidator(5)]
