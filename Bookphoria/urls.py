@@ -26,21 +26,18 @@ from Bookphoria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', login_user, name='login'),
-    path('register/', register, name='register'),
+    path('account/login/', login_user, name='login'),
+    path('account/register/', register, name='register'),
     path('logout/', logout_user, name='logout'),
     path('review_list/', views.review_list, name='review_list'),
     path('add_review/<int:product_id>/', views.add_review, name='add_review'),
     path('likes/<int:product_id>/', Like, name='like_book'),
-    path('create/', views.create_profile, name='create_profile'),
-    path('view/', views.view_profile, name='view_profile'),  
-    path('edit_profile/', views.edit_profile, name='edit_profile'),
-    path('edit_profile_data_json/',get_previous_edit_data_json, name="edit_data_json"),
-    path('edit_profilejson/', edit_profilejson, name='edit_profilejson'),
+    path('account/create/', views.create_profile, name='create_profile'),
+    path('account/view/', views.view_profile, name='view_profile'),  
+    path('account/edit_profile/', views.edit_profile, name='edit_profile'),
+    path('account/edit_profile_data_json/',get_previous_edit_data_json, name="edit_data_json"),
+    path('account/edit_profilejson/', edit_profilejson, name='edit_profilejson'),
     path('', include('Homepage.urls')),
-    
     path('profile/', include('Dashboard.urls')),
     path('detail/', include('DetailBook.urls')), 
-    
-    
 ]
