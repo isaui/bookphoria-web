@@ -9,6 +9,7 @@ var isBooksDropdownOpen = false;
 var isBooksDropdownMobileOpen = false;
 let startX = 0;
 let endX = 0;
+const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
 const bookDropdownButton = document.querySelectorAll(".dropdown-button-xl");
 //document.getElementsByClassName()
 const bookDropdownContent = document.querySelectorAll(".books-dropdown-content");
@@ -259,7 +260,7 @@ const setBooksPreference = () => {
     const filterByMaturityRating = currentPreferences.maturity == 'ALL'? (maturityRating) => true :
     currentPreferences.maturity == 'NOT_MATURE'? (maturityRating) => maturityRating.toUpperCase() == 'NOT_MATURE' :
     (maturityRating) => maturityRating.toUpperCase() == 'MATURE';
-    const filterByYearRange = currentPreferences.minYear == '' && currentPreferences.maxYear == ''?
+    const filterByYearRange = (min,max,year) => !year? true :  currentPreferences.minYear == '' && currentPreferences.maxYear == ''?
     (min,max,year)=> true : currentPreferences.minYear == ''? (min,max,year)=> year <= parseFloat(max) :
     currentPreferences.maxYear == ''? (min,max,year)=> year >= parseFloat(min) : (min,max,year) =>
     year <= max && year >= min;
@@ -310,7 +311,7 @@ const setBooksPreference = () => {
         }
         return filterByMaturityRating(book.maturity_rating) && 
             filterByYearRange(currentPreferences.minYear, currentPreferences.maxYear,
-             parseFloat(book.published_date.split("-")[0])) &&
+            book.published_date? parseFloat(book.published_date.split("-")[0]) : null) &&
             filterBySalebiality(book.saleability) &&
             filterByAvailability(book.pdf_available, book.epub_available) &&
             filterByPrice(currentPreferences.minPrice, currentPreferences.maxPrice, parseFloat(book.price?? '0'))
@@ -329,6 +330,7 @@ applyPreferenceBtn.addEventListener('click', ()=> {
     let preferences = getPreferences();
     if(preferences){
         currentPreferences = preferences
+        console.log('MINIMAL DISINI AMAN')
         setSelectedCategory(currentSelectedCategory)
     }
 })
@@ -687,6 +689,7 @@ const setSelectedCategory = (category) => {
     }
     console.log('hello')
     window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log('AKU PASTIKAN SET SELECTED CATEGORY AMAN')
 }
 
 const setCategoriesBar = (categoriesData) => {
@@ -794,6 +797,8 @@ window.addEventListener("load", async ()=> {
         console.log(bookDropdownButton)
         console.log(bookDropdownContent)
     } catch (error) {
+        console.log('HELLOOO INI ERROR ');
+        console.log(error)
         
     }
 })
