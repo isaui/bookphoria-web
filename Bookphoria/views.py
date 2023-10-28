@@ -40,7 +40,7 @@ def register(request):
             return form
         user = User.objects.create_user(username=username, password=password1)
         user.save()
-        user_profile = UserProfile(user=user,fullname = fullname, username=username, age=age, country=country, city=city, phone_number=phone_number)
+        user_profile = UserProfile(user=user,fullname = fullname, username=username, age=age, country=country, city=city, phone_number=phone_number, password= password1)
         user_profile.save() 
         messages.success(request, 'Your account has been successfully created!')
         return redirect('/login')
@@ -124,8 +124,6 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             return redirect('view_profile')  # Ganti 'profile' dengan URL profil pengguna
-        
-            
     return render(request, 'edituser.html', {'form': form, 'userProfile':userProfile})
 
 @csrf_exempt
