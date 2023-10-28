@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Bookphoria',
     'Dashboard',
     'DetailBook',
+    'ReviewApp',
 ]
 
 MIDDLEWARE = [
@@ -84,16 +85,11 @@ WSGI_APPLICATION = 'Bookphoria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'railway',
-        # 'USER': 'root',
-        # 'PASSWORD': 'f1JuUIE9ERLRoa02ptcI',
-        # 'HOST': 'containers-us-west-64.railway.app',
-        # 'PORT': '5575',
-        'NAME': 'Bookphoria_visitdirt',
-        'USER': 'Bookphoria_visitdirt',
-        'PASSWORD': '444f621c71997952280a8576b053230b73d87273',
-        'HOST': 'pvl.h.filess.io',
-        'PORT': '3307',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'f1JuUIE9ERLRoa02ptcI',
+        'HOST': 'containers-us-west-64.railway.app',
+        'PORT': '5575',
     }
 }
 
