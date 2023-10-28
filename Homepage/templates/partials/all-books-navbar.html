@@ -43,8 +43,8 @@
         <div class="ml-auto hidden md:flex pl-4 text-white text-xl lg:text-lg grow max-w-[25%] lg:max-w-[20%]  justify-between items-center ">
             <a  href="/"><i class="fas fa-home lg:text-2xl"></i></a>
             <a href="/all-books"><i class="fas fa-book  lg:text-2xl"></i></a>
-            <a href="#"><i class="fas fa-chart-bar  lg:text-2xl"></i></a>
-            <a href="#"><i class="fas fa-user  lg:text-2xl"></i></a>
+            <a href="{% url 'Dashboard:get-profile' %}"><i class="fas fa-chart-bar  lg:text-2xl"></i></a>
+            <a href="{% url 'view_profile' %}"><i class="fas fa-user  lg:text-2xl"></i></a>
           </div>
         <div  id="mobile-search-button"  class="ml-auto md:hidden text-white flex items-center ">
             <svg class="md:hidden w-4 h-4" onclick="toggleMobileNavbarBooks();" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -55,13 +55,12 @@
         </div>
         
     </div>
-    <div id="mobile-search-bar-books-mode" data-value="all-books-mode" class="absolute top-12 left-0 w-full py-3 px-4 bg-violet-950  transform -translate-y-96 transition-transform duration-300 ease-in-out">
-        <div class="mx-auto flex w-full max-w-[28rem]">
-            <div class="flex grow">
-                <label for="books-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
-                <div class="relative   flex items-center justify-center">
-                    <button  data-dropdown-toggle="dropdown" class=" dropdown-button-xl flex-shrink-0 z-10 flex justify-between items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
-                        <span  class=" books-dropdown-current-value">All</span> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <div id="mobile-search-bar-books-mode" data-value="all-books-mode" class="bg-yellow-200 absolute top-12 left-0 flex items-center justify-center w-full py-3 px-4 bg-violet-950  transform -translate-y-96 transition-transform duration-300 ease-in-out">
+        <div class="mx-auto flex w-[90vw] max-w-[90vw]">
+            <div class="flex items-center  bg-red-400 w-full">
+                <div class="relative  flex items-center justify-center">
+                    <button  data-dropdown-toggle="dropdown" class="dropdown-button-xl flex-shrink-0 z-10 flex justify-between items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
+                        <p  class="truncate max-w-[5rem] books-dropdown-current-value">All</p> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                     </svg>
                     </button>
@@ -82,7 +81,7 @@
                         </ul>
                     </div>
                 </div>                
-                <div class="relative grow ">
+                <div class="relative grow  ">
                     <input type="search" id="mobile-search-input"  class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
                     <button id="mobile-search-answer" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 ">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

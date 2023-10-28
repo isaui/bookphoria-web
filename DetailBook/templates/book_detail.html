@@ -85,12 +85,11 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #808080; margin-top: 10px;">Close</button>
-                        <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
+                      <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
                     </div>
                 </div>
             </div>
           </div>
-
           
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment by AJAX</button>
           
@@ -99,9 +98,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 <script>
   const bookEle = document.getElementById('bookId')
@@ -136,14 +132,13 @@
     const bookId = bookEle.getAttribute('data-value')
     console.log(bookEle.getAttribute('data-value'), 'ini')
     const comment = document.getElementById("name").value
-    const res = await fetch(`/details/add-comment-ajax/`, {
+    const res = await fetch(`/detail/add-comment-ajax/`, {
       method: "POST",
       headers:{
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({'comment':comment, 'bookId': bookId})
     });
-    console.log('berhasil')
     const result =  await res.json()
     refreshComments() 
     document.getElementById("form").reset();
@@ -152,8 +147,6 @@
   
   document.getElementById("button_add").onclick = addComment
 </script>
-
-
 
 <style>
   .info-row {

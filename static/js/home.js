@@ -452,7 +452,7 @@ const setCarouselBooks = (res) => {
                         <div class="flex   justify-between items-start ">
                         <div class="mt-1 mr-2">
                         
-                        <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
+                        <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="detail/book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
 
                         <h1 class="text-[#C52A62] text-xs line-clamp-2">
                         ${book.authors.length > 0 ? book.authors.map((author,index)=>{
@@ -498,7 +498,7 @@ const setCarouselBooks = (res) => {
                         <div  class="mt-1 text-[#C52A62] font-bold text-sm line-clamp-2">
                         ${book.currencyCode && book.price? `${book.currencyCode} <span>${book.price}</span>` : 'FREE'}
                         </div>
-                        <a href="book-detail/${book.id}" class="mt-auto w-full max-w-[16rem] flex items-center justify-center text-sm md:text-base text-white py-2 rounded-md bg-violet-950 hover:bg-indigo-950">
+                        <a href="detail/book-detail/${book.id}" class="mt-auto w-full max-w-[16rem] flex items-center justify-center text-sm md:text-base text-white py-2 rounded-md bg-violet-950 hover:bg-indigo-950">
                             Lihat Detail Buku
                         </a>
 
@@ -605,7 +605,7 @@ const setHomepageBooks = (prevRes) => {
                             <div class="flex  justify-between items-start ">
                             <div class="mt-1 mr-2">               
                         
-                            <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
+                            <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="detail/book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
                                 
                             <h1 class="text-gray-400 text-xs line-clamp-2">
                             ${book.authors.length > 0 ? book.authors.map((author,index)=>{
