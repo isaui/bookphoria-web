@@ -3,130 +3,121 @@
 <head>
     <title>Profil Pengguna</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Tambahkan Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f0f7ff;
-            font-family: Arial, sans-serif;
+        .header-container {
+            background-color: #460C90; /* Warna latar belakang ungu tua untuk header */
+            color: #fff; /* Warna teks putih */
+            padding: 10px;
         }
 
-        h1 {
-            color: #007BFF;
+        .header-text {
+            font-size: 2.5rem; /* Ukuran teks lebih besar */
+            font-weight: bold;
         }
 
-        h2 {
-            color: #007BFF;
+
+        /* Gaya untuk form dan elemen terkait */
+        .form-container {
+            background-color: #fff;
+            border: 1px solid #460C90;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: left;
+            color: #000;
+            margin-top: 30px;
         }
 
-        p {
-            color: #333;
+        .form-header {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            color: #000;
         }
 
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        .like-book {
-            color: #007BFF;
-            text-decoration: underline;
+        .btn {
             cursor: pointer;
         }
 
-        .like-book:hover {
-            color: #0056b3;
+        .btn-primary {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
         }
 
-        a {
-            color: #007BFF;
-            text-decoration: none;
+        .btn-primary:hover {
+            background-color: #003c80;
         }
 
-        a:hover {
-            text-decoration: underline;
+        /* Gaya untuk data profil pengguna */
+        .user-profile-container {
+            background-color: #fff;
+            border: 1px solid #b3c5d1;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            color: #000;
+            margin-top: 30px;
         }
+
+        .user-profile-header {
+            color: #1e3a8a;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .footer-container {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+        }
+
     </style>
-</head>
 <body>
-    <h1>Selamat datang, {{ user.username }}!</h1>
-    
-    <h2>Profil Pengguna</h2>
-    <p>Nama: {{ user.userprofile.full_name }}</p>
-    <p>Gambar Profil: <img src="{{ user.userprofile.profile_picture.url }}" width="100" height="100" alt="Gambar Profil"></p>
+            <div class="header-container">
+                <h1 class="brand-header">Bookphoria</h1>
+            </div>
+            <div class="col-md-6">
+                <h2 class="profile-header">Profil Pengguna</h2>
+            </div>
+        </div>
 
-    <h2>Last Login</h2>
-    <p>Last Login: {{ user.last_login }}</p>
-
-    <h2>Fitur Like Book</h2>
-    <p>
-        Anda dapat menyukai buku di bawah ini:
-        <ul>
-            {% for book in liked_books %}
-                <li>{{ book.title }} - 
-                    <a href="javascript:void(0);" class="like-book" data-book-id="{{ book.id }}">Suka</a>
-                </li>
-            {% empty %}
-                <li>Tidak ada buku yang Anda sukai.</li>
-            {% endfor %}
-        </ul>
-    </p>
-
-    <h2>Pembaruan Profil</h2>
-    <p><a href="{% url 'view_profile' %}">Lihat/Mengedit Profil</a></p>
-
-    <script>
-        $(document).ready(function() {
-            // Menangani klik pada tombol "Suka" buku dengan AJAX
-            $(".like-book").click(function() {
-                var bookId = $(this).data("book-id");
-                var likeButton = $(this);
-
-                $.ajax({
-                    url: "{% url 'like_book' 0 %}".replace('0', bookId),
-                    type: "POST",
-                    dataType: "json",
-                    success: function(data) {
-                        if (data.liked) {
-                            likeButton.text("Sudah Disukai");
-                        }
-                    },
-                    error: function() {
-                        alert("Terjadi kesalahan saat menyukai buku.");
-                    }
-                });
-            });
-        });
-    </script>
+        <div class="form-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Nama:</strong> {{user.username}}</p>
+                    <p><strong>Gambar Profil:</strong> <img src="https://imgv3.fotor.com/images/slider-image/a-man-holding-a-camera-with-image-filter.jpg" width="100" height="100" alt="Gambar Profil"></p>
+                    <p><strong>Age:</strong> {{userProfile.age}}</p>
+                    <p><strong>City:</strong> {{userProfile.city}}</p>
+                    <p><strong>Country:</strong> {{userProfile.country}}</p>
+                    <p><strong>Phone Number:</strong> {{userProfile.phone_number}}</p>
+                </div>
+            </div>
+            <p><strong>Last Login:</strong> {{ user.last_login }}</p>
+            
+        <div class="footer-container"></div>
+            <h2 class="brand-footer"> Pembaruan Profil</h2>
+            <a class="btn btn-primary" href="/edit_profile/">Edit Profil</a>
+            <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
 </body>
-<head>
-    <title>Daftar Review</title>
-</head>
-<body>
-    <h1>Daftar Review</h1>
-    <ul>
-        {% for review in reviews %}
-            <li>
-                <strong>Rating:</strong> {{ review.rating }}<br>
-                <strong>Review oleh:</strong> {{ review.user.username }}<br>
-                <strong>Produk yang direview:</strong> {{ review.product.name }}<br>
-                <strong>Review:</strong> {{ review.text }}
-            </li>
-        {% empty %}
-            <li>Tidak ada review yang tersedia.</li>
-        {% endfor %}
-    </ul>
-</body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Tambah Review</button>
-</form>
-<a href="{% url 'logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
 </html>

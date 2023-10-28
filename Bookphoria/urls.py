@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from Bookphoria.views import register 
+from Bookphoria.views import register, get_previous_edit_data_json
 from Bookphoria.views import login_user 
 from Bookphoria.views import logout_user
 from django.urls import path
@@ -26,14 +26,19 @@ from Bookphoria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Homepage.urls')),
-    path('profile/', include('Dashboard.urls')),
-    path('register/', register, name='register'),
     path('login/', login_user, name='login'),
+    path('register/', register, name='register'),
     path('logout/', logout_user, name='logout'),
     path('review_list/', views.review_list, name='review_list'),
     path('add_review/<int:product_id>/', views.add_review, name='add_review'),
     path('likes/<int:product_id>/', Like, name='like_book'),
     path('create/', views.create_profile, name='create_profile'),
     path('view/', views.view_profile, name='view_profile'),  
+    path('edit_profile/', views.edit_profile, name='edit_profile'),
+    path('edit_profile_data_json/',get_previous_edit_data_json, name="edit_data_json"),
+    path('', include('Homepage.urls')),
+    
+    path('profile/', include('Dashboard.urls')),
+    
+    
 ]
