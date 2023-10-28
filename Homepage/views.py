@@ -64,6 +64,10 @@ def advanced_search(request):
     return JsonResponse({'books': book_list})
 
 def home(request):
+    print(request.user.is_authenticated)
+    context = {
+        
+    }
     return render(request, "home.html")
 
 def all_books_page(request):
