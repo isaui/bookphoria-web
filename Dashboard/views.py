@@ -5,7 +5,8 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from Dashboard.forms import BookForm
 from Homepage.models import Book, Author, Category
-from Bookphoria.models import Review
+#from Bookphoria.models import Review
+from ReviewApp.models import Review
 
 @login_required
 def get_profile(request):
@@ -111,8 +112,9 @@ def get_reviews_json(request):
     review_list = []
     for review in reviews:
         review_data  = {
-            'thumbnail': review.thumbnail,
-            'title': review.title,
+           # 'thumbnail': review.thumbnail,
+            'thumbnail' : review.photo,
+            'title': "Sebuah Judul" if review.title is None else review.title,  # Review dr Review App ga include title
             'rating': review.rating,
             'content': review.content,
         }

@@ -3,21 +3,24 @@ from django.http import HttpResponseRedirect, Http404, JsonResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from Bookphoria.forms import ReviewForm
+#from Bookphoria.forms import ReviewForm
 from django.http import HttpResponse
 from django.core import serializers
 from django.urls import reverse
-from Bookphoria.models import EditProfileForm, Review, UserProfile, UserProfileForm
+#from Bookphoria.models import EditProfileForm, Review, UserProfile, UserProfileForm
+from Bookphoria.models import EditProfileForm, UserProfile, UserProfileForm
 from django.contrib import messages
 from django.db.models import Sum
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from Bookphoria.models import Review
-from Bookphoria.forms import ReviewForm
+#from Bookphoria.models import Review
+#from Bookphoria.forms import ReviewForm
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
+from ReviewApp.models import Review # connect to ReviewApp
+
 
 import json
 
@@ -99,22 +102,22 @@ def review_list(request):
     reviews = Review.objects.all()
     return render(request, 'user.html', {'reviews': reviews})
 
-def add_review(request, product_id):
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            rating = form.cleaned_data['rating']
-            text = form.cleaned_data['text']
-            book = Book.objects.get(pk=product_id)  # Gantilah Product dengan model yang sesuai
+#def add_review(request, product_id):
+   # if request.method == 'POST':
+     #   form = ReviewForm(request.POST)
+  #      if form.is_valid():
+  #          rating = form.cleaned_data['rating']
+  #          text = form.cleaned_data['text']
+  #          book = Book.objects.get(pk=product_id)  # Gantilah Product dengan model yang sesuai
 
             # Simpan review ke basis data
-            review = Review(user=request.user, product=book, rating=rating, text=text)
-            review.save()
-            return redirect('review_list')  # Redirect ke halaman daftar review
-    else:
-        form = ReviewForm()
+    #        review = Review(user=request.user, product=book, rating=rating, text=text)
+     #       review.save()
+   #         return redirect('review_list')  # Redirect ke halaman daftar review
+ #   else:
+  #      form = ReviewForm()
 
-    return render(request, 'user.html', {'form': form})
+   # return render(request, 'user.html', {'form': form})
 
 @csrf_exempt
 def edit_profile(request):
@@ -134,9 +137,9 @@ def edit_profile(request):
         userProfile.city = city
         userProfile.phone_number= phone_number
         userProfile.password = password
-        userProfile.user.set_password(password)
-        userProfile.user.save()
-        userProfile.save()
+        request.user.set_password(password)
+        request.user.save() # perubahan terakhir
+        userProfile.save() # perubahan terakhir
         return redirect ('/view/')
     userProfile = UserProfile.objects.get(user=request.user)
     return render(request, 'edituser.html', {'form': form, 'userProfile':userProfile})

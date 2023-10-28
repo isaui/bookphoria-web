@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -21,9 +20,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Book(models.Model):
-    user = models.CharField(max_length=255, blank=False, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255, blank=False, null=False)
     subtitle = models.CharField(max_length=255, blank=True, null=True )
     description = models.TextField(blank=True, null=True)
