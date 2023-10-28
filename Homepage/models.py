@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.utils import timezone
 
 # Create your models here.
 class Author(models.Model):
@@ -42,6 +43,9 @@ class Book(models.Model):
     page_count = models.IntegerField(default=1,
         validators=[MinValueValidator(1)]
     )
+    user_publish_time = models.DateTimeField(blank=True, null=True, default= timezone.now)
+    user_last_edit_time = models.DateTimeField(blank=True, null=True)
+
     def __str__(self):
         return self.title
     

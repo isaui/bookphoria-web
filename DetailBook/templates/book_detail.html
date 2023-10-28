@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="img-container" style="background-color: transparent;">
+        <img src={{ book.thumbnail }} alt="Deskripsi Gambar" style="width: 100%; height: 100%; object-fit: contain; background-color: transparent;">
+      </div>
+    </div>
+    <div id="bookId" style="display: none;" data-value="{{ book.pk }}"></div>
+    <div class="col-md-8">
+      <div class="card" style="border-color: #460C90; border-radius: 10px;">
+        <div class="card-body" id="card-body">
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Title</span>
+            <span class="info-content">{{ book.title }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Author</span>
+            <span class="info-content">{{ book.authors }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Category</span>
+            <span class="info-content">{{ book.categories }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Publisher</span>
+            <span class="info-content">{{ book.publisher }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Language</span>
+            <span class="info-content">{{ book.language }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Pages</span>
+            <span class="info-content">{{ book.page_count }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Published Date</span>
+            <span class="info-content">{{ book.published_date }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Price</span>
+            <span class="info-content">{{ book.currencyCode }} {{ book.price }} </span>
+          </div>
+          <div class="info-row">
+            <span class="info-title" style="font-weight: bold;">Description</span>
+            <span class="info-content">{{ book.description }}</span>
+          </div>
+          
+          {% if book.pdf_link|length != 0 %}
+            <a href="{{ book.pdf_link }}" download>
+              <button type="submit" class="btn" style="background-color: #460C90; color: #FFFFFF;">Download E-Book</button>
+            </a>
+          {% else %}
+            <p>E-Book not available for download.</p>
+          {% endif %}
+
+          <div id="comments-title-container">
+            <h3 style="font-weight: bold; padding-top: 20px;">Comment</h3>
+          </div>
+        
+          <div id="comments-container">
+            <!-- Daftar komentar akan ditampilkan di sini -->
+          </div>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Comment</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" onsubmit="return false;">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Comment:</label>
+                                <input type="text" class="form-control" id="name" name="name"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #808080; margin-top: 10px;">Close</button>
+                        <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment by AJAX</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <h5 class="text-uppercase font-weight-bold">Reviews</h5>
+    <hr class="mt-0 pt-0">
+    <div class="col-sm-7 mt-2">
+    {% for review in reviews %}
+        <div class="review-heading">
+            <a class="text-capitalize"><i class="far fa-user mr-1"></i>{{review.user.username}}</a>
+            <a class="ml-2"><i class="far fa-clock mr-1"></i>{{review.date_added}}</a>
+            <i class="fa fa-star {% if review.rate > 4 %} checked {% endif %}" style="float: right;"></i>
+            <i class="fa fa-star {% if review.rate > 3 %} checked {% endif %}" style="float: right;"></i>
+            <i class="fa fa-star {% if review.rate > 2 %} checked {% endif %}" style="float:right;"></i>
+            <i class="fa fa-star {% if review.rate > 1 %} checked {% endif %}" style="float:right;"></i>
+            <i class="fa fa-star {% if review.rate > 0 %} checked {% endif %}" style="float:right;"></i>
+        </div>
+        <div class="review-body mt-2">
+            <p>{{review.review}}</p>
+            {% if review.photo %}
+                    <img src="{{ review.photo.url }}" alt="Review Photo" class="img-fluid mt-2">
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="col-sm-5 mt-2">
+        <form class="review-form" method="POST" action="/review">
+        {% csrf_token %}
+        {% for book in books %}
+            <input type="hidden" name="book_id" id="book_id" value="{{book.id}}"/>
+            {% endfor %}
+            <div class="form-group">
+              <p class="text-uppercase font-weight-bold">Your Review: </p>
+              <textarea id="comment" class="input" type="text" name="review" placeholder="Type Your Review"></textarea>
+            </div>
+            <div class="form-group">
+              <p class="text-uppercase font-weight-bold">Upload Image: </p>
+              <input id="upload-photo" type="file" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <div class="input-rate">
+                  <p class="text-uppercase font-weight-bold">Your Rating: </p>
+                  <div class="rate-wrapper">
+                      <input type="radio" id="star-1" name="rate" value="1">
+                      <label for="star-1"></label>
+                      <input type="radio" id="star-2" name="rate" value="2">
+                      <label for="star-2"></label>
+                      <input type="radio" id="star-3" name="rate" value="3">
+                      <label for="star-3"></label>
+                      <input type="radio" id="star-4" name="rate" value="4">
+                      <label for="star-4"></label>
+                      <input type="radio" id="star-5" name="rate" value="5">
+                      <label for="star-5"></label>
+                  </div>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+            <button id="post-btn" class="btn btn-danger btn-md m-0" type="submit">Post</button>
+            {% else %}
+            <p>You must be logged in for post a review, <a href="{ % url 'Bookphoria:login' %}">Login</a></p>
+            {% endif %}
+        </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  const bookEle = document.getElementById('bookId')
+  async function getComment() {
+    return fetch("{% url 'DetailBook:get_comment_json' %}").then((res) => res.json())
+  }
+
+  async function refreshComments() {
+    const commentsContainer = document.getElementById("comments-container");
+    commentsContainer.innerHTML = ""; // Clear the container before adding new comments
+  
+    const comments = await getComment();
+    comments.forEach((comment) => {
+      const commentElement = document.createElement("div");
+      commentElement.style.backgroundColor = '#f0f0f0';  // Menambahkan backdrop warna abu-abu
+      commentElement.style.padding = '10px';
+      commentElement.style.marginBottom = '10px';
+      
+      const commentText = document.createElement("p");
+      console.log(comment.fields)
+      commentText.textContent = `Anonim: ${comment.fields.content}`;
+      commentElement.appendChild(commentText);
+      
+      commentsContainer.appendChild(commentElement);
+    });
+  }
+  
+  // Panggil refreshComments saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", refreshComments);
+
+  async function addComment() {
+    const bookId = bookEle.getAttribute('data-value')
+    console.log(bookEle.getAttribute('data-value'), 'ini')
+    const comment = document.getElementById("name").value
+    const res = await fetch(`/details/add-comment-ajax/`, {
+      method: "POST",
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({'comment':comment, 'bookId': bookId})
+    });
+    console.log('berhasil')
+    const result =  await res.json()
+    refreshComments() 
+    document.getElementById("form").reset();
+    return false;
+  }
+  
+  document.getElementById("button_add").onclick = addComment
+
+
+  let data = {
+        'imageUrl': '',
+        'rate': 5,
+        'comment':''
+    }
+    const setData = async  () => {
+       const rateInput =  document.querySelector('input[name="rate"]:checked');
+       const comment = document.getElementById("comment");
+       if(rateInput.value){
+        data.rate = parseInt(rateInput.value)
+       }
+       data.comment = comment.value.trim()
+       const res = await uploadImageByElement('upload-photo')
+       data.imageUrl = res
+       
+    }
+    const postBtn = document.getElementById('post-btn')
+    postBtn.addEventListener('click', async ()=> {
+       await  setData()
+        const resjson = await fetch('/review/create-review/', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        const res = await resjson.json()
+        console.log(res)
+
+    })
+</script>
+
+
+
+<style>
+  .info-row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .info-title {
+    min-width: 150px;
+  }
+  
+  .info-content {
+    flex-grow: 1;
+    background-color: #F7F7F7;
+    padding: 5px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-x: auto;
+  }
+
+  .col-sm-5.mt-2 {
+    float: right;
+    margin-bottom: 10px;
+  }
+
+  .review-heading {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .review-heading a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .review-body {
+    margin-top: 10px;
+  }
+
+  .review-body p {
+    line-height: 1.6;
+  }
+
+  .review-form {
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #comment {
+    width: 100%;
+    max-width: 730px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    resize: vertical;
+  }
+
+  #upload-photo {
+    margin-bottom: 10px;
+  }
+
+  .mt-0.pt-0 {
+    border-top: 1px solid #460c90;
+  }
+
+
+  .input-rate {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
+  .font-weight-bold {
+    font-weight: bold;
+  }
+
+  #post-btn {
+    background-color: #460c90;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #post-btn:hover {
+    background-color: #2c075c;
+  }
+
+  .rate-wrapper {
+    display: flex;
+    align-items: center;
+    transform: rotateY(180deg);
+  }
+
+  .rate-wrapper input[type="radio"] {
+    display: none;
+  }
+
+  .rate-wrapper label {
+    display: block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(148, 148, 148);
+    clip-path: polygon(50% 0%, 61.8% 35%, 98.4% 35%, 68.4% 57.5%, 79.4% 91%, 50% 70%, 20.6% 91%, 31.6% 57.5%, 1.6% 35%, 38.2% 35%);
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .rate-wrapper label:hover,
+  .rate-wrapper label:hover ~ label {
+    background-color: #460c90;
+  }
+
+  .rate-wrapper input[type="radio"]:checked ~ label {
+    background-color: rgb(255, 217, 0);
+  }
+
+  .rate-wrapper input[type="radio"]:checked ~ label:hover,
+  .rate-wrapper input[type="radio"]:checked ~ label:hover ~ label {
+    background-color: #460c90;
+  }
+
+  .form-group {
+    margin-bottom: 2px;
+  }
+
+</style>
+
+{% endblock content %}

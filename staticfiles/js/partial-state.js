@@ -1,5 +1,5 @@
 var isMobileNavbarOpen = false;
-var isSidebarOpen = false;
+let isSidebarOpen = false;
 
 window.addEventListener('resize', ()=>{
     const mobileSearchButton = document.getElementById("mobile-search-button");
@@ -8,7 +8,8 @@ window.addEventListener('resize', ()=>{
         return;
     }
     const screenWidth = window.innerWidth;
-    if(screenWidth >= 1024){
+    let maxWidth = 1024;
+    if(screenWidth >= maxWidth){
         if(isMobileNavbarOpen){
             closeMobileNavbar()
         }

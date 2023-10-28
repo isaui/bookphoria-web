@@ -2,31 +2,35 @@
     <div class="w-full relative z-40 bg-violet-950 px-4 md:px-8 flex text-xl items-center  py-3 ">
         <h1 class="mr-4 text-white">BOOKPHORIA.</h1>
 
-        <form class="hidden md:flex min-w-[50vw] max-w-[50vw] lg:min-w-[60vw] lg:max-w-[50vw]">
+        <div class="hidden md:flex min-w-[50vw] max-w-[50vw] lg:min-w-[60vw] lg:max-w-[50vw]">
             <div class="flex grow">
-                <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
-                <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">All categories <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg></button>
-                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdown-button">
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Mockups</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Templates</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Design</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Logos</button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="relative w-full">
-                    <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
-                    <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-purple-300">
+                <label for="books-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
+                <div class="relative flex items-center justify-center">
+                    <button  data-dropdown-toggle="dropdown" class="dropdown-button-xl flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
+                        <span  class="books-dropdown-current-value">All</span> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                    </button>
+                    <div  class="books-dropdown-content hidden absolute top-12 right-0 z-20 ">
+                        <ul  class="books-dropdown-values flex flex-col py-2 text-sm text-gray-700  rounded-lg shadow w-44 overflow-y-auto bg-violet-950 dark:text-gray-200 h-[24rem]">
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terbaru">Terbaru</button>
+                          </li>
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terlama">Terlama</button>
+                          </li>
+                          <li>
+                            <button class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Paling Banyak Disukai">Paling Banyak Disukai</button>
+                          </li>
+                          <li>
+                            <button class="block w-full  px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Review Terbanyak">Review Terbanyak</button>
+                          </li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="relative grow">
+                    <input type="search" id="pc-search-input" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
+                    <button id="pc-search-answer" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 ">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
@@ -34,7 +38,7 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </div>
 
         <div class="ml-auto hidden md:flex pl-4 text-white text-xl lg:text-lg grow max-w-[25%] lg:max-w-[20%]  justify-between items-center ">
             <a  href="/"><i class="fas fa-home lg:text-2xl"></i></a>
@@ -52,31 +56,35 @@
         
     </div>
     <div id="mobile-search-bar-books-mode" data-value="all-books-mode" class="absolute top-12 left-0 w-full py-3 px-4 bg-violet-950  transform -translate-y-96 transition-transform duration-300 ease-in-out">
-        <form class="mx-auto flex w-full max-w-[28rem]">
-            <div class="flex w-full">
-                <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
-                <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">All categories <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg></button>
-                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdown-button">
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Mockups</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Templates</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Design</button>
-                        </li>
-                        <li>
-                            <button type="button" class="inline-flex w-full px-4 py-2 hover-bg-gray-100">Logos</button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="relative w-full">
-                    <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
-                    <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-purple-300">
+        <div class="mx-auto flex w-full max-w-[28rem]">
+            <div class="flex grow">
+                <label for="books-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Books</label>
+                <div class="relative   flex items-center justify-center">
+                    <button  data-dropdown-toggle="dropdown" class=" dropdown-button-xl flex-shrink-0 z-10 flex justify-between items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 " type="button">
+                        <span  class=" books-dropdown-current-value">All</span> <svg  class="books-dropdown-svg w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                    </button>
+                    <div  class="books-dropdown-content hidden absolute top-12 left-0 z-20 ">
+                        <ul  class="books-dropdown-values flex flex-col py-2 text-sm text-gray-700  rounded-lg shadow w-44 overflow-y-auto bg-violet-950 dark:text-gray-200 h-[24rem]">
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terbaru">Terbaru</button>
+                          </li>
+                          <li>
+                            <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terlama">Terlama</button>
+                          </li>
+                          <li>
+                            <button class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Paling Banyak Disukai">Paling Banyak Disukai</button>
+                          </li>
+                          <li>
+                            <button class="block w-full  px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Review Terbanyak">Review Terbanyak</button>
+                          </li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="relative grow ">
+                    <input type="search" id="mobile-search-input"  class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-xl border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Books..." required>
+                    <button id="mobile-search-answer" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-r-lg border-2 border-indigo-600  hover:bg-indigo-800 ">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
@@ -84,10 +92,10 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
 
 var isMobileNavbarBooksOpen = false;
