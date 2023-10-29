@@ -85,7 +85,7 @@ def create_profile(request):
         form = UserProfileForm()
     return render(request, 'user.html', {'form': form})
 
-@login_required
+@login_required(login_url='/login/')
 def view_profile(request):
     user = request.user
     userProfile = UserProfile.objects.get(user=user)
