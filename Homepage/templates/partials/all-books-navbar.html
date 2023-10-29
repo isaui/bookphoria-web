@@ -43,8 +43,8 @@
         <div class="ml-auto hidden md:flex pl-4 text-white text-xl lg:text-lg grow max-w-[25%] lg:max-w-[20%]  justify-between items-center ">
             <a  href="/"><i class="fas fa-home lg:text-2xl"></i></a>
             <a href="/all-books"><i class="fas fa-book  lg:text-2xl"></i></a>
-            <a href="#"><i class="fas fa-chart-bar  lg:text-2xl"></i></a>
-            <a href="#"><i class="fas fa-user  lg:text-2xl"></i></a>
+            <a href="{% url 'Dashboard:get-profile' %}"><i class="fas fa-chart-bar  lg:text-2xl"></i></a>
+            <a href="{% url 'view_profile' %}"><i class="fas fa-user  lg:text-2xl"></i></a>
           </div>
         <div  id="mobile-search-button"  class="ml-auto md:hidden text-white flex items-center ">
             <svg class="md:hidden w-4 h-4" onclick="toggleMobileNavbarBooks();" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

@@ -64,6 +64,10 @@ def advanced_search(request):
     return JsonResponse({'books': book_list})
 
 def home(request):
+    print(request.user.is_authenticated)
+    context = {
+        
+    }
     return render(request, "home.html")
 
 def all_books_page(request):
@@ -128,6 +132,7 @@ def get_books_json(request):
     book_list = []
     for book in books:
         book_data  = {
+            'id': book.pk,
             'title': book.title,
             'subtitle': book.subtitle,
             'description': book.description,
@@ -149,7 +154,7 @@ def get_books_json(request):
             'epub_link': book.epub_link,
             'maturity_rating': book.maturity_rating,
             'page_count': book.page_count,
-            'user_publish_time': book.user_publish_time
+            'user_publish_time': book.user_publish_time,
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})

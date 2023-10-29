@@ -440,7 +440,10 @@ const setCarouselBooks = (res) => {
             carouselContainer.classList.add('hidden');
             return;
         }
+        console.log("HALOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
         res.forEach((book, index)=>{
+            console.log(book)
+            console.log(index)
             const bookString = `<div class="flex w-full h-full justify-center  items-center flex-shrink-0 ">
             <div  class="my-auto">
                 <div class=" px-2  flex  min-h-[13rem] max-w-[24rem] md:max-w-[32rem] lg:max-w-[48rem] py-2">
@@ -448,7 +451,9 @@ const setCarouselBooks = (res) => {
                     <div class=" pl-3 flex-1 flex flex-col  ">
                         <div class="flex   justify-between items-start ">
                         <div class="mt-1 mr-2">
-                        <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title : 'No Title'}</h1>
+                        
+                        <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="detail/book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
+
                         <h1 class="text-[#C52A62] text-xs line-clamp-2">
                         ${book.authors.length > 0 ? book.authors.map((author,index)=>{
                             if(index == book.authors.length - 1){
@@ -493,9 +498,11 @@ const setCarouselBooks = (res) => {
                         <div  class="mt-1 text-[#C52A62] font-bold text-sm line-clamp-2">
                         ${book.currencyCode && book.price? `${book.currencyCode} <span>${book.price}</span>` : 'FREE'}
                         </div>
-                        <a class="mt-auto w-full max-w-[16rem] flex items-center justify-center  text-sm md:text-base text-white py-2 rounded-md bg-violet-950 hover:bg-indigo-950">
+                        <a href="detail/book-detail/${book.id}" class="mt-auto w-full max-w-[16rem] flex items-center justify-center text-sm md:text-base text-white py-2 rounded-md bg-violet-950 hover:bg-indigo-950">
                             Lihat Detail Buku
                         </a>
+
+
                     </div>
                 </div>
                 </div>
@@ -518,7 +525,6 @@ const setCarouselBooks = (res) => {
               updateCarousel();
             });
             });
-        
         
     } catch (error) {
         console.log(error)
@@ -598,8 +604,10 @@ const setHomepageBooks = (prevRes) => {
                         <img class="rounded-md h-[10rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
                         <div class=" pl-3 flex-1 flex flex-col min-h-full ">
                             <div class="flex  justify-between items-start ">
-                            <div class="mt-1 mr-2">
-                            <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title : 'No Title'}</h1>
+                            <div class="mt-1 mr-2">               
+                        
+                            <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="detail/book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
+                                
                             <h1 class="text-gray-400 text-xs line-clamp-2">
                             ${book.authors.length > 0 ? book.authors.map((author,index)=>{
                                 if(index == book.authors.length - 1){

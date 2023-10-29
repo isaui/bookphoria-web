@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base-tailwind.html" %}
 {% load static %}
 
 {% block meta %}
@@ -328,6 +328,7 @@
     const categoriesContainer = document.getElementById('categories-container');
     const prevCategoriesButton = document.getElementById('prev-categories-button');
     const nextCategoriesButton = document.getElementById('next-categories-button');
+    const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
     
     let isAdvancedSearchSidebarOpen = false;
     let categoryList = ['All']
