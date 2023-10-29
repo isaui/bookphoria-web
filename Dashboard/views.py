@@ -170,8 +170,8 @@ def get_reviews_json(request):
     for review in reviews:
         review_data  = {
            # 'thumbnail': review.thumbnail,
-            'thumbnail' : review.photo,
-            'title': "Sebuah Judul" if review.title is None else review.title,  # Review dr Review App ga include title
+            'thumbnail' : review.photo.url if review.photo else "https://m.media-amazon.com/images/I/71lgQcXtPMS._AC_UF894,1000_QL80_.jpg",
+            'title': "Sebuah Judul" if review.book.title is None else review.book.title,  # Review dr Review App ga include title
             'rating': review.rating,
             'content': review.content,
         }

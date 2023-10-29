@@ -140,23 +140,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div id="reviews-container">
-          <!-- Daftar ulasan akan ditampilkan di sini -->
-          {% for review in reviews %}
-          <div class="review-heading">
-            <a class="text-capitalize"><i class="far fa-user mr-1"></i>{{review.user.username}}</a>
-            <a class="ml-2"><i class="far fa-clock mr-1"></i>{{review.date_added}}</a>
-            <i class="fa fa-star {% if review.rate > 4 %} checked {% endif %}" style="float: right;"></i>
-            <!-- ... (other stars) ... -->
-          </div>
-          <div class="review-body mt-2">
-            <p>{{review.review}}</p>
-            {% if review.image %}
-            <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mt-2">
-            {% endif %}
-          </div>
-          {% endfor %}
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -201,35 +184,64 @@
 </div>
 
 </div>
+<h2 class="mt-10 mb-4 text-3xl font-bold mx-8">Recent Reviews All Around The World:</h2>
+<div id="reviews-container" class="flex flex-col gap-8 mx-10 mb-10">
+  <!-- Daftar ulasan akan ditampilkan di sini -->
+  <!-- <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div>
+  <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div>
+  <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div>
+  <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div>
+  <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div>
+  <div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">
+    <p class="opacity-40">Hoshimachi gave <span class="font-bold opacity-100">4.5</span> rating to</p>
+    <h5 class="text-xl font-bold">Title</h5>
+    <p>yowai mooo</p>
+  </div> -->
+</div>
 
 
 
 
 <script>
-  async function getReview() {
-    return fetch("{% url 'ReviewApp:get_review_json' %}").then((res) => res.json())
-  }
 
   async function refreshReviews() {
     const reviewsContainer = document.getElementById("reviews-container");
-    reviewsContainer.innerHTML = "";
+    // reviewsContainer.innerHTML = "";
 
-    const reviews = await getReview()
-    reviews.forEach((review) => {
-      const reviewElement = document.createElement("div");
-      reviewElement.style.padding = "10px";
-      reviewElement.style.marginBottom = "10px";
-
-
-      const reviewText = document.createElement("p");
-      console.log(review.fields);
-      reviewsContainer += `\n
-      <div>
-        <h5>${review.fields.user}</h5>
-        <p>${review.fields.content}</p>
-      </div>`
+    const tmp = await fetch("/review/get-review")
+    const data = await tmp.json()
+    console.log("data")
+    console.log(data.reviews)
+    data.reviews.forEach(review => {
+      console.log(review.user);
+      console.log(review.content);
+      reviewsContainer.innerHTML += "\n" +
+      `<div class="shadow-xl w-full rounded-xl bg-zinc-100 px-4 py-6">` +
+        `<p class="opacity-40">${review.user} gave <span class="font-bold opacity-100">${review.rating}</span> star to</p>` +
+        `<h5 class="text-xl font-bold">${review.book}</h5>` +
+        `<p>${review.content}</p>` +
+      `</div>`
     })
-
   }
   refreshReviews();
 

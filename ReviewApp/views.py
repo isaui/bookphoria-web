@@ -19,9 +19,21 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, "home.html")
 
+@csrf_exempt
 def get_review_json(request):
-    review = Review.objects.filter(book=request.GET.get('book_id'))
-    return HttpResponse(serializers.serialize('json', review))
+    reviews = Review.objects.all()
+    review_list = []
+    for review in reviews:
+        review_data  = {
+            'user': review.user.username,
+            'book': review.book.title,
+            'rating': review.rating,
+            'content': review.content,
+        }
+        review_list.append(review_data)
+    print("==============KINGDOM ALL==============")
+    print(review_list)
+    return JsonResponse({'reviews': review_list})
 
 @login_required(login_url='/login/')
 def show_review(request):
@@ -32,7 +44,7 @@ def show_review(request):
     bookId = 1
     print("==============KINGDOM BOOK==============")
     print(bookId)
-    reviews = Review.objects.filter(book=bookId)
+    reviews = Review.objects.all()
     context = {
         'name' : request.user.username,
         'reviews' : reviews,
