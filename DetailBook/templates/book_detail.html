@@ -85,12 +85,11 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #808080; margin-top: 10px;">Close</button>
-                        <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
+                      <button type="button" class="btn btn-primary"  id="button_add" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment</button>
                     </div>
                 </div>
             </div>
           </div>
-
           
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #460C90; margin-top: 10px;">Add Comment by AJAX</button>
           
@@ -99,10 +98,16 @@
     </div>
   </div>
 
+  <!-- REVIEW SECTION -->
 
   <div class="container mt-5">
     <h5 class="text-uppercase font-weight-bold">Reviews</h5>
     <hr class="mt-0 pt-0">
+
+    <div id="reviews-container">
+      <!-- Daftar ulasan akan ditampilkan di sini -->
+    </div>
+
     <div class="col-sm-7 mt-2">
     {% for review in reviews %}
         <div class="review-heading">
@@ -123,7 +128,7 @@
     {% endfor %}
     </div>
     <div class="col-sm-5 mt-2">
-        <form class="review-form" method="POST" action="/review">
+        <form id="review-form" onsubmit="return false;"></form>
         {% csrf_token %}
         {% for book in books %}
             <input type="hidden" name="book_id" id="book_id" value="{{book.id}}"/>
@@ -154,7 +159,7 @@
                 </div>
             </div>
             {% if user.is_authenticated %}
-            <button id="post-btn" class="btn btn-danger btn-md m-0" type="submit">Post</button>
+            <button id="post-btn" class="btn btn-danger btn-md m-0" type="submit">Add Review by AJAX</button>
             {% else %}
             <p>You must be logged in for post a review, <a href="{ % url 'Bookphoria:login' %}">Login</a></p>
             {% endif %}
@@ -162,9 +167,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 <script>
   const bookEle = document.getElementById('bookId')
@@ -199,14 +201,13 @@
     const bookId = bookEle.getAttribute('data-value')
     console.log(bookEle.getAttribute('data-value'), 'ini')
     const comment = document.getElementById("name").value
-    const res = await fetch(`/details/add-comment-ajax/`, {
+    const res = await fetch(`/detail/add-comment-ajax/`, {
       method: "POST",
       headers:{
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({'comment':comment, 'bookId': bookId})
     });
-    console.log('berhasil')
     const result =  await res.json()
     refreshComments() 
     document.getElementById("form").reset();
@@ -216,39 +217,52 @@
   document.getElementById("button_add").onclick = addComment
 
 
-  let data = {
-        'imageUrl': '',
-        'rate': 5,
-        'comment':''
-    }
-    const setData = async  () => {
-       const rateInput =  document.querySelector('input[name="rate"]:checked');
-       const comment = document.getElementById("comment");
-       if(rateInput.value){
-        data.rate = parseInt(rateInput.value)
-       }
-       data.comment = comment.value.trim()
-       const res = await uploadImageByElement('upload-photo')
-       data.imageUrl = res
-       
-    }
-    const postBtn = document.getElementById('post-btn')
-    postBtn.addEventListener('click', async ()=> {
-       await  setData()
-        const resjson = await fetch('/review/create-review/', {
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-        const res = await resjson.json()
-        console.log(res)
+
+
+  async function getReview() {
+    return fetch("{% url 'ReviewApp:get_review_json' %}").then((res) => res.json())
+  }
+
+  async function refreshReviews() {
+    const reviewsContainer = document.getElementById("reviews-container");
+    reviewsContainer.innerHTML = "";
+
+    const reviews = await getReview()
+    reviews.forEach((review) => {
+      const reviewElement = document.createElement("div");
+      reviewElement.style.padding = "10px";
+      reviewElement.style.marginBottom = "10px";
+
+
+      const reviewText = document.createElement("p");
+      console.log(review.fields);
+      reviewsContainer.appendChild(reviewElement);
 
     })
+
+    document.addEventListener("DOMContentLoaded", refreshReviews);
+  }
+
+  async function addReview() {
+    const bookId = bookEle.getAttribute("data-value")
+    console.log(bookEle.getAttribute("data-value"), "ini")
+    const review = document.getElementById("name").value
+    const res = await fetch ("/review/create-review/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({"review":review, "bookId":bookId})
+    })
+    const result = await res.json()
+    refreshReviews()
+    document.getElementById().reset("review-form");
+    return false;
+  }
+
+document.getElementById("post-btn").onclick = addReview
+
 </script>
-
-
 
 <style>
   .info-row {

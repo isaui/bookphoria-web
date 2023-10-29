@@ -1,0 +1,192 @@
+{% extends 'base-tailwind.html' %}
+{% load static %}
+{% block meta %}
+    <title>Bookphoria</title>
+{% endblock meta %}
+
+{% block content %}
+    
+    {% include 'partials/navbar.html' %}
+    {% include "partials/sidebar.html"  %}
+    {% include "partials/loading-text.html"  %}\
+        <section id="homeContent" class="hidden mt-16 md:mt-20 mx-12 flex md:flex-row md:flex-row flex-col flex-row gap-10">
+            <div class="md:w-1/3 w-full flex flex-col items-center">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ03Q9ChkabFQ9M3syb-NEQOk9x34zv4pfFQ&usqp=CAU"
+                    class="rounded-full mb-4"
+                 />
+                <h2 class="text-xl font-bold">{{ user }}</h2>
+                <h2 class="text-xl mb-4 opacity-50">Suisei Hoshimachi</h2>
+                <h3 class="texl-xl font-bold mb-4">
+                    {{ user }}'s Books
+                </h3>
+                <div id="book-list" class="flex w-full h-32 gap-5 overflow-x-auto items-center align-middle justify-center">
+                    <!-- <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/01/Takanashi-Kiara_thumb.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%81%84%E3%81%AA%E3%81%AB%E3%81%99.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%81%90%E3%82%89.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2022/04/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%A2.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/10/IRyS_list_thumb.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/07/Nerissa-Ravencroft_list_thumb.png"/>
+                    <img src="https://hololive.hololivepro.com/wp-content/uploads/2023/02/FriendA_thumb.png"/> -->
+                </div>
+                <button data-modal-target="add-book-modal" data-modal-toggle="add-book-modal" type="button" class="mt-4 w-full py-2 bg-violet-950 hover:bg-indigo-950 text-white rounded-xl" data-bs-toggle="modal" data-bs-target="#exampleModal">Add More Book</button>
+            </div>
+            <div class="w-full md:mb-0 mb-16">
+                <h3 class="texl-xl font-bold mb-4">
+                    Recent Reviews
+                </h3>
+                <div id="review-list" class="h-[75vh] w-full overflow-y-auto flex flex-col gap-3">
+                    <!-- <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://images.goodsmile.info/cgm/images/product/20230703/14604/117609/large/9672319311faf53ec723ee366bc4346c.jpg" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://m.media-amazon.com/images/I/51PCNNihXeL._AC_UF894,1000_QL80_.jpg" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://cdn.kyou.id/items/197241-nendoroid-shishiro-botan-hololive-production.jpg.webp" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://cdn.kyou.id/items/244714-nendoroid-amane-kanata-hololive-production.jpg.webp" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://cdn.kyou.id/items/184581-nendoroid-enrico-pucci-jojos-bizzare-adventure.jpg.webp" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://cdn.kyou.id/items/121739-nendoroid-dio-brando-jojos-bizzare-adventure-stardust-crusader-re-release.jpg.webp" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-xl p-2 shadow-lg flex gap-6 max-h-32">
+                        <img src="https://cdn.kyou.id/items/241881-nendoroid-hayase-yuuka-blue-archive.jpg.webp" class="h-full aspect-square object-cover shadow-xl rounded-xl"/>
+                        <div>
+                            <h4 class="font-extrabold">Spy x Family Season 2</h4>
+                            <i class="fa-solid fa-star"> 4.5</i>
+                            <br class="mb-4"/>
+                            SUISEI NO GOTOKU ARAWARETA SUTAA NO GENSEKI! AIDORU VTUBER NO HOSHIMACHI SEUISEI DESU! SUI-CHAN WA--? KYOU MO KAWAII!
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div id="add-book-modal" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative w-2/3 max-h-full">
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="add-book-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <div class="px-6 py-6 lg:px-8">
+                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Book</h3>
+                            <form method="POST" id="add-book-form" class="space-y-6" action="#">
+                                {% csrf_token %}
+                                <table>
+                                    {{ form.as_table }}
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input type="submit" value="Add Product" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:cursor-pointer"/>
+                                            <!-- <button id="submit_new_book" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button> -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- <div class="flex flex-col gap-4">
+                                    <div>
+                                        <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
+                                        <input type="file" name="thumbnail" id="thumbnail" onchange="validateSize(this)" accept="image/*" class="text-gray-900"/>
+                                    </div>
+                                    <div class="flex md:flex-row flex-col md:gap-8 gap-4 justify-between">
+                                        <div class="flex flex-col w-full gap-4">
+                                            <div>
+                                                <label for="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
+                                                <input type="text" name="author" id="author" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="J. K. Rowling">
+                                            </div>
+                                            <div>
+                                                <label for="book_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                                                <input type="text" name="book_title" id="book_title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Harry Potter">
+                                            </div>
+                                            <div>
+                                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                                                <input type="text" name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Fantasy, Comedy">
+                                            </div>
+                                            <div>
+                                                <label for="publisher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Publisher</label>
+                                                <input type="text" name="publisher" id="publisher" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Bloomsbury">
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-full gap-4">
+                                            <div>
+                                                <label for="language" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
+                                                <input type="text" name="language" id="language" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="English">
+                                            </div>
+                                            <div>
+                                                <label for="page-count" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pages</label>
+                                                <input type="text" name="page-count" id="page-count" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="265">
+                                            </div>
+                                            <div>
+                                                <label for="pub-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Published Date</label>
+                                                <input type="date" name="pub-date" id="pub-date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                            </div>
+                                            <div class="flex flex-row gap-4">
+                                                <div class="w-1/3">
+                                                    <label for="currencyCode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code</label>
+                                                    <input type="text" name="currencyCode" id="currencyCode" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="IDR">
+                                                </div>
+                                                <div class="w-full">
+                                                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                                                    <input type="text" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="72999">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                        <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Lorem ipsum dolor sit amet"></textarea>
+                                    </div>
+                                    <button id="submit_new_book" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add your book</button>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    <script src="{% static 'js/profile.js' %}"></script>
+    <script type="module" src="{% static 'js/firebase-upload.js' %}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+{% endblock content %}

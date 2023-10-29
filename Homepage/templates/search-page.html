@@ -1,0 +1,913 @@
+{% extends "base-tailwind.html" %}
+{% load static %}
+
+{% block meta %}
+    
+{% endblock meta %}
+
+
+{% block content %}
+
+{% include "partials/raw-navbar.html" %}
+{% include "partials/sidebar.html" %}
+{% include "partials/loading-text.html" %}
+
+<style>
+    .books-sidebar {
+  z-index: 50;
+  }
+  
+    @media (min-width:1024px) {
+  .books-sidebar{
+      z-index: 10;
+  }
+}
+/* width */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgb(229 231 235) !important;
+    border-radius: 0px;
+    
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+  </style>
+  
+  <div style="z-index: 40;" id="sidebar-background" class="hidden fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-40">
+
+  </div>
+
+  <div id="books-sidebar"  class=" books-sidebar translate-x-[32rem]  lg:translate-x-0 transition-transform duration-700 transform pt-1 lg:pt-[5rem] px-2  flex fixed flex-col  text-slate-800     w-full  top-0 right-0 bg-gray-200 max-h-[100vh] min-h-screen max-w-[70%] md:max-w-[45%] lg:max-w-[25%]">
+      <div class="relative flex flex-col w-full h-full overflow-y-auto custom-scrollbar   grow max-h-[100vh] py-2">
+        <h1 class="w-full text-2xl font-bold lg:mt-1  px-4">Advanced Search</h1>
+
+        <div class="w-full mt-2 flex flex-col items-start px-4 ">
+            <h1 class="text-base">With all of the words</h1>
+            <input type="text"   name="all-words"  class="rounded-md form-input py-2 pl-4 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Our Perfect Love">
+        </div>
+        <div class="w-full mt-2 flex flex-col items-start px-4 ">
+            <h1 class="text-base">With the exact phrase</h1>
+            <input type="text"   name="exact-phrase"  class="rounded-md form-input py-2 pl-4 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Magic Book">
+        </div>
+        <div class="w-full mt-2 flex flex-col items-start px-4">
+            <h1 class="text-base">With at least of the words</h1>
+            <input type="text"   name="at-least-words"  class="rounded-md form-input py-2 pl-4 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Fantasy Love">
+        </div>
+        <div class="w-full mt-2 flex flex-col items-start px-4 ">
+            <h1 class="text-base">Without the words</h1>
+            <input type="text"   name="without-words"  class="rounded-md form-input py-2 pl-4 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Abuse Crime">
+        </div>
+
+        <div class="w-full mt-2 flex flex-col items-start ">
+            <div class="flex items-center justify-between w-full px-4">
+                <h1 class="text-base">Category</h1>
+                <div class="flex grow  justify-end">
+                    <h1 id="current-selected-categories"class="text-xs ml-2"></h1>
+                </div>
+            </div>
+            <div id="categories-overlay" class=" w-full px-2 relative  hidden transform transition-transform duration-300 ease-in-out whitespace-nowrap  flex  items-center justify-start px-1 min-h-[2rem] md:min-h-[3rem]  py-2 font-bold text-xs">
+                <div class="flex w-full items-center justify-start px-2">
+            
+                    <div id="categories-container" class="  flex grow scroll-smooth overflow-x-hidden items-center h-full my-auto  font-bold  ">
+                    </div>
+                </div>
+                <button id="next-categories-button"class="hidden absolute top-1/2 right-0 transform  -translate-y-1/2   flex justify-center items-center">
+                    <div  class="relative z-20 text-sm w-5 h-5  flex items-center justify-center">
+                        <i class="fas fa-chevron-right "></i>
+                    </div>
+                </button>
+                <button id="prev-categories-button" class="hidden absolute top-1/2 left-0 transform  -translate-y-1/2  flex justify-center items-center">
+                    <div  class="relative z-20  text-sm w-5 h-5  flex items-center justify-center">
+                        <i class="fas fa-chevron-left "></i>
+                    </div>
+                </button>
+            </div>
+            <div class="w-full justify-end flex items-center px-4">
+                <h1 id="remove-all-categories" class="hidden px-2 py-1 rounded-md  bg-red-500 text-white hover:bg-red-600 items-center justify-center text-xs">Remove All</h1>
+            </div>
+        </div>
+
+        <div class="w-full mt-2 flex flex-col items-start px-4">
+          <h1 class="text-base">Sort By</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="sortBy" value="TERBARU" checked>
+                <span class="ml-2">Terbaru</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="TERLAMA">
+                <span class="ml-2">Terlama</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="PALING_BANYAK_DISUKAI">
+                <span class="ml-2">Paling Banyak Disukai</span>
+              </label>
+              <label class="flex items-center mr-2 ">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="sortBy" value="REVIEW_TERBANYAK">
+                  <span class="ml-2">Review Terbanyak</span>
+                </label>
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start px-4 ">
+          <h1 class="text-base mb-1">Year Range</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <div class="flex space-x-4 items-center">
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="1978" max="2023"  name="minYear" id="minYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Min Year">
+              
+                  </div>
+                  </div>
+                
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" max="2023" min="1978" name="maxYear" id="maxYear" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Max Year"> 
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start px-4">
+          <h1 class="text-base">Maturity Rating</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="maturity" value="ALL" checked>
+                <span class="ml-2">All</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="NOT_MATURE">
+                <span class="ml-2">Not Mature</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="maturity" value="MATURE">
+                <span class="ml-2">Mature</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start px-4">
+          <h1 class="text-base">Saleability Option</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="saleability" value="ALL" checked>
+                <span class="ml-2">All</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="FREE">
+                <span class="ml-2">Available for Free</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="saleability" value="PAID">
+                <span class="ml-2">Paid Purchase</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col  items-start px-4">
+          <h1 class="text-base mb-1">Average Ratings</h1>
+          <div class="flex flex-col text-sm items-start flex-wrap grow">
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="default" checked>
+                  <span class="ml-2">Default</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="4-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="3-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="2-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              <label class="flex items-center mb-1">
+                  <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="star" value="1-up">
+                  <div class="ml-2 rating text-yellow-400 text-sm">
+                      <span class="fas fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                      <span class="far fa-star"></span>
+                  </div> 
+                  <span class="ml-2">& Up</span>
+              </label>
+              
+
+            </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start px-4">
+          <h1 class="text-base mb-1">Price Range</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <div class="flex space-x-4 items-center">
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="0" name="minPrice" id="minPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Minimum Price">
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
+                          IDR
+                        </div>
+                  </div>
+                  </div>
+                
+                  <div class="w-1/2">
+                    <div class="relative rounded-md shadow-sm">
+                      <input type="number" min="0" name="maxPrice" id="maxPrice" class="rounded-md form-input py-2 pl-10 pr-4 block w-full sm:text-sm sm:leading-5" placeholder="Maximum Price"> 
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold  pointer-events-none">
+                          IDR
+                        </div>
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+      <div class="w-full mt-2 flex flex-col items-start px-4">
+          <h1 class="text-base">Availability</h1>
+          <div class="flex  text-sm items-center flex-wrap grow">
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " name="availability" value="default" checked>
+                <span class="ml-2">Default</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="PDF">
+                <span class="ml-2">PDF</span>
+              </label>
+              <label class="flex items-center mr-2">
+                <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" name="availability" value="EPUB">
+                <span class="ml-2">EPUB</span>
+              </label>
+            </div>
+      </div>
+      <div class="w-full  mt-auto px-4">
+          <button id="apply-preference" class=" mb-2 mt-2 bg-violet-600 w-full rounded-md text-white px-2 py-2 flex items-center justify-center text-xl">APPLY</button>
+      </div>
+      </div>
+      
+    </div>
+
+ <div class="flex flex-col  w-screen max-w-[100vw] lg:max-w-[75%]  pt-12 lg:pt-16 min-h-screen ">
+    <div id="content" data-category="{{category}}" data-search-text="{{search_text}}" class="hidden  flex-col px-4 grow w-full">
+        <div class="flex flex-col w-full grow ">
+            <div class="flex items-center">
+                <div id="header" class="flex flex-col w-full items-start mt-4 px-2 mb-2">
+                    <h1 id="search-title" class="line-clamp-4 md:text-lg lg:text-xl text-base font-bold">
+                        Hasil Pencarian untuk <span class="text-blue-500">{{search_text}}</span>
+                    </h1>
+                    <p id="result-total">0 Hasil Ditemukan</p>
+                </div>
+                <div class="lg:hidden flex w-full  justify-end">
+                    <button id="advanced-search" class="ml-2 text-white  bg-violet-950 hover:bg-indigo-950 lg:text-base md:text-sm text-xs rounded-md flex items-center justify-center px-3 py-2">
+                        <h1 class="">Advanced Search</h1>
+                    </button>
+                </div>
+            </div>
+            <div id="top-divider" class="flex  w-full px-2">
+                <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+            </div>
+            <div id="books-card-container" class="grid  md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1 grid-flow-row auto-rows-max">
+            </div>
+            <div id="bottom-divider" class="flex  w-full px-2">
+                <hr class="px-2 border-b border-[#460C90] w-full opacity-20">
+            </div>
+        </div>
+    </div>
+ </div>
+ <script>
+    let books = [];
+    const content = document.getElementById("content");
+    const bottomDivider = document.getElementById("bottom-divider");
+    const topDivider = document.getElementById("top-divider");
+    const loading = document.getElementById("loading-text");
+    const booksCardContainer = document.getElementById("books-card-container");
+    const resultText = document.getElementById("result-total");
+    const category = content.getAttribute("data-category"); // Ambil dari konteks template atau permintaan
+    const searchText = content.getAttribute("data-search-text"); // Ambil dari konteks template atau permintaan
+    const advancedSearchBtn = document.getElementById("advanced-search");
+    const advancedSearchSidebar = document.getElementById("books-sidebar");
+    const advancedSearchBackground = document.getElementById("sidebar-background");
+    const applyAdvancedSearchBtn = document.getElementById("apply-preference");
+    const searchTitle = document.getElementById("search-title");
+    const categoriesOverlay = document.getElementById('categories-overlay');
+    const currentSelectedCategoriesText = document.getElementById('current-selected-categories');
+    const removeAllCategoriesBtn = document.getElementById('remove-all-categories');
+    const categoriesContainer = document.getElementById('categories-container');
+    const prevCategoriesButton = document.getElementById('prev-categories-button');
+    const nextCategoriesButton = document.getElementById('next-categories-button');
+    const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
+    
+    let isAdvancedSearchSidebarOpen = false;
+    let categoryList = ['All']
+    let currentSelectedCategories = ['All'];
+    let prevWidth = window.innerWidth;
+    let currentAdvancedPreferences = {
+    sortBy: 'TERBARU',
+    minYear: '',
+    maxYear: '',
+    maturity: 'ALL',
+    saleability: 'ALL',
+    star: 'default',
+    minPrice: '',
+    maxPrice: '',
+    availability: 'default',
+    allWords: '',
+    exactPhrase:'',
+    atLeastWords:'',
+    withoutWords:''
+  };
+  removeAllCategoriesBtn.addEventListener('click', ()=> {
+        currentSelectedCategories = []
+        establishCurrentSelectedCategories()
+        setCategoriesView()
+    })
+
+categoriesContainer.addEventListener("touchstart", (e)=> {
+    startX = e.touches[0].clientX;
+})
+categoriesContainer.addEventListener("touchend", (e)=> {
+    endX = e.changedTouches[0].clientX;
+    const deltaX = startX - endX;
+    if(deltaX > 2){
+        categoriesContainer.scrollLeft += deltaX
+    }
+    else if(deltaX < -2){
+        categoriesContainer.scrollLeft += deltaX
+    }
+})
+
+const handleCategoriesContainerResize = () => {
+    const padding = 4 * parseFloat(getComputedStyle(categoriesContainer).fontSize);
+    if(categoriesContainer.scrollWidth - padding > categoriesContainer.clientWidth){
+        if(categoriesContainer.clientWidth + categoriesContainer.scrollLeft 
+        >= categoriesContainer.scrollWidth - padding){
+            console.log('SINI 1')
+            prevCategoriesButton.style.display = 'flex';
+            nextCategoriesButton.style.display = 'none';
+        }
+        else if(categoriesContainer.scrollLeft === 0){
+            console.log('SINI 2')
+            prevCategoriesButton.style.display = 'none';
+            nextCategoriesButton.style.display = 'flex';
+        }
+        else{
+            console.log('SINI 3')
+            prevCategoriesButton.style.display = 'flex';
+            nextCategoriesButton.style.display = 'flex';
+        }
+    }
+    else{
+        prevCategoriesButton.style.display = 'none';
+            nextCategoriesButton.style.display = 'none';
+    }
+}
+
+categoriesContainer.addEventListener("scroll", handleCategoriesContainerResize);
+window.addEventListener("resize", handleCategoriesContainerResize);
+window.addEventListener("DOMContentLoaded", handleCategoriesContainerResize);
+
+
+// Menambahkan event listener pada tombol "prev" (kiri)
+prevCategoriesButton.addEventListener('click', () => {
+    // Menggeser scroll ke kiri
+categoriesContainer.scrollLeft -= 450; // Sesuaikan dengan jumlah pixel yang Anda inginkan
+});
+
+nextCategoriesButton.addEventListener('click', () => {
+// Menggeser scroll ke kanan
+categoriesContainer.scrollLeft += 450; // Sesuaikan dengan jumlah pixel yang Anda inginkan
+});
+
+
+
+  const getCategoriesFromApi = async () => {
+        const resJson = await fetch('/get-categories/');
+        const res = await resJson.json();
+        categoryList = ['All',...res.categories];
+        setCategoriesView();
+        categoriesOverlay.classList.remove('hidden');
+    }
+
+  const setCategoriesView = () => {
+    const categoriesContainer = document.getElementById('categories-container');
+    let innerHTML = ``;
+    for(const key of categoryList){
+        const category = key
+        const sanitizedCategory = `${category}`; 
+        const categoryHTML = `<div id="${sanitizedCategory}-books-btn" class="py-2 px-2  rounded-md mr-2 text-white text-xs ${currentSelectedCategories.includes(sanitizedCategory) ? 'bg-green-500' : 'bg-indigo-900'} ">${category}</div>`;
+        innerHTML += categoryHTML
+    }
+    categoriesContainer.innerHTML = innerHTML;
+    for(const key of categoryList){
+        const id = key+'-books-btn'
+        const btn = document.getElementById(id);
+        if(btn){
+            btn.addEventListener('click', ()=> {
+                if(! currentSelectedCategories.includes(key)){
+                    btn.classList.remove('bg-indigo-900');
+                    btn.classList.add('bg-green-500');
+                    currentSelectedCategories.push(key);
+                    establishCurrentSelectedCategories();
+                }
+                else{
+                    btn.classList.remove('bg-green-500');
+                    btn.classList.add('bg-indigo-900');
+                    currentSelectedCategories = currentSelectedCategories.filter((elementKey)=> elementKey != key);
+                    establishCurrentSelectedCategories();
+                }
+            })
+        }
+    }
+  }
+
+
+  const establishCurrentSelectedCategories = () => {
+    if(currentSelectedCategories.length > 0){
+        currentSelectedCategoriesText.style.display = 'flex'
+        currentSelectedCategoriesText.textContent = `${currentSelectedCategories.length} selected`
+        removeAllCategoriesBtn.classList.remove('hidden')
+        removeAllCategoriesBtn.classList.add('flex')
+    }
+    else{
+        currentSelectedCategoriesText.style.display = 'none'
+        currentSelectedCategoriesText.textContent = ``
+        if( ! removeAllCategoriesBtn.classList.contains('hidden')){
+            removeAllCategoriesBtn.classList.remove('flex')
+            removeAllCategoriesBtn.classList.add('hidden')
+            
+        }
+    }
+  }
+
+
+  const showSuccess = (message) => {
+    return Toastify({
+        text: message,
+        duration: 3000, // Durasi tampilan toast (dalam milidetik)
+        style: {
+          background: 'green', // Warna latar belakang untuk pesan sukses
+          color: 'white', // Warna teks untuk pesan sukses
+        },
+        close:true
+      }).showToast();
+}
+
+const showError = (message) => {
+    return Toastify({
+        text: message,
+        duration: 3000, // Durasi tampilan toast (dalam milidetik)
+        style: {
+          background: 'red', // Warna latar belakang untuk pesan sukses
+          color: 'white', // Warna teks untuk pesan sukses
+        },
+        close:true
+      }).showToast();
+}
+
+ applyAdvancedSearchBtn.addEventListener('click', ()=>{
+    console.log('terclick')
+    applyPreferences();
+ })
+
+  const applyPreferences = async () => {
+    const newPreferences = getPreferences();
+    if(newPreferences){
+        currentAdvancedPreferences = newPreferences;
+        let {allWords, exactPhrase, atLeastWords, withoutWords} = currentAdvancedPreferences;
+        allWords = allWords.trim().replace(/\s+/g, ' ');;
+        exactPhrase = exactPhrase.trim().replace(/\s+/g, ' ');;
+        atLeastWords = atLeastWords.trim().replace(/\s+/g, ' ');;
+        withoutWords = withoutWords.trim().replace(/\s+/g, ' ');;
+        loading.style.display = 'flex'
+        await getBooksAdvancedSearch({allWords,exactPhrase,atLeastWords,withoutWords});
+        if(getMode(window.innerWidth) != 'LARGE'){
+            closeAdvancedSearch()
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        
+        searchTitle.innerHTML = 
+        `Hasil pencarian untuk <span class="text-indigo-600">${allWords} ${exactPhrase.length > 0 ? `"${exactPhrase}"` : ''} ${atLeastWords.replace(/ /g, ' OR ')} </span><span class="text-red-500">${withoutWords.trim().length > 0 ? '-' + withoutWords.replace(/ /g, ' -') : ''}</span>`
+
+        loading.style.display = 'none'
+       
+    }
+  }
+
+  const getPreferences = () => {
+    let preferences = {};
+    let error = false;
+
+    preferences.allWords = document.querySelector('[name="all-words"]').value;
+    preferences.exactPhrase = document.querySelector('[name="exact-phrase"]').value;
+    preferences.atLeastWords = document.querySelector('[name="at-least-words"]').value;
+    preferences.withoutWords = document.querySelector('[name="without-words"]').value;
+
+    const isSame = (value,otherValue) => value.toUpperCase().trim() === otherValue.toUpperCase().trim();
+    const isEmpty = (value) => value.trim().length == 0;
+
+    if(isEmpty(preferences.allWords) && isEmpty(preferences.atLeastWords) && isEmpty(preferences.exactPhrase)){
+        showError('Teks pencarian tidak boleh kosong');
+        error = true;
+    }
+  
+    // Mendapatkan nilai "Sort By"
+    preferences.sortBy = document.querySelector('input[name="sortBy"]:checked').value;
+  
+    // Mendapatkan nilai "Year Range"
+    preferences.minYear = document.getElementById('minYear').value;
+    preferences.maxYear = document.getElementById('maxYear').value;
+  
+    // Mendapatkan nilai "Maturity Rating"
+    preferences.maturity = document.querySelector('input[name="maturity"]:checked').value;
+  
+    // Mendapatkan nilai "Saleability Option"
+    preferences.saleability = document.querySelector('input[name="saleability"]:checked').value;
+  
+    // Mendapatkan nilai "Average Ratings"
+    preferences.star = document.querySelector('input[name="star"]:checked').value;
+  
+    // Mendapatkan nilai "Price Range"
+    preferences.minPrice = document.getElementById('minPrice').value;
+    preferences.maxPrice = document.getElementById('maxPrice').value;
+    
+    // Mendapatkan nilai "Availability"
+    preferences.availability = document.querySelector('input[name="availability"]:checked').value;
+
+    //if(preferences.minPrice )
+
+    if(preferences.minPrice != "" && preferences.maxPrice != ""){
+        if(parseFloat(preferences.minPrice) > parseFloat(preferences.maxPrice)){
+            showError('Harga minimal tidak boleh melebihi harga maksimal');
+            error = true;
+        }
+    }
+
+    if(preferences.minPrice != ""){
+        if(parseFloat(preferences.minPrice) < 0){
+            showError('Harga tidak boleh negatif');
+            error = true;
+        }
+    }
+    if(preferences.maxPrice != ""){
+        if(parseFloat(preferences.maxPrice) < 0){
+            showError('Harga tidak boleh negatif');
+            error = true;
+        }
+    }
+
+    if(preferences.minYear != ""){
+        if(parseFloat(preferences.minYear) < 1978){
+            showError('Tahun minimal adalah 1978');
+            error = true;
+        }
+        if(parseFloat(preferences.minYear) > 2023){
+            showError('Tahun maksimal adalah 2023');
+            error = true;
+        }
+    }
+    if(preferences.maxYear != ""){
+        if(parseFloat(preferences.maxYear) < 1978){
+            showError('Tahun minimal adalah 1978');
+            error = true;
+        }
+        if(parseFloat(preferences.maxYear) > 2023){
+            showError('Tahun maksimal adalah 2023');
+            error = true;
+        }
+    }
+
+    if(preferences.minYear != "" && preferences.maxYear != ""){
+        if(parseFloat(preferences.minYear) > parseFloat(preferences.maxYear)){
+            showError('Tahun minimal tidak boleh melebihi tahun maksimal');
+            error = true;
+        }
+        
+    }
+    if(error){
+        document.getElementById('minPrice').value = "";
+        document.getElementById('maxPrice').value = "";
+        document.getElementById('minYear').value = "";
+        document.getElementById('maxYear').value = "";
+        return null;
+    }
+  
+    return preferences;
+  }
+
+
+
+    const getMode = (width) => width < 768 ? 'MOBILE' : width < 1024 ? 'MEDIUM' : 'LARGE';
+    const openAdvancedSearch = () => {
+        advancedSearchBackground.style.display = 'flex';
+        advancedSearchSidebar.style.transform = 'translateX(0)';
+        isAdvancedSearchSidebarOpen = true;
+    }
+    const closeAdvancedSearch = () => {
+        advancedSearchBackground.style.display = 'none';
+        advancedSearchSidebar.style.transform = 'translateX(32rem)';
+        isAdvancedSearchSidebarOpen = false;
+    }
+    advancedSearchBtn.addEventListener('click', ()=>{
+        openAdvancedSearch();
+    })
+    advancedSearchBackground.addEventListener('click', ()=> {
+        closeAdvancedSearch();
+    })
+    const sidebarResize = () => {
+        const currentWidth = window.innerWidth;
+        const isMedium = (width) => width >= 768 && width < 1024;
+        const isLarge = (width) => width >= 1024;
+        const isSmall = (width) => width < 768;
+        if((isMedium(currentWidth) || isSmall(currentWidth)) && isLarge(prevWidth)){
+            if(!isAdvancedSearchSidebarOpen){
+                closeAdvancedSearch()
+            }
+        }
+
+            if(isLarge(currentWidth) && isAdvancedSearchSidebarOpen){
+                closeAdvancedSearch()
+        }
+
+            if(isLarge(currentWidth)){
+                advancedSearchSidebar.style.transform = 'translateX(0)'
+                advancedSearchBackground.style.display = 'none'
+        }
+        prevWidth = currentWidth;
+    }
+    window.addEventListener('resize', sidebarResize)
+    sidebarResize()
+
+    const getBooksAdvancedSearch = async (data) => {
+        console.log(data)
+        const url = '/advanced-search-json/'
+        const requestOptions = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify(data), 
+        };
+        try {
+            const resJson = await fetch(url,requestOptions);
+            const res = await resJson.json();
+            const selectedBooks = setBooksPreference(res.books);
+            books = [...selectedBooks]
+            setBooks(selectedBooks, (currentAdvancedPreferences.allWords+' '+currentAdvancedPreferences.exactPhrase+' '+currentAdvancedPreferences.atLeastWords.replace(/\bOR\b/g, " ")).trim())
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const setBooksPreference = (newBooks) => {
+            let currentPreferences = currentAdvancedPreferences;
+            const sortBy = currentPreferences.sortBy;
+            const filterByMaturityRating = currentPreferences.maturity == 'ALL'? (maturityRating) => true :
+            currentPreferences.maturity == 'NOT_MATURE'? (maturityRating) => maturityRating.toUpperCase() == 'NOT_MATURE' :
+            (maturityRating) => maturityRating.toUpperCase() == 'MATURE';
+            const filterByYearRange = currentPreferences.minYear == '' && currentPreferences.maxYear == ''?
+            (min,max,year)=> true : currentPreferences.minYear == ''? (min,max,year)=> year <= parseFloat(max) :
+            currentPreferences.maxYear == ''? (min,max,year)=> year >= parseFloat(min) : (min,max,year) =>
+            year <= max && year >= min;
+            const filterBySalebiality = currentPreferences.saleability == 'ALL'? (saleability) => true :
+            currentPreferences.saleability == 'FREE'? (saleability) => saleability == false:
+            (saleability) => saleability == true;
+            //todo: star rating
+            const filterByStarRating = (star)=> true;
+            const filterByPrice = currentPreferences.maxPrice == '' && currentPreferences.minPrice == ''?
+            (min, max, price)=> true : currentPreferences.maxPrice == ''? (min, max, price) => price >= parseFloat(min) :
+            currentPreferences.minPrice == ''? (min, max, price )=> price <= parseFloat(max) :
+            (min,max,price) => price <= parseFloat(max) && price >= parseFloat(min);
+            const filterByAvailability = currentPreferences.availability == 'default'? (pdf,epub) => true :
+            currentPreferences.availability == 'PDF'? (pdf,epub) => pdf == true :
+            (pdf,epub) => epub == true;
+            newBooks.sort((firstBook, secondBook)=> {
+                if(sortBy == 'TERBARU'){
+                    return new Date(secondBook.user_publish_time) - new Date(firstBook.user_publish_time)
+                }
+                if(sortBy == 'TERLAMA'){
+                    return new Date(firstBook.user_publish_time) - new Date(secondBook.user_publish_time)
+                }
+                if(sortBy == 'PALING_BANYAK_DISUKAI'){
+                    return 0;
+                }
+                if(sortBy == 'REVIEW_TERBANYAK'){
+                    return 0;
+                }
+            });
+            if(! currentSelectedCategories.includes('All')){
+                newBooks = newBooks.filter((book)=>{
+                    if(!book.categories){
+                        return false;
+                    }
+                    return currentSelectedCategories.some(category => book.categories.includes(category));
+                })
+            };
+            newBooks = newBooks.filter((book)=> {
+                if(currentPreferences.saleability == 'FREE'){
+                    return filterByMaturityRating(book.maturity_rating) && 
+                    filterByYearRange(currentPreferences.minYear, currentPreferences.maxYear,
+                    parseFloat(book.published_date.split("-")[0])) &&
+                    filterBySalebiality(book.saleability) &&
+                    filterByAvailability(book.pdf_available, book.epub_available)
+                }
+                return filterByMaturityRating(book.maturity_rating) && 
+                    filterByYearRange(currentPreferences.minYear, currentPreferences.maxYear,
+                    parseFloat(book.published_date.split("-")[0])) &&
+                    filterBySalebiality(book.saleability) &&
+                    filterByAvailability(book.pdf_available, book.epub_available) &&
+                    filterByPrice(currentPreferences.minPrice, currentPreferences.maxPrice, parseFloat(book.price?? '0'))
+
+            })
+            console.log('ini buku yang anda minta-> ', newBooks);
+            if(mode() != 'LARGE'){
+                closeAdvancedSearch()
+            }
+            return newBooks;
+            
+        }
+
+    const fetchBooks = async () => {
+        try {
+            console.log(category, searchText)
+            const resJson = await fetch(`/search-books-json/${category}/${searchText}`);
+            const res = await resJson.json();
+            setBooks(res.books, searchText)
+            books = [...res.books]
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const  userPublishTime = (timestamp) => {
+    // Konversi timestamp ke objek Date
+    const eventTime = new Date(timestamp);
+  
+    // Waktu saat ini
+    const currentTime = new Date();
+  
+    // Hitung selisih waktu dalam milidetik
+    const timeDifference = currentTime - eventTime;
+  
+    // Hitung selisih waktu dalam detik, menit, jam, dan hari
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+  
+    if (days >= 1) {
+      return `${days} hari yang lalu`;
+    } else if (hours >= 1) {
+      return `${hours} jam yang lalu`;
+    } else if (minutes >= 1) {
+      return `${minutes} menit yang lalu`;
+    } else {
+      return 'Baru saja';
+    }
+  }
+
+  const setBooksWrapper=  (res, sameText='') => {
+    console.log('HEII')
+    loading.style.display = 'flex';
+    setTimeout(()=> {
+        setBooks(res, sameText)
+        loading.style.display = 'none';
+    }, 1200)
+  }
+    const setBooks = (res, sameText='') => {
+        console.log('Hello')
+        let booksString = ``;
+        
+        if(res.length == 0){
+            booksCardContainer.className = "flex flex-col items-center justify-center px-1 w-full grow";
+    
+            topDivider.style.display = 'none';
+            bottomDivider.style.display = 'none';
+            booksCardContainer.innerHTML = `
+            <div class=' min-w-[12rem] w-[15%] h-auto'>
+                <img class='w-full h-full' src="/static/img/empty.svg" >
+            </div>
+            <div class="text-lg font-bold flex w-full justify-center mt-3">
+            Maaf Buku Tidak Ada.
+            </div>
+            `
+            resultText.textContent = `${res.length} hasil ditemukan`;
+            return;
+        }
+        booksCardContainer.className = "grid  md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1 grid-flow-row auto-rows-max";
+        res.forEach((book,index) => {
+            const isFirstLast = index == res.length -1;
+            const isSecondLast = index == res.length -2;
+            const isThirdLast = index == res.length -3;
+            const bookString = `
+            <div  class="flex-auto flex flex-col  ">
+                    <div class="  w-full px-2 grow flex  min-h-[13rem]  py-2">
+                        <img class="rounded-md h-[10rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
+                        <div class=" pl-3 flex-1 flex flex-col min-h-full ">
+                            <div class="flex  justify-between items-start ">
+                            <div class="mt-1 mr-2">
+                            <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title.replace(new RegExp(sameText, 'gi'), match => `<span class="text-blue-500">${match}</span>`) : 'No Title'}</h1>
+                            <h1 class="text-gray-400 text-xs line-clamp-2">
+                            ${book.authors.length > 0 ? book.authors.map((author,index)=>{
+                                if(index == book.authors.length - 1){
+                                    return `<a>${author}</a><span>.</span>`
+                                }
+                                return `<a>${author}</a><span>, </span>`
+                            }) : 'Unknown'}
+                            </h1>
+                        </div>  
+                                
+                                <div class="ml-auto flex flex-col items-center justify-center">
+                                    <div class=" fas fa-heart text-red-500 text-lg">
+                                    </div>
+                                    <h1 class="text-xs">1024</h1>
+                                </div>
+                            </div>
+                            
+                            <div class="text-xs text-gray-400 mt-1">
+                                Created by <span class="text-[#460C90]">Isa Citra</span>
+                            </div>
+                            <div class="mt-1 flex items-center space-x-2">
+                                <div class="rating text-yellow-400 text-sm">
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-star-half-alt"></span>
+                                </div> 
+                                <div class="text-xs text-gray-400">
+                                    415 Reviews
+                                </div>
+                            </div>    
+                            <div  class="mt-1 text-gray-400 text-xs line-clamp-2">
+                                ${book.categories.length > 0 ? book.categories.map((category,index)=>{
+                                    if(index == book.categories.length - 1){
+                                        return `<a>${category}</a><span>.</span>`
+                                    }
+                                    return `<a>${category}</a><span>, </span>`
+                                }) : 'No categories'}
+                            </div>
+                            <div  class="mt-2 text-[#C52A62] font-bold text-sm line-clamp-2">
+                                ${book.currencyCode && book.price? `${book.currencyCode} <span>${book.price}</span>` : 'FREE'}
+                            </div>
+                            <div class="mt-auto ml-auto text-xs text-gray-500">
+                                ${userPublishTime(book.user_publish_time)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-auto border-b border-[#460C90] w-full opacity-20 ${isFirstLast? ' hidden ' : isSecondLast? `${res.length % 2 == 0? ` md:hidden ${res.length % 3? 'lg:flex' : ''} ` :
+                     res.length % 3 == 0? ` lg:hidden `:' '}`: isThirdLast? `${res.length % 3 == 0? ` lg:hidden `: ``}` : ``}">
+                    </div>
+                    </div>
+            `
+            booksString += bookString;
+        });
+        booksCardContainer.innerHTML = booksString;
+        resultText.textContent = `${res.length} hasil ditemukan`;
+    }
+    window.addEventListener('load', async ()=>{
+        await getCategoriesFromApi()
+        establishCurrentSelectedCategories()
+        handleCategoriesContainerResize()
+        await fetchBooks()
+        content.classList.remove('hidden')
+        content.classList.add('flex')
+        loading.style.display = 'none';
+    })
+ </script>
+{% endblock content %}
+    
+    
+

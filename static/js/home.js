@@ -30,7 +30,7 @@ const pcSearchInput = document.getElementById('pc-search-input');
 const pcSearchAnswerBtn = document.getElementById('pc-search-answer');
 const mobileSearchInput = document.getElementById('mobile-search-input');
 const mobileSearchAnswerBtn = document.getElementById('mobile-search-answer');
-let searchText = mobileSearchInput.value;
+let searchText = '';
 mobileSearchInput.addEventListener('input', (event) => {
     searchText = event.target.value;
     pcSearchInput.value = searchText;
@@ -587,6 +587,7 @@ const setHomepageBooks = (prevRes) => {
             return;
     }
     try {
+        booksCardContainer.className = "grid  md:grid-cols-2 lg:grid-cols-3  gap-y-2 w-full px-1 grid-flow-row auto-rows-max";
         topDivider.classList.remove('hidden');
         bottomDivider.classList.remove('hidden');
         allBooksButton.classList.remove('hidden');

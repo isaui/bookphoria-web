@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Author(models.Model):
@@ -18,8 +20,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Book(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255, blank=False, null=False)
     subtitle = models.CharField(max_length=255, blank=True, null=True )
     description = models.TextField(blank=True, null=True)
@@ -27,7 +29,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100, blank=True, null=True)
     published_date = models.DateField(blank=True, null=True)
     language = models.CharField(max_length=10)
-    currencyCode= models.CharField(max_length=10, blank=True, null=True)
+    currencyCode = models.CharField(max_length=10, blank=True, null=True)
     is_ebook = models.BooleanField()
     pdf_available = models.BooleanField()
     pdf_link = models.URLField(blank=True, null=True)
@@ -48,6 +50,3 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-    
-
-

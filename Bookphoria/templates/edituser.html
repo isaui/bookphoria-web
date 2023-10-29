@@ -1,0 +1,164 @@
+<!-- edit_profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="edituser-container">
+    <div class="edituser-header">
+    <h1 style="color: #000;">Edit Profile</h1>
+    <p id="user-profile-id"style="display: none;" data-id="{{userProfile.pk}}"></p>
+    <form method="POST" action="" id="edit_profile">
+        <div class="form-group">
+            <input id="fullname"type="text" name="fullname" class="form-control" placeholder="Full Name">
+        </div>
+        <div class="form-group">
+            <input id="age"type="number" name="age" class="form-control" placeholder="age">
+        </div>
+    
+    <div class="form-group">
+        <input id="country" type="text" name="country" class="form-control" placeholder="country">
+    </div>
+    <div class="form-group">
+        <input id="city" type="city" name="city" class="form-control" placeholder="city">
+    </div>
+    <div class="form-group">
+        <input id="phone_number" type="number" name="phone_number" class="form-control" placeholder="phone_number">
+    </div>
+        <div class="form-group">
+            <input type="password" id="password1" name="password1" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password">
+        
+        <button id="simpan" class="btn register-btn" type="submit">Simpan Perubahan</button>
+    </div>
+    </form>
+    
+    <script>
+        const redirect = () => {
+        window.location.href = '/view/'
+        }
+        const dataElement = document.getElementById('user-profile-id')
+        const getPreviousData = async () => {
+            const resJson = await fetch('/edit_profile_data_json/',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'id':dataElement.getAttribute("data-id")})
+            })
+            const res = await resJson.json()
+            console.log(res)
+            setPrevData(res)
+            
+        }
+
+        const setPrevData = (res) => {
+            const fullNameInput = document.getElementById('fullname')
+            const ageInput = document.getElementById('age')
+            const countryInput = document.getElementById('country')
+            const cityInput = document.getElementById('city')
+            const phoneNumber = document.getElementById('phone_number')
+            const passwordOne = document.getElementById('password1')
+            const passwordTwo = document.getElementById('password2')
+
+            fullNameInput.value = res.fullname
+            ageInput.value = parseInt(res.age)
+            countryInput.value = res.country
+            cityInput.value = res.city
+            phoneNumber.value = res.phoneNumber
+            passwordOne.value = res.password
+            passwordTwo.value = res.password
+        }
+        const submitData = async (res) => {
+            const fullNameInput = document.getElementById('fullname').value
+            const ageInput = document.getElementById('age').value
+            const countryInput = document.getElementById('country').value
+            const cityInput = document.getElementById('city').value
+            const phoneNumber = document.getElementById('phone_number').value
+            const passwordOne = document.getElementById('password1').value
+            const passwordTwo = document.getElementById('password2').value
+
+            const data =
+                { 'id':dataElement.getAttribute("data-id") ,'full_name': fullNameInput, 'age': ageInput, 'country': countryInput, 
+                'city': cityInput, 'phoneNumber': phoneNumber, 'password': passwordOne
+             }
+            const resJson = await fetch('/edit_profilejson/',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'id':dataElement.getAttribute("data-id") ,'full_name': fullNameInput, 'age': ageInput, 'country': countryInput, 
+                'city': cityInput, 'phoneNumber': phoneNumber, 'password': passwordOne})
+            })
+            const submit = await resJson.json()
+            if (submit.status=='success'){
+                console.log('sesuatu')
+                window.location.href = '/view/'
+            }
+        }
+        const button = document.getElementById('simpan')
+        button.addEventListener('click', async()=>{
+        })
+        window.addEventListener('load', async()=>{
+            await getPreviousData()
+        })
+
+
+    </script>
+
+<style>
+    body {
+        background-color: #460C90; /* Warna latar belakang ungu terong */
+        margin: 0;
+    }
+
+    .edituser-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #460C90;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .edit-profile-form h1 {
+        color: #fff;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #003c80;
+        border-radius: 5px;
+        color: #000;
+    }
+
+    .btn.register-btn {
+        background-color: #0056b3 ;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn.edituser-btn:hover {
+        background-color: #003c80;
+    }
+
+    .error-message {
+        color: #dc3545;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock content %}
