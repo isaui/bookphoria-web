@@ -110,7 +110,6 @@ def add_comment_ajax(request):
     return HttpResponseNotFound()
 
 
-def get_comment_json(request):
-    comment = Comment.objects.all()
-    print(comment)
-    return HttpResponse(serializers.serialize('json', comment))
+def get_comment_json(request, book_id):
+    comments = Comment.objects.filter(book__id=book_id)
+    return HttpResponse(serializers.serialize('json', comments), content_type="application/json")
