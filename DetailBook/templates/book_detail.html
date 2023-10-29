@@ -29,33 +29,44 @@
             <span class="info-title" style="font-weight: bold;">Author</span>
             <span class="info-content">{{ book.authors }}</span>
           </div>
+
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Category</span>
-            <span class="info-content">{{ book.categories }}</span>
+            <span class="info-content">{{ book.categories|default:"-" }}</span>
           </div>
+
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Publisher</span>
-            <span class="info-content">{{ book.publisher }}</span>
+            <span class="info-content">{{ book.publisher|default:"-" }}</span>
           </div>
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Language</span>
-            <span class="info-content">{{ book.language }}</span>
+            <span class="info-content">{{ book.language|default:"-" }}</span>
           </div>
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Pages</span>
-            <span class="info-content">{{ book.page_count }}</span>
+            <span class="info-content">{{ book.page_count|default:"-" }}</span>
           </div>
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Published Date</span>
-            <span class="info-content">{{ book.published_date }}</span>
+            <span class="info-content">{{ book.published_date|default:"-" }}</span>
           </div>
+
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Price</span>
-            <span class="info-content">{{ book.currencyCode }} {{ book.price }} </span>
+            <span class="info-content">
+              {% if book.currencyCode %}
+                {{ book.currencyCode }} {{ book.price|default:"-" }}
+              {% else %}
+                -
+              {% endif %}
+            </span>
           </div>
+
+
           <div class="info-row">
             <span class="info-title" style="font-weight: bold;">Description</span>
-            <span class="info-content">{{ book.description }}</span>
+            <span class="info-content">{{ book.description|default:"-"}}</span>
           </div>
           
           {% if book.pdf_link|length != 0 %}
@@ -108,18 +119,20 @@
 
 <script>
   const bookEle = document.getElementById('bookId')
-  async function getComment() {
-    return fetch("{% url 'DetailBook:get_comment_json' %}").then((res) => res.json())
+  
+  async function getComment(bookId) {
+    return fetch(`/detail/get-comment/${bookId}`).then((res) => res.json());
   }
 
   async function refreshComments() {
+    const bookId = bookEle.getAttribute('data-value');
     const commentsContainer = document.getElementById("comments-container");
-    commentsContainer.innerHTML = ""; // Clear the container before adding new comments
-  
-    const comments = await getComment();
+    commentsContainer.innerHTML = "";
+
+    const comments = await getComment(bookId);
     comments.forEach((comment) => {
       const commentElement = document.createElement("div");
-      commentElement.style.backgroundColor = '#f0f0f0';  // Menambahkan backdrop warna abu-abu
+      commentElement.style.backgroundColor = '#f0f0f0';
       commentElement.style.padding = '10px';
       commentElement.style.marginBottom = '10px';
       
@@ -132,7 +145,6 @@
     });
   }
   
-  // Panggil refreshComments saat halaman dimuat
   document.addEventListener("DOMContentLoaded", refreshComments);
 
   async function addComment() {
@@ -167,12 +179,12 @@
   
   .info-content {
     flex-grow: 1;
-    background-color: #F7F7F7; /* Warna backdrop */
+    background-color: #F7F7F7;
     padding: 5px;
     border-radius: 5px;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    overflow-x: auto;  /* Menambahkan scrollbar horizontal jika diperlukan */
+    overflow-x: auto;
   }
 
 </style>
