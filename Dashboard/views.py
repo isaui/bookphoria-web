@@ -8,7 +8,7 @@ from Homepage.models import Book, Author, Category
 #from Bookphoria.models import Review
 from ReviewApp.models import Review
 
-@login_required
+@login_required(login_url='/login/')
 def get_profile(request):
     form = BookForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
