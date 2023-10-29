@@ -54,10 +54,10 @@ class Book(models.Model):
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='reviews')
     review = models.TextField(max_length=255, blank=True, null=True)
     rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    photo = models.ImageField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
     date_added = models.DateField(auto_now_add=True)
     def __str__(self):
         return str(self.id)

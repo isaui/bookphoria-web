@@ -44,7 +44,7 @@
     resize: vertical;
   }
 
-  #upload-photo {
+  #upload-image {
     margin-bottom: 10px;
   }
 
@@ -146,8 +146,8 @@
         </div>
         <div class="review-body mt-2">
             <p>{{review.review}}</p>
-            {% if review.photo %}
-                    <img src="{{ review.photo.url }}" alt="Review Photo" class="img-fluid mt-2">
+            {% if review.image %}
+                    <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mt-2">
             {% endif %}
         </div>
     {% endfor %}
@@ -164,7 +164,7 @@
             </div>
             <div class="form-group">
               <p class="text-uppercase font-weight-bold">Upload Image: </p>
-              <input id="upload-photo" type="file" name="photo" accept="image/*">
+              <input id="upload-image" type="file" name="image" accept="image/*">
             </div>
             <div class="form-group">
                 <div class="input-rate">
@@ -208,7 +208,7 @@
         data.rate = parseInt(rateInput.value)
        }
        data.comment = comment.value.trim()
-       const res = await uploadImageByElement('upload-photo')
+       const res = await uploadImageByElement('upload-image')
        data.imageUrl = res
        
     }

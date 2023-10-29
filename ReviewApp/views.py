@@ -1,4 +1,5 @@
 import datetime
+import json
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from .models import Review
@@ -15,9 +16,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, "home.html")
 
-
-@csrf_exempt
-@login_required(login_url='/login/')
 # def show_review(request):
 #     reviews = Review.objects.filter(user=request.user)
 #     context = {
@@ -38,22 +36,24 @@ def home(request):
 #         context = {'form': form }
 #     return render(request, "book_detail.html", context)
 
+def get_review_json(request):
+    review = Review.objects.all()
+    return HttpResponse(serializers.serialize('json', review))
+
 @csrf_exempt
+@login_required(login_url='/login/')
 def create_review(request):
+    data = json.loads(request.body)
+    book = Book.objects.prefetch_related('authors', 'images', 'categories').get(pk=data['bookId'])
     if request.method == 'POST':
         rate = request.POST.get("rate")
         review = request.POST.get("review")
-        photo = request.POST.get("photo")
+        image = request.POST.get("image")
         user = request.user
 
-        new_review = Product(rate=rate, review=review, photo=photo, user=user)
+        new_review = Review(rate=rate, review=review, image=image, user=user)
         new_review.save()
 
-        return HttpResponse(b"CREATED", status=201)
-
-    return HttpResponseNotFound()
-
-
-def get_review_json(request):
-    reviews = Review.objects.all()
-    return HttpResponse(serializers.serialize('json', reviews))
+        return JsonResponse({"message": "Product created successfully."}, status=201)
+    else:
+        return JsonResponse({"error": "Invalid request method."}, status=400)

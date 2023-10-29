@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import create_review, get_review_json
+from .views import home, create_review, get_review_json
 
 app_name = 'ReviewApp'
 
