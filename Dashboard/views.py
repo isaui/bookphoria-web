@@ -46,6 +46,8 @@ def get_profile(request):
         book_list.append(book.thumbnail)
         # print(book.thumbnail)
         # print(book_list)
+    if user.profile_picture is None:
+        user.profile_picture = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ03Q9ChkabFQ9M3syb-NEQOk9x34zv4pfFQ&usqp=CAU'
     context = {
         'books':book_list,
         'form': form,

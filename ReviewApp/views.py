@@ -1,12 +1,17 @@
 import datetime
+import json
 from django.shortcuts import render, redirect
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+
+from Homepage.models import Book
 from .models import Review
 from .forms import ReviewForm
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import user_passes_test
+from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -14,21 +19,52 @@ from django.contrib.auth.decorators import user_passes_test
 def home(request):
     return render(request, "home.html")
 
-@user_passes_test(lambda u: not u.is_staff, login_url='/your-login-url/')
+def get_review_json(request):
+    review = Review.objects.filter(book=request.GET.get('book_id'))
+    return HttpResponse(serializers.serialize('json', review))
+
+@login_required(login_url='/login/')
+def show_review(request):
+    form = ReviewForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        create_review(request)
+        return HttpResponseRedirect(reverse('ReviewApp:show_review'))
+    bookId = 1
+    print("==============KINGDOM BOOK==============")
+    print(bookId)
+    reviews = Review.objects.filter(book=bookId)
+    context = {
+        'name' : request.user.username,
+        'reviews' : reviews,
+        'form': form,
+    }
+    return render(request, 'review.html', context)
+
+# def create_review(request):
+#     if request.method == 'POST':
+#         form = ReviewForm(request.POST or None)
+#         if form.is_valid() and request.method == "POST":
+#             review = form.save(commit=False)
+#             review.user = request.user
+#             review.save()
+#             return HttpResponseRedirect(reverse('ReviewApp:show_review'))
+#     else:
+#         form = ReviewForm()
+#         context = {'form': form }
+#     return render(request, "book_detail.html", context)
+
 @csrf_exempt
 def create_review(request):
-    if request.method == "POST":
-        book_id = request.POST.get("book_id")
-        book = Book.objects.get(id=book_id)
-        review = request.POST.get("review", "")
-        rate = request.POST.get("rate")
-        photo = request.FILES.get("photo", None)
-        user = request.user
-        publish = Review(book_id=book_id, book=book, review=review, rate=rate, user=user)
-        # Check if photo is provided
-        if photo:
-            publish.photo = photo
-        publish.save()
-        return HttpResponse(b"CREATED", status=201)
-    return HttpResponseNotFound()
+    form = ReviewForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        new_review = form.save(commit=False)
+        new_review.user = request.user
+        bookId = int(request.POST.get('book'))
+        print("==============KINGDOM COME==============")
+        print(new_review)
+        new_review.save()
 
+        return JsonResponse({"message": "Product created successfully."}, status=201)
+
+    context = {'form': form}
+    return render(request, 'review.html', context)
