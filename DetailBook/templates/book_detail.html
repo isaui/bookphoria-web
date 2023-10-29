@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Bookphoria</title>
+{% endblock meta %}
 
 
 {% block content %}
-<div class="container mt-4">
 
+{% include 'partials/navbar.html' %}
+{% include "partials/sidebar.html"  %}
+<div class="container mt-24">
   <div class="row">
     <div class="col-md-4 mb-3">
       <div class="img-container" style="background-color: transparent;">

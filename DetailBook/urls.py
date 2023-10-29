@@ -8,7 +8,6 @@ urlpatterns = [
     path('all-books/', all_books_page, name='all-books-page'),
     path('get-categories/', get_categories, name='get-categories'),
     path('book-detail/<int:id>', book_detail, name='book_detail'),
-    path('all-books/book-detail/<int:id>', book_detail, name='book_detail'),
     path('add-comment-ajax/', add_comment_ajax, name='add_comment_ajax'),
     path('get-comment/', get_comment_json, name='get_comment_json'),   
 ]
