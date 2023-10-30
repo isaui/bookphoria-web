@@ -235,7 +235,6 @@ def get_books_json(request):
     for book in books:
         book_data  = {
             'review_count': book.review_count,
-            
             'likes':  [{'username': user.username, 'userId': user.pk} for user in book.likes.all()],
             'fullname':book.user.auth_user.fullname,
             'username':book.user.auth_user.username,
