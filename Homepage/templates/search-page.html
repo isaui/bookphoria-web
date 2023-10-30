@@ -8,9 +8,9 @@
 
 {% block content %}
 
-{% include "partials/raw-navbar.html" %}
-{% include "partials/sidebar.html" %}
-{% include "partials/loading-text.html" %}
+{% include "partials/raw-navbar.html" with user=user %}
+{% include "partials/sidebar.html" with user=user %}
+{% include "partials/loading-text.html"  %}
 
 <style>
     .books-sidebar {
@@ -52,7 +52,9 @@
   <div style="z-index: 40;" id="sidebar-background" class="hidden fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-40">
 
   </div>
-
+  
+  {% include 'partials/raw-navbar.html' with user=user %}
+  {% include "partials/sidebar.html"  with user=user %}
   <div id="books-sidebar"  class=" books-sidebar translate-x-[32rem]  lg:translate-x-0 transition-transform duration-700 transform pt-1 lg:pt-[5rem] px-2  flex fixed flex-col  text-slate-800     w-full  top-0 right-0 bg-gray-200 max-h-[100vh] min-h-screen max-w-[70%] md:max-w-[45%] lg:max-w-[25%]">
       <div class="relative flex flex-col w-full h-full overflow-y-auto custom-scrollbar   grow max-h-[100vh] py-2">
         <h1 class="w-full text-2xl font-bold lg:mt-1  px-4">Advanced Search</h1>
@@ -281,7 +283,9 @@
     </div>
 
  <div class="flex flex-col  w-screen max-w-[100vw] lg:max-w-[75%]  pt-12 lg:pt-16 min-h-screen ">
-    <div id="content" data-category="{{category}}" data-search-text="{{search_text}}" class="hidden  flex-col px-4 grow w-full">
+    <div class="hidden" id="user-id" data-user-id="{{ user.id|default:'' }}"></div>
+  <div class="hidden" id="user-username" data-user-username="{{ user.username|default:'' }}"></div>
+    <div id="content" data-category="{{category}}" data-is-category-only="{{is_category_only}}" data-search-text="{{search_text}}" class="hidden  flex-col px-4 grow w-full">
         <div class="flex flex-col w-full grow ">
             <div class="flex items-center">
                 <div id="header" class="flex flex-col w-full items-start mt-4 px-2 mb-2">
@@ -309,6 +313,8 @@
  </div>
  <script>
     let books = [];
+    let userId = document.getElementById('user-id').getAttribute('data-user-id');
+    let username = document.getElementById('user-username').getAttribute('data-user-username');
     const content = document.getElementById("content");
     const bottomDivider = document.getElementById("bottom-divider");
     const topDivider = document.getElementById("top-divider");
@@ -317,6 +323,7 @@
     const resultText = document.getElementById("result-total");
     const category = content.getAttribute("data-category"); // Ambil dari konteks template atau permintaan
     const searchText = content.getAttribute("data-search-text"); // Ambil dari konteks template atau permintaan
+    const isCategoryOnly = content.getAttribute("data-is-category-only") == 'True'? true : false;
     const advancedSearchBtn = document.getElementById("advanced-search");
     const advancedSearchSidebar = document.getElementById("books-sidebar");
     const advancedSearchBackground = document.getElementById("sidebar-background");
@@ -329,7 +336,7 @@
     const prevCategoriesButton = document.getElementById('prev-categories-button');
     const nextCategoriesButton = document.getElementById('next-categories-button');
     const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
-    
+    let mode = () => window.innerWidth < 768 ? 'MOBILE' : window.innerWidth < 1024 ? 'MEDIUM' : 'LARGE'; 
     let isAdvancedSearchSidebarOpen = false;
     let categoryList = ['All']
     let currentSelectedCategories = ['All'];
@@ -771,6 +778,23 @@ const showError = (message) => {
             console.log(error)
         }
     }
+    const customFetchBooks = async () => {
+        try{
+            console.log(category, searchText)
+            const resJson = await fetch(`/search-books-json/${category}/${searchText}`);
+            const res = await resJson.json();
+            setBooks(res.books, searchText)
+            searchTitle.innerHTML = 
+        `Hasil pencarian untuk <span class="text-indigo-600">${category}</span>`
+            books = [...res.books]
+
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    
+
     const  userPublishTime = (timestamp) => {
     // Konversi timestamp ke objek Date
     const eventTime = new Date(timestamp);
@@ -797,6 +821,45 @@ const showError = (message) => {
       return 'Baru saja';
     }
   }
+
+  const likeOrDislikeBook = async (idUser,bookId) => {
+    if(idUser == '' || idUser == null){
+        showError('Anda belum Login. Mohon Login dulu')
+        return
+    }
+    const url = '/like-book-json/'
+    console.log(userId,idUser,bookId)
+    data = {'userId': idUser, 'bookId':bookId}
+    const requestOptions = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify(data), 
+        };
+    try {
+        const resJson = await fetch(url, requestOptions);
+        const res = await resJson.json()
+        if(res.book){
+            updateBooksState(res.book);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+const updateBooksState = (updatedBook) => {
+    const bookIndex = books.findIndex(book => book.id === updatedBook.id);
+   // const carouselIndex = carouselBooks.findIndex(book=> book.id === updatedBook.id )
+    if(bookIndex != -1){
+        books[bookIndex] = updatedBook
+    }
+    console.log(searchText)
+    setBooks([...books])
+    
+}
 
   const setBooksWrapper=  (res, sameText='') => {
     console.log('HEII')
@@ -837,8 +900,10 @@ const showError = (message) => {
                         <img class="rounded-md h-[10rem] aspect-[3/4]" src=${book.thumbnail? book.thumbnail : NO_THUMBNAIL_URL } alt="">
                         <div class=" pl-3 flex-1 flex flex-col min-h-full ">
                             <div class="flex  justify-between items-start ">
-                            <div class="mt-1 mr-2">
-                            <h1 class=" font-bold  text-sm line-clamp-2 text-[#460C90]">${book.title? book.title.replace(new RegExp(sameText, 'gi'), match => `<span class="text-blue-500">${match}</span>`) : 'No Title'}</h1>
+                            <div class="mt-1 mr-2">               
+                        
+                            <a class="font-bold text-sm line-clamp-2 text-[#460C90]" href="detail/book-detail/${book.id}">${ book.title ? book.title : 'No Title' }</a>
+                                
                             <h1 class="text-gray-400 text-xs line-clamp-2">
                             ${book.authors.length > 0 ? book.authors.map((author,index)=>{
                                 if(index == book.authors.length - 1){
@@ -850,14 +915,14 @@ const showError = (message) => {
                         </div>  
                                 
                                 <div class="ml-auto flex flex-col items-center justify-center">
-                                    <div class=" fas fa-heart text-red-500 text-lg">
+                                    <div onclick="likeOrDislikeBook(${userId??''},${book.id})" class="fas fa-heart ${book.likes.find((user)=> user.userId == userId)? 'text-red-500':'text-gray-300'} text-lg">
                                     </div>
-                                    <h1 class="text-xs">1024</h1>
+                                    <h1 class="text-xs">${book.likes.length}</h1>
                                 </div>
                             </div>
                             
                             <div class="text-xs text-gray-400 mt-1">
-                                Created by <span class="text-[#460C90]">Isa Citra</span>
+                            Created by <a href="/profile/${book.username??''}" class="text-[#460C90] hover:underline">${book.fullname? book.fullname :'Unknown'}</a>
                             </div>
                             <div class="mt-1 flex items-center space-x-2">
                                 <div class="rating text-yellow-400 text-sm">
@@ -874,9 +939,9 @@ const showError = (message) => {
                             <div  class="mt-1 text-gray-400 text-xs line-clamp-2">
                                 ${book.categories.length > 0 ? book.categories.map((category,index)=>{
                                     if(index == book.categories.length - 1){
-                                        return `<a>${category}</a><span>.</span>`
+                                        return `<a class="hover:underline" href="/search-books/${category}">${category}</a><span>.</span>`
                                     }
-                                    return `<a>${category}</a><span>, </span>`
+                                    return `<a class="hover:underline" href="/search-books/${category}">${category}</a><span>, </span>`
                                 }) : 'No categories'}
                             </div>
                             <div  class="mt-2 text-[#C52A62] font-bold text-sm line-clamp-2">
@@ -901,13 +966,15 @@ const showError = (message) => {
         await getCategoriesFromApi()
         establishCurrentSelectedCategories()
         handleCategoriesContainerResize()
-        await fetchBooks()
+        if(isCategoryOnly){
+            await customFetchBooks()
+        }
+        else{
+            await fetchBooks()
+        }
         content.classList.remove('hidden')
         content.classList.add('flex')
         loading.style.display = 'none';
     })
  </script>
 {% endblock content %}
-    
-    
-
