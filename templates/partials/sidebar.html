@@ -7,8 +7,8 @@
           <img src="{% static 'img/books.jpg' %}" class="opacity-10 absolute top-0 left-0 w-full h-full rounded-b-full"/>
       {% if user.is_authenticated %}
       <div class="w-full flex items-center justify-center max-h-[12rem]">
-        <div class="flex items-center justify-center w-ful h-full rounded-full mx-auto bg-gray-300">
-          <img class="object-cover max-w-full max-h-full rounded-full" src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture }}{% else %}{{ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ03Q9ChkabFQ9M3syb-NEQOk9x34zv4pfFQ&usqp=CAU' }}{% endif %}" alt="">
+        <div class="flex items-center justify-center w-40 h-40 rounded-full mx-auto bg-gray-300">
+          <img class="object-cover w-full h-full rounded-full" src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture }}{% else %}{{ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ03Q9ChkabFQ9M3syb-NEQOk9x34zv4pfFQ&usqp=CAU' }}{% endif %}" alt="">
         </div>
       </div>
       <div class="flex w-full justify-center mt-4 px-6">

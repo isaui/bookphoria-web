@@ -36,20 +36,30 @@ def register(request):
         age =int(request.POST['age'])
         country = request.POST['country']
         city = request.POST['city']
-        phone_number = request.POST['phone_number']
+        profile_picture = request.POST['url'] if request.POST['url'] != '' else None
+     #   phone_number = request.POST['phone_number']
         password1 = request.POST['password1']
         password2 = request.POST['password2']#validasi password
+        try:
+            curruser = User.objects.get(username='username_yang_dicari') if username else None
+        except Exception as e:
+            # Penanganan jika user tidak ditemukan
+            curruser = None
         if password1 != password2:
             error_message = "Password yang dimasukkan tidak cocok. Silakan coba lagi."
-            return form
-        user = User.objects.create_user(username=username, password=password1)
-        user.save()
-        user_profile = UserProfile(user=user,fullname = fullname, username=username, age=age, country=country, city=city, phone_number=phone_number, password= password1)
-        user_profile.save() 
-        messages.success(request, 'Your account has been successfully created!')
-        return redirect('/login')
+            messages.info(request, error_message)
+        elif curruser:
+            error_message = "Username telah digunakan oleh pengguna lain."
+            messages.info(request, error_message)
+        else:
+            user = User.objects.create_user(username=username, password=password1)
+            user.save()
+            user_profile = UserProfile(user=user,profile_picture= profile_picture,fullname = fullname, username=username, age=age, country=country, city=city, password= password1)
+            user_profile.save() 
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('/login')
     context = {'form':form}
-    return render(request, 'register.html', context)
+    return render(request, 'register-next.html', context)
 
 
 @csrf_exempt
@@ -66,7 +76,7 @@ def login_user(request):
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
-    return render(request, 'login.html', context)
+    return render(request, 'login-next.html', context)
 
 def logout_user(request):
     logout(request)
@@ -88,16 +98,19 @@ def create_profile(request):
 
 @login_required(login_url='/login/')
 def view_profile(request):
-    user = request.user
-    userProfile = UserProfile.objects.get(user=user)
-    print(userProfile.country)
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-    else:
-        form = UserProfileForm(instance=user)
-    return render(request, 'user.html', {'form': form, 'userProfile':userProfile})
+    user = request.user if request.user.is_authenticated else None
+    profile = None
+    if user:
+        profile = UserProfile.objects.get(user=user)
+    context = {
+        'user': {
+            'id': user.id if user else None,
+            'username': user.username if user else None,
+            'is_authenticated': True if user else False,
+            'profile': profile
+        }
+    }
+    return render(request, 'user-next.html', context)
 
 def review_list(request):
     reviews = Review.objects.all()

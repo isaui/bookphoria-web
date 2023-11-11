@@ -12,6 +12,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import user_passes_test
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from Homepage.models import Book,ImageUrl
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -20,19 +22,23 @@ def home(request):
     return render(request, "home.html")
 
 @csrf_exempt
-def get_review_json(request):
-    reviews = Review.objects.all()
+def get_review_json(request,id):
+    book = Book.objects.get(id=id)
+    reviews = Review.objects.prefetch_related('photo').select_related('user__auth_user').filter(book=book)
     review_list = []
+    
     for review in reviews:
+        print(photo.url for photo in review.photo.all())
         review_data  = {
-            'user': review.user.username,
-            'book': review.book.title,
+            'user': review.user.auth_user.to_dict() if review.user else None,
             'rating': review.rating,
             'content': review.content,
+            'created_at':review.date_added,
+            'review':review.to_dict(),
+            'photos': [photo.url for photo in review.photo.all()]
         }
         review_list.append(review_data)
-    print("==============KINGDOM ALL==============")
-    print(review_list)
+
     return JsonResponse({'reviews': review_list})
 
 @login_required(login_url='/login/')
@@ -67,16 +73,29 @@ def show_review(request):
 
 @csrf_exempt
 def create_review(request):
-    form = ReviewForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        new_review = form.save(commit=False)
-        new_review.user = request.user
-        bookId = int(request.POST.get('book'))
-        print("==============KINGDOM COME==============")
-        print(new_review)
-        new_review.save()
-
-        return JsonResponse({"message": "Product created successfully."}, status=201)
-
-    context = {'form': form}
-    return render(request, 'review.html', context)
+    data = json.loads(request.body)
+    user = User.objects.get(pk=int(data['userId'])) if data['userId'] else None
+    print(user) 
+    print(data)
+    print('konten->',data['content'])
+    book = Book.objects.prefetch_related('authors', 'images', 'categories').get(pk=int(data['bookId']))
+    print(book)
+    if request.method == 'POST':
+        try:
+            print('sini lah susah bgt')
+            new_comment = Review(user=user,rating=int(data['rating']),book=book,content=data['content'])
+            print('kemari woi')
+            new_comment.save()
+            print(new_comment)
+            print('nah okee')
+            urls = []
+            for url in data['photo']:
+                photourl, created = ImageUrl.objects.get_or_create(url=url)
+                urls.append(photourl)
+            new_comment.photo.add(*urls)
+            return JsonResponse({'status':201})
+        except Exception as e:
+            print(e)
+            return JsonResponse({'status':500})
+        
+    return HttpResponseNotFound()

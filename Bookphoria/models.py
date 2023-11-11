@@ -19,6 +19,20 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=15, blank=True, null=True) 
     password = models.CharField(max_length = 255, blank=False, null =False)
 
+    def to_dict(self):
+        user_data = {
+            'user_id': self.user.id,
+            'username': self.username,
+            'fullname': self.fullname,
+            'country': self.country,
+            'city': self.city,
+            'age': self.age,
+            'profile_picture': self.profile_picture,
+            'phone_number': self.phone_number,
+            # Anda dapat menambahkan atribut lain sesuai kebutuhan
+        }
+        return user_data
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile

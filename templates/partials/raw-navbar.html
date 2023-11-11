@@ -1,4 +1,4 @@
-<div id="navbar" class="fixed z-20 top-0  left-0 flex flex-col items-center w-full ">
+<div id="navbar" class="fixed z-30 top-0  left-0 flex flex-col items-center w-full ">
     <div class="w-full relative z-40 bg-violet-950 px-4 md:px-8 flex text-xl items-center  py-3 ">
         <h1 class="mr-auto text-white">BOOKPHORIA.</h1>
         <div class=" mx-auto  hidden md:flex text-white text-base lg:text-lg justify-start items-center space-x-4 lg:space-x-8">
@@ -17,7 +17,7 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                         </svg>
                         </button>
-                        <div  class="books-dropdown-content hidden absolute top-12 right-0 z-20 ">
+                        <div id="nav-dropdown-content-data" class="books-dropdown-content hidden absolute top-12 right-0 z-20 ">
                             <ul  class="books-dropdown-values flex flex-col py-2 text-sm text-gray-700  rounded-lg shadow w-44 overflow-y-auto bg-violet-950 dark:text-gray-200 h-[24rem]">
                               <li>
                                 <button  class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-value="Terbaru">Terbaru</button>
@@ -174,9 +174,13 @@
     })
 
     const fetchCategory = async () => {
-        const resJson = await fetch('/get-categories/');
-        const res = await resJson.json();
-        setCategories(res.categories);
+        try{
+            const resJson = await fetch('/get-categories/');
+            const res = await resJson.json();
+            setCategories(res.categories);
+        }catch(error){
+            console.log(error)
+        }
     }
 
     const setCategories = (res) => {
@@ -193,7 +197,7 @@
         for(const key of categories){
         const selector = "book-dropdown-values-"+key;
         const buttons = document.getElementsByName(selector);
-        console.log(buttons)
+        //console.log(buttons)
         buttons.forEach((btn)=>{
             btn.addEventListener('click', ()=> {
                 closeBooksDropdown();
@@ -212,7 +216,7 @@
     try {
         categories.forEach(key =>{
             const selector = "book-dropdown-values-"+key;
-            console.log(selector)
+          //  console.log(selector)
             const elements = document.getElementsByName(selector);
             if(elements.length > 0){
                 elements.forEach((element)=>{
@@ -355,7 +359,12 @@
    
 
     window.addEventListener('load', async ()=> {
+        await fetchCategory();
+        establishBooksDropdownColor();
         const userDropdownButton = document.getElementById("user-dropdown-button");
+        if(!userDropdownButton){
+            return
+        }
         const userDropdownMenu = userDropdownButton.nextElementSibling;
        
 
@@ -370,9 +379,6 @@
             }
         });
 
-        
-
-
 
         document.addEventListener("click", function (event) {
             if (!userDropdownButton.contains(event.target)) {
@@ -386,10 +392,6 @@
             }
 
             });
-
-        await fetchCategory();
-        establishBooksDropdownColor();
-        
     })
 
 </script>

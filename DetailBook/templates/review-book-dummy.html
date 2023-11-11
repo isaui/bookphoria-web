@@ -1,0 +1,1138 @@
+{% extends "base-tailwind.html" %}
+{% load static %}
+
+{% block meta %}
+    
+{% endblock meta %}
+
+
+{% block content %}
+    {% include "partials/raw-navbar.html" with user=user %}
+    {% include "partials/sidebar.html" with user=user %}
+    {% include "partials/loading-text.html" %}
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+.custom-scrollbar-white::-webkit-scrollbar-track {
+    background: white !important;
+    border-radius: 0px;
+}
+.custom-scrollbar-gray::-webkit-scrollbar-track {
+    background: rgb(209 213 219) !important;
+    border-radius: 0px;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+.custom-scrollbar-white::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+.custom-scrollbar-gray::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 5px solid rgb(209 213 219);
+}
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+    </style>
+    
+    <div id="createReviewModal" class="fixed inset-0 z-20 flex items-center justify-center hidden ">
+        <div class="bg-white p-6 rounded-lg w-3/4 border border-2 border-blue-400 max-w-lg">
+            <div class="text-right">
+                <button class="text-gray-500 hover:text-gray-800" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+            <h1 class="text-2xl font-semibold mb-4">Buat Review Buku</h1>
+            <form id="reviewForm">
+                <div class="mb-4">
+                    <label for="rating" class="block text-gray-600">Bintang</label>
+                    <div id="starRating" class="text-4xl cursor-pointer">
+                        <i class="far fa-star" data-star="1"></i>
+                        <i class="far fa-star" data-star="2"></i>
+                        <i class="far fa-star" data-star="3"></i>
+                        <i class="far fa-star" data-star="4"></i>
+                        <i class="far fa-star" data-star="5"></i>
+                    </div>
+                </div>
+                
+                <div class="mb-4 flex items-center justify-center w-full">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-100">
+                        <div class="flex flex-col items-center justify-center pt-4 pb-5">
+                            <p class="mb-1 text-sm text-black"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                            <p class="text-xs text-black">SVG, PNG, JPG, or GIF (MAX. 800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" accept="image/*"/>
+                    </label>
+                </div>
+                <div id="image-preview-for-review"  class="mb-4 h-[8rem] w-full  flex mt-1 space-x-4 custom-scrollbar custom-scrollbar-white py-1 overflow-x-auto ">
+                    
+                </div>
+                <div class="mb-4">
+                    <label for="reviewText" class="block text-gray-600">Komentar</label>
+                    <textarea id="reviewText" name="reviewText" class="w-full border border-gray-300 rounded p-2" rows="4" placeholder="Masukkan komentar atau ulasan buku"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded transition duration-200 hover:bg-blue-600">Kirim Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="view" class="hidden flex-col  w-screen max-w-[100vw] md:grid grid-cols-2 mx-auto gap-2 max-w-6xl pt-12 lg:pt-16 min-h-screen">
+        <div id="save-book-id" data-book-id="{{book.id}}" style="display: none;"></div>
+        {% if user.is_authenticated %}
+            <div id="save-user-id" data-user-id="{{ user.id }}" style="display: none;"></div>
+        {% else %}
+            <div id="save-user-id" data-user-id="null" style="display: none;"></div>
+        {% endif %}
+        <div class="flex flex-col w-full md:mt-4 md:mb-4 md:px-4">
+            <div id="carousel-container" class="relative h-[20rem] md:h-[23rem] overflow-x-hidden  w-full bg-slate-950 flex justify-center rounded-sm md:rounded-md">
+                <div id="carousel" class="w-full relative flex items-center  transition-transform duration-500 py-2  ">
+                    {% if book.thumbnail %}
+                    <div  class="h-[20rem] md:h-[23rem] min-w-full w-full bg-slate-950 flex justify-center rounded-sm md:rounded-md">
+                        <img class="h-full w-auto " src="{{book.thumbnail}}" alt="">
+                    </div>
+                    {% endif %}
+                   
+                   {% for image in book.images.all %}
+                        {% if image  %}
+                        <div class="h-[20rem] md:h-[23rem] min-w-full  w-full bg-slate-950 flex justify-center rounded-sm md:rounded-md">
+                            <img class="h-full w-auto " src="{{image}}" alt="">
+                        </div>
+                        {% endif %}
+                   {% endfor %}
+                    
+                </div>
+                <div class="absolute rounded-md text-sm md:text-base top-2 right-3 flex items-center text-white bg-[#C52A62] justify-center py-1 px-2">
+                    {% if book.price and book.price != 0 %}
+                            {% if book.currencyCode %}
+                                <p class="">{{book.currencyCode}} {{ book.price }}</p>
+                            {% else %}
+                            <p class="">$ {{ book.price }}</p>
+                            {% endif %}
+                        {% else %}
+                            <p class="">FREE</p>
+                        {% endif %}
+                </div>
+                <div id="current-index" class="hidden absolute rounded-md text-xs md:text-sm bottom-2 left-2 flex items-center text-white bg-neutral-800 justify-center px-3 py-1">
+                    1/1
+                </div>
+                <button id="prev" class="hidden absolute top-1/2 left-3 transform -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#460C90] text-white flex justify-center items-center">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button id="next" class="hidden absolute top-1/2 right-3 transform -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#460C90] text-white flex justify-center items-center">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+            
+            </div>
+            <div class="my-2 relative w-full flex flex-col px-4 md:px-0 items-start">
+                <h1 class="text-lg md:text-xl  text-[#C52A62] font-bold line-clamp-2 pr-6">{{book.title}} </h1>
+                <p class="text-sm md:text-base  ">Dibuat oleh {% if book.user.auth_user.fullname %}
+                    <span class="text-[#460C90]"><a href="/profile/visit/{{book.user.auth_user.username}}">{{ book.user.auth_user.fullname }}</a></span>
+                {% else %}
+                    <span class="text-[#460C90]">unknown</span>
+                {% endif %}</p>
+                <div id="likes-container" class="ml-auto flex h-full bg-white flex-col items-center absolute top-0 right-4 md:right-0">
+                    {% if user in book.likes.all %}
+                    <i id="like-btn"  class="ml-2 fas fa-heart text-red-500 text-xl md:text-2xl"></i>
+                    {% else %}
+                    <i id="like-btn"  class="ml-2 fas fa-heart text-gray-300 text-xl md:text-2xl"></i>
+                    {% endif %}
+                    <h1 id="curr-likes" class="ml-2 text-xs md:text-sm ">{{book.likes.all|length}}</h1>
+                </div>
+            </div>
+            <div class="flex w-full px-4 md:px-0">
+                <div id="images-content" class="  h-[9rem] md:h-[10rem] w-full  flex mt-2 space-x-4 custom-scrollbar custom-scrollbar-white py-1 overflow-x-auto ">
+                </div>
+            </div>
+            <div class="px-4 md:px-0 mt-2 md:mt-4    flex flex-col w-full">
+                <div  class="flex flex-col w-full bg-gray-200 rounded-md  py-3 px-3">
+                    <div id="book-description" class="flex flex-col w-full max-h-[10rem] min-h-[5rem] overflow-y-hidden transition-all duration-300">
+                        <div class="flex w-full items-center">
+                            <h1 class="text-[#C52A62] text-lg font-bold">DESKRIPSI</h1>
+                            <div class="ml-auto">
+                                <button id="show-less-desc" class="hidden ml-2 text-sm">Show Less</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col mt-2 space-y-1 w-full ">
+                            <div class="flex  w-full ">
+                                <hr class=" border-b border-[#460C90] w-full opacity-20">
+                            </div>
+                            {% if book.description %}
+                                <p class="text-gray-600 text-sm text-justify">{{ book.description }}</p>
+                            {% else %}
+                                <p class="text-gray-600 text-sm text-justify">Tidak ada deskripsi</p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <div id="show-all-desc" class="w-full min-h-[2rem] hidden items-center justify-center bg-gray-300 hover:bg-gray-400 rounded-md">
+                        <h1 class="text-lg text-gray-600 "> SHOW ALL</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="px-4  mt-1 md:mt-4 mb-4  flex flex-col w-full">
+            <div  class="flex flex-col w-full bg-gray-200 rounded-md  py-3 px-3">
+                <div id="detail-book" class="flex flex-col w-full max-h-[16rem] overflow-y-hidden transition-all duration-300">
+                    <div class="flex w-full items-center">
+                        <h1 class="text-[#C52A62] text-lg font-bold">DETAIL BUKU</h1>
+                        <div class="ml-auto">
+                            <button id="show-less-btn" class="hidden ml-2 text-sm">Show Less</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Judul</h1>
+                        <p class="text-gray-600 text-sm">{{book.title}}</p>
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Subtitle</h1>
+                        {% if book.subtitle %}
+                            <p class="text-gray-600 text-sm">{{ book.subtitle }}</p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Tidak ada subtitle</p>
+                        {% endif %}
+                    </div>
+                    
+
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Authors</h1>
+                        {% if book.authors.all|length > 0 %}
+                            <p class="text-gray-600 text-sm">
+                                {% for author in book.authors.all %}
+                                    {{ author }}
+                                    {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Unknown</p>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Categories</h1>
+                        {% if book.categories.all|length > 0 %}
+                            <p class="text-gray-600 text-sm">
+                                {% for category in book.categories.all %}
+                                    {{ category }}
+                                    {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Unknown</p>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Publisher</h1>
+                        {% if book.publisher %}
+                            <p class="text-gray-600 text-sm">{{ book.publisher }}</p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Unknown</p>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Published Date</h1>
+                        <p class="text-gray-600 text-sm">{{book.published_date}}</p>
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Language</h1>
+                        {% if book.language %}
+                            <p class="text-gray-600 text-sm">{{ book.language }}</p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Tidak dispesifikan</p>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Pages</h1>
+                        {% if book.page_count %}
+                            <p class="text-gray-600 text-sm">{{ book.page_count }}</p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">Tidak ada data</p>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col mt-2 space-y-1 w-full ">
+                        <div class="flex  w-full ">
+                            <hr class=" border-b border-[#460C90] w-full opacity-20">
+                        </div>
+                        <h1 class="text-black text-base font-bold">Price</h1>
+                        {% if  book.price and book.price != 0 %}
+                            <p class="text-gray-600 text-sm">{{ book.price }}</p>
+                        {% else %}
+                            <p class="text-gray-600 text-sm">FREE</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div id="show-all-btn" class="w-full min-h-[2rem] hidden items-center justify-center bg-gray-300 hover:bg-gray-400 rounded-md">
+                    <h1 class="text-lg text-gray-600 "> SHOW ALL</h1>
+                </div>
+            </div>
+
+            <!-- Gunakan if else. Jika ada bagian yang tidak available jangan dirender div buttonnya yang berkaitan -->
+            <div class="flex  mt-2 rounded-md w-full flex-col items-start px-2">
+                <h1 class="font-bold text-lg text-[#C52A62]">AVAILABILITY</h1>
+                <div class="mt-1 flex w-full items-center justify-start">
+                    {% if book.pdf_available  or book.epub_available  or book.saleability  %}
+                    
+                    {% if book.pdf_available %}
+                    <div class="w-1/3  min-h-[2rem] pr-2 flex  items-center justify-center">
+                        <a href="{{book.pdf_link}}" class="text-sm md:text-base w-full rounded-md bg-indigo-900 hover:bg-slate-950 py-2 text-white flex justify-center items-center">PDF</a>
+                    </div>
+                    {% endif %}
+                    {% if book.epub_available %}
+                    <div class="w-1/3  min-h-[2rem] pr-2 flex  items-center justify-center">
+                        <a href="{{book.epub_link}}" class="text-sm md:text-base w-full rounded-md bg-indigo-900 hover:bg-slate-950 py-2 text-white flex justify-center items-center">EPUB</a>
+                    </div>
+                    {% endif %}
+                    {% if book.saleability %}
+                    <div class="w-1/3  min-h-[2rem] pr-2 flex  items-center justify-center">
+                        <a href="{{book.buy_link}}" class="text-sm md:text-base w-full rounded-md bg-indigo-900 hover:bg-slate-950 py-2 text-white flex justify-center items-center">BUY</a>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="w-full  min-h-[2rem] pr-2 flex  items-center justify-center">
+                        <p class="text-sm md:text-base   rounded-md  py-2 text-gray-600 flex  justify-center items-center">Tidak ada data yang tersedia</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+
+            <div class="mt-4 flex w-full items-center">
+                <div class="w-1/2  min-h-[2rem] px-1 flex  items-center justify-center">
+                    <div id="tab-review" class="text-base w-full rounded-md bg-violet-900 hover:bg-indigo-900 py-2 text-white flex justify-center items-center">Review</div>
+                </div>
+                <div class="w-1/2  min-h-[2rem] px-1 flex  items-center justify-center">
+                    <div id="tab-komentar" class="text-base w-full rounded-md bg-gray-200 hover:bg-gray-300 py-2 text-gray-600 flex justify-center items-center">Komentar</div>
+                </div>
+            </div>
+
+
+            <!-- Kotak Review -->
+            <div id="kotak-review" class="w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]">
+                <div class="w-full mb-1 flex items-center space-x-2">
+                    {% if profile %}
+                        <h1 class="text-xs text-gray-600">Anda masuk sebagai {{ profile.username }}</h1>
+                    {% else %}
+                        <h1 class="text-xs text-gray-600">Anda datang sebagai guest</h1>
+                    {% endif %}
+                    {% if profile %} 
+                        {% if profile.profile_picture and profile.profile_picture != '' %}
+                        <img class="rounded-full w-8 h-8 " src="{{profile.profile_picture}}"/>
+                        {% else %}
+                            <img class="rounded-full w-8 h-8 " src="https://storage.googleapis.com/pod_public/1300/173932.jpg"/>
+                        {% endif %}
+                    {% else %}
+                        <img class="rounded-full w-8 h-8 " src="https://storage.googleapis.com/pod_public/1300/173932.jpg"/>
+                    {% endif %}
+                    
+                </div>
+                <div class="relative flex items-center">
+                    <h1 class="text-lg font-bold text-gray-600 mr-2">Tambah Review</h1>
+                    <button id="openModal" class="absolute top-1/2 right-2 transform -translate-y-1/2">
+                      <i class="fas fa-plus-circle text-xl text-gray-600 hover:text-gray-700"></i> <!-- Menggunakan kelas "fas" untuk ikon Font Awesome 5 -->
+                    </button>
+                  </div>
+                <!-- Kontainer semua review -->
+                <div id="kontainer-review" class="flex flex-col w-full  py-3">
+
+                       <!-- Review Saya taau Orang Lain -->
+                       
+
+                     <!-- Review Saya taau Orang Lain -->
+                  
+
+                    
+                </div>
+                
+            </div>
+            
+            
+            <!-- Kotak komentar -->
+            <div id="kotak-komentar" class="hidden w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]">
+                <div class="w-full mb-1 flex items-center space-x-2">
+                    {% if profile %}
+                        <h1 class="text-xs text-gray-600">Anda masuk sebagai {{ profile.username }}</h1>
+                    {% else %}
+                        <h1 class="text-xs text-gray-600">Anda datang sebagai guest</h1>
+                    {% endif %}
+                    {% if profile %} 
+                        {% if profile.profile_picture and profile.profile_picture != '' %}
+                        <img class="rounded-full w-8 h-8 " src="{{profile.profile_picture}}"/>
+                        {% else %}
+                            <img class="rounded-full w-8 h-8 " src="https://storage.googleapis.com/pod_public/1300/173932.jpg"/>
+                        {% endif %}
+                    {% else %}
+                        <img class="rounded-full w-8 h-8 " src="https://storage.googleapis.com/pod_public/1300/173932.jpg"/>
+                    {% endif %}
+                </div>
+                <div  class="relative flex">
+                    <textarea
+                     id="comment"
+                      type="text"
+                      placeholder="Ketik pesan Anda..."
+                      class="w-full h-24 text-sm px-4 py-2 rounded-md border border-gray-300 focus:ring focus:ring-indigo-300 focus:ring-opacity-50"
+                    ></textarea>
+                    <button id="comment-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2">
+                      <i class="fas fa-paper-plane"></i> <!-- Menggunakan kelas "fas" untuk ikon Font Awesome 5 -->
+                    </button>
+                  </div>
+                <!-- Kontainer semua chat -->
+                <div id="kontainer-komentar"   class="my-auto flex flex-col w-full  py-3">
+                     <!-- Chat Orang Lain -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let showAll = false;
+        let showDesc = false;
+        let activeBar = 'REVIEW';
+        const detailBookElement = document.getElementById('detail-book');
+        const showAllBtn = document.getElementById('show-all-btn');
+        const showLessBtn = document.getElementById('show-less-btn');
+        const bookDescription = document.getElementById('book-description');
+        const showAllDesc = document.getElementById('show-all-desc');
+        const showLessDesc = document.getElementById('show-less-desc');
+        const viewContent = document.getElementById('view');
+        const loading = document.getElementById('loading-text');
+        const carousel = document.getElementById("carousel")
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const kotakKomentar = document.getElementById('kotak-komentar');
+        const kotakReview = document.getElementById('kotak-review');
+        const tabReview = document.getElementById('tab-review');
+        const tabKomentar = document.getElementById('tab-komentar')
+        let currentIndex = 0;
+        const NO_THUMBNAIL_URL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
+        let imagesPreviewForReview = []
+        const dropdownFileInput = document.getElementById('dropzone-file');
+        dropdownFileInput.addEventListener('change', ()=>{
+            if(dropdownFileInput.files[0]){
+                imagesPreviewForReview.push(dropdownFileInput.files[0])
+                establishImagesPreviewForReview()
+            }
+        })
+        
+        function deletePreview(index){
+            imagesPreviewForReview = imagesPreviewForReview.filter((value,idx)=> idx != index )
+            establishImagesPreviewForReview()
+        }
+        const establishImagesPreviewForReview = () => {
+            let innerHTML = '';
+            const ele =document.getElementById('image-preview-for-review')
+            imagesPreviewForReview.forEach((file, index)=>{
+                const url = URL.createObjectURL(file);
+                const htmlString = 
+                `<div class="h-full aspect-[4/4] rounded-md relative">
+                        <img class="object-cover w-full h-full rounded-md" src="${url}" alt="">
+                        <div onclick="deletePreview(${index})" class="absolute top-1 right-1 text-red-500 hover:text-red-700"><i class="fas fa-times text-xl"></i></div>
+                    </div>`
+                innerHTML += htmlString
+            })
+            if(imagesPreviewForReview.length == 0){
+                innerHTML = `<div class="w-full flex items-center justify-center text sm">
+                    <h1>Belum ada gambar</h1></div>`
+            }
+            ele.innerHTML = innerHTML;
+        }
+        establishImagesPreviewForReview()
+
+        tabKomentar.addEventListener('click', ()=>{
+            setActiveBar('KOMENTAR')
+        })
+        tabReview.addEventListener('click', ()=> {
+            setActiveBar('REVIEW')
+        })
+
+        function setActiveBar(identifier){
+            activeBar = identifier
+            if(identifier == 'REVIEW'){
+                kotakKomentar.className = `hidden w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]`
+                kotakReview.className = `w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]`
+                tabReview.className = `text-base w-full rounded-md bg-violet-900 hover:bg-indigo-900 py-2 text-white flex justify-center items-center`
+                tabKomentar.className = `text-base w-full rounded-md bg-gray-200 hover:bg-gray-300 py-2 text-gray-600 flex justify-center items-center`
+            }else{
+                kotakKomentar.className = `w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]`
+                kotakReview.className = `hidden w-full mt-2 py-2 px-2 flex flex-col rounded-md bg-gray-200 min-h-[16rem]`
+                tabKomentar.className = `text-base w-full rounded-md bg-violet-900 hover:bg-indigo-900 py-2 text-white flex justify-center items-center`
+                tabReview.className = `text-base w-full rounded-md bg-gray-200 hover:bg-gray-300 py-2 text-gray-600 flex justify-center items-center`
+            }
+        }
+
+        const updateCurrentIndexElement = () => {
+            const miniImages = document.querySelectorAll("#images-content img");
+            const currentIndexElement = document.getElementById('current-index');
+            currentIndexElement.textContent = `${currentIndex+1}/${miniImages.length}`;
+        }
+
+        const updateMiniImageBorder = () => {
+            const miniImages = document.querySelectorAll("#images-content img");
+            miniImages.forEach((img, idx) => {
+                if(idx == currentIndex) {
+                    img.className = 'border border-indigo-500 border-4 object-cover h-full aspect-[3/4] rounded-md'
+                }
+                else{
+                    img.className = 'object-cover h-full aspect-[3/4] rounded-md'
+                }
+            })
+        }
+
+        const miniImageFunctionality = () => {
+            const miniImages = document.querySelectorAll("#images-content img");
+            miniImages.forEach((img, idx) => {
+                img.addEventListener('click',()=>{
+                    currentIndex = idx
+                    updateCarouselPos()
+                })
+            })
+        }
+        establishImages = () => {
+            const images = document.querySelectorAll("#carousel img");
+            const currentIndexElement = document.getElementById("current-index");
+            // Lakukan sesuatu dengan setiap elemen img
+            const miniImagesContainer = document.getElementById("images-content");
+            let innerHtml = ``
+            
+            if(images.length > 0){
+                    images.forEach((img) => {
+                        const src = img.getAttribute("src");
+                        innerHtml+= `<img class="object-cover h-full aspect-[3/4] rounded-md" src="${src}" alt="">`
+                    });
+                miniImagesContainer.innerHTML = innerHtml;
+                if(images.length > 1){
+                    prevBtn.classList.remove('hidden')
+                    nextBtn.classList.remove('hidden')
+                }
+            }
+            else{
+                carousel.innerHTML = `<div  class="h-[22rem] md:h-[23rem] min-w-full w-full bg-slate-950 flex justify-center rounded-sm md:rounded-md">
+                        <img class="h-full w-auto " src="${NO_THUMBNAIL_URL}" alt="">
+                    </div>`
+                miniImagesContainer.innerHTML = `<img class="object-cover h-full aspect-[3/4] rounded-md" src="${NO_THUMBNAIL_URL}" alt="">`
+            }
+            currentIndexElement.classList.remove('hidden')
+            updateCurrentIndexElement()
+            
+            updateMiniImageBorder();
+            miniImageFunctionality()
+        }
+        
+        const geserKiri = () => {
+            const images = document.querySelectorAll("#carousel img");
+            const currentIndexElement = document.getElementById("current-index");
+            currentIndex--;
+            if(currentIndex < 0){
+                currentIndex = images.length - 1;
+            }
+            currentIndexElement.textContent = `${currentIndex + 1}/${images.length}`;
+            updateCarouselPos()
+        }
+        const geserKanan = () => {
+            const images = document.querySelectorAll("#carousel img");
+            const currentIndexElement = document.getElementById("current-index");
+            currentIndex++;
+            if(currentIndex > images.length - 1){
+                currentIndex = 0;
+            }
+            currentIndexElement.textContent = `${currentIndex + 1}/${images.length}`;
+            updateCarouselPos()
+        }
+
+        carousel.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+        });
+        carousel.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+            if(startX - endX > 50){
+                geserKanan()
+            }
+            else if( endX - startX > 50){
+                geserKiri()
+            }
+        });
+
+
+        prevBtn.addEventListener('click', ()=> {
+            geserKiri()
+        })
+        nextBtn.addEventListener('click', () =>{
+            geserKanan()
+        })
+
+        const updateCarouselPos = () => {
+            updateCurrentIndexElement()
+            const translateX = currentIndex * -100;
+            carousel.style.transform = `translateX(${translateX}%)`;
+            updateMiniImageBorder()
+        }
+        window.addEventListener('load', ()=> {
+            if(detailBookElement.scrollHeight > detailBookElement.clientHeight){
+                showAllBtn.classList.remove('hidden')
+                showAllBtn.classList.add('flex')
+            }
+            
+
+            if(bookDescription.scrollHeight > bookDescription.clientHeight){
+                showAllDesc.classList.remove('hidden')
+                showAllDesc.classList.add('flex')
+            }
+            showAllDesc.addEventListener('click', () => {
+                if(!showDesc){
+                    showDesc = true
+                    bookDescription.classList.remove('overflow-y-hidden')
+                    bookDescription.classList.remove('max-h-[10rem]')
+                    showAllDesc.classList.add('hidden')
+                    showLessDesc.classList.remove('hidden')
+                }
+            });
+            showLessDesc.addEventListener('click', ()=> {
+                if(showDesc){
+                    showDesc = false
+                    bookDescription.classList.add('overflow-y-hidden');
+                    bookDescription.classList.add('max-h-[10rem]')
+                    showLessDesc.classList.add('hidden')
+                    showAllDesc.classList.remove('hidden')
+                }
+            })
+
+            showAllBtn.addEventListener('click', () => {
+                if(!showAll){
+                    showAll = true
+                    detailBookElement.classList.remove('overflow-y-hidden')
+                    detailBookElement.classList.remove('max-h-[16rem]')
+                    showAllBtn.classList.add('hidden')
+                    showLessBtn.classList.remove('hidden')
+                }
+            });
+            showLessBtn.addEventListener('click', ()=> {
+                if(showAll){
+                    showAll = false;
+                    detailBookElement.classList.add('overflow-y-hidden');
+                    detailBookElement.classList.add('max-h-[16rem]');
+                    showAllBtn.classList.remove('hidden')
+                    showLessBtn.classList.add('hidden')
+                }
+            });
+            establishImages()
+            setTimeout(()=> {
+                loading.style.display = 'none'
+                viewContent.classList.remove('hidden')
+            }, 2000)
+            
+            
+
+
+        })
+
+        
+    </script>
+  
+
+    <script type="module">
+
+        const openModalButton = document.getElementById('openModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const createReviewModal = document.getElementById('createReviewModal');
+        const starRating = document.getElementById('starRating');
+        const stars = starRating.querySelectorAll('i');
+        const likesContainer = document.getElementById('likes-container');
+        import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_SfzhQZo261Z3kBvxNEz2zY1gzKAQ274",
+            authDomain: "isa-citra-1691878861005.firebaseapp.com",
+            projectId: "isa-citra-1691878861005",
+            storageBucket: "isa-citra-1691878861005.appspot.com",
+            messagingSenderId: "162707233969",
+            appId: "1:162707233969:web:04d90b8885ba8768999690",
+            measurementId: "G-ERVNNYPQ3L"
+        };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const storage = getStorage(app);
+
+  /* 
+  file ekuivalen dengan event.files[0]
+  */
+  const uploadImageByElement = async (elementId)=> {
+    const ele = document.getElementById(elementId);
+    const file = ele?.files[0];
+    if(!file){
+        console.log("Tidak ada file yang diupload");
+        return;
+    }
+    const storageRef  = ref(storage, "django-image/", file.name);
+    try {
+        const snapshot = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL)
+        return downloadURL;
+    } catch (error) {
+        console.error("Kesalahan dalam mengupload file: ", error)
+    }
+  }
+  const uploadImageByFile = async (file) => {
+    const uniqueFileName = `${uuidv4()}_${file.name}`;
+    const storageRef  = ref(storage, "django-image/"+uniqueFileName);
+    if(!file){
+        console.log("Tidak ada file yang diupload");
+        return null;
+    }
+    try {
+        const snapshot = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL)
+        return downloadURL;
+    } catch (error) {
+        console.error("Kesalahan dalam mengupload file: ", error)
+    }
+  }
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const selectedStar = parseInt(star.getAttribute('data-star'));
+                stars.forEach(s => {
+                    const starNumber = parseInt(s.getAttribute('data-star'));
+                    if (starNumber <= selectedStar) {
+                        s.classList.remove('far');
+                        s.classList.add('fas', 'text-yellow-400');
+                    } else {
+                        s.classList.remove('fas', 'text-yellow-400');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+
+        const resetReview = () => {
+            stars.forEach(star => {star.classList.remove('fas', 'text-yellow-400')});
+            stars.forEach(star => {star.classList.add('far')});
+            imagesPreviewForReview = []
+            establishImagesPreviewForReview()
+            createReviewModal.style.display = 'none';
+            reviewForm.reset();
+        }
+
+        openModalButton.addEventListener('click', () => {
+            createReviewModal.style.display = 'flex';
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            createReviewModal.style.display = 'none';
+            resetReview()
+        });
+
+        document.getElementById('like-btn').addEventListener('click',()=>{
+            likeOrDislikeBook()
+        })
+
+        const likeOrDislikeBook = async () => {
+            const userId = document.getElementById('save-user-id').getAttribute('data-user-id')
+            const bookId = document.getElementById('save-book-id').getAttribute('data-book-id')
+            if(userId == 'null'){
+                showError('Anda adalah guest')
+                return
+            }
+            const url = '/like-book-more-efficient/'
+            //console.log(userId,idUser,bookId)
+            const data = {'userId': parseInt(userId), 'bookId':parseInt(bookId)}
+            const requestOptions = {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json', 
+                    },
+                    body: JSON.stringify(data), 
+                };
+            try {
+                const resJson = await fetch(url, requestOptions);
+                const res = await resJson.json()
+                if(res.status == 201){
+                    const prevLikes = parseInt(document.getElementById('curr-likes').textContent);
+                    document.getElementById('like-btn').removeEventListener('click',()=>{
+                        likeOrDislikeBook()
+                    })
+                    
+                    if (res.state == 'like'){
+                        likesContainer.innerHTML = `
+                        <i id='like-btn' class="ml-2 fas fa-heart text-red-500 text-xl md:text-2xl"></i>
+                        <h1 id="curr-likes" class="ml-2 text-xs md:text-sm ">${prevLikes+1}</h1>
+                        `
+                    }
+                    else{
+                        likesContainer.innerHTML =`
+                        <i id='like-btn' class="ml-2 fas fa-heart text-gray-300 text-xl md:text-2xl"></i>
+                        <h1 id="curr-likes" class="ml-2 text-xs md:text-sm ">${prevLikes - 1}</h1>
+                        `
+                    }
+                    document.getElementById('like-btn').addEventListener('click',()=>{
+                        likeOrDislikeBook()
+                    })
+                }
+                else{
+                    console.log(res)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        const uploadReview = async (star) => {
+            const bookId = document.getElementById('save-book-id').getAttribute('data-book-id')
+            const userId = document.getElementById('save-user-id').getAttribute('data-user-id')
+            const lst = []
+            console.log(imagesPreviewForReview)
+            for(const img of imagesPreviewForReview){
+               const res = await uploadImageByFile(img);
+               if(res){
+                console.log(res)
+                lst.push(res)
+               }
+            }
+            
+            const data = {
+                'photo': lst,
+                'content':document.getElementById("reviewText").value,
+                'rating':star,
+                'userId': userId == 'null'? null : userId,
+                'bookId':bookId
+            }
+            console.log('ini data ya njing', data)
+            const url = '/review/create-review/'
+            const requestOptions = {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify(data), 
+            };
+            const res = await fetch(url,requestOptions)
+            const result = await res.json()
+            if(result.status == 201){
+                refreshReview()
+                showSuccess('Berhasil memposting review')
+            }
+            else{
+                showError('Gagal memposting review')
+            }
+        }
+
+        const reviewForm = document.getElementById('reviewForm');
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // Handle form submission (e.g., send the review data to the server)
+            const selectedStars = Array.from(stars).filter(s => s.classList.contains('fas')).length;
+
+            if(selectedStars == 0){
+                return showError('Maaf Anda harus memberi rating dahulu')
+            }
+            console.log(document.getElementById("reviewText").value)
+            await uploadReview(selectedStars)
+            resetReview()
+            
+        });
+        const noProfileUrl = 'https://storage.googleapis.com/pod_public/1300/173932.jpg'
+        console.log('SCRIPT DIPANGGILLL')
+        const showError = (message) => {
+            return Toastify({
+            text: message,
+            duration: 3000, // Durasi tampilan toast (dalam milidetik)
+            style: {
+            background: 'red', // Warna latar belakang untuk pesan sukses
+            color: 'white', // Warna teks untuk pesan sukses
+            },
+            close:true
+        }).showToast();}
+
+        const  userPublishTime = (timestamp) => {
+    // Konversi timestamp ke objek Date
+            const eventTime = new Date(timestamp);
+        
+            // Waktu saat ini
+            const currentTime = new Date();
+        
+            // Hitung selisih waktu dalam milidetik
+            const timeDifference = currentTime - eventTime;
+        
+            // Hitung selisih waktu dalam detik, menit, jam, dan hari
+            const seconds = Math.floor(timeDifference / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+        
+            if (days >= 1) {
+            return `${days} hari yang lalu`;
+            } else if (hours >= 1) {
+            return `${hours} jam yang lalu`;
+            } else if (minutes >= 1) {
+            return `${minutes} menit yang lalu`;
+            } else {
+            return 'Baru saja';
+            }
+        }
+
+        //Review
+        const refreshReview = async () => {
+            const userId = document.getElementById('save-user-id').getAttribute('data-user-id')
+            const finalUserId = userId == 'null'? null : parseInt(userId)
+            try {
+                const bookId = document.getElementById('save-book-id').getAttribute('data-book-id')
+                const ele = document.getElementById("kontainer-review");
+                const response = await fetch(`/review/get-review/${bookId}`);
+                const data = await response.json();
+                console.log(data);
+                let innerHTML = ``
+                data.reviews.forEach((review)=>{
+                    const rating = `
+    <div class="text-xs text-yellow-500">
+        ${Array(review.rating).fill('<i class="fas fa-star filled-star"></i>').join('')}
+        ${Array(5 - review.rating).fill('<i class="far fa-star empty-star"></i>').join('')}
+    </div>
+`;
+
+let photoHtml = '';
+if (review.photos.length > 0) {
+    photoHtml = `
+        <div class="h-[7rem] w-full flex mt-1 space-x-4 custom-scrollbar custom-scrollbar-gray py-1 overflow-x-auto">
+            ${review.photos.map(url => `<img class="object-cover h-full aspect-[4/4] rounded-md" src="${url}" alt="">`).join('')}
+        </div>
+    `;
+}
+
+let contentHtml = '';
+if (review.content !== '') {
+    contentHtml = `
+        <div class="text-sm bg-indigo-400 min-w-[5rem] text-white px-2 py-4 rounded-lg mb-2 relative">
+            <div>${review.content}</div>
+            <!-- arrow -->
+            <div class="absolute left-0 top-1/2 transform -translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-400"></div>
+            <!-- end arrow -->
+        </div>
+    `;
+} else {
+    contentHtml = `<div class="mt-2 text-sm flex items-center text-gray-600 justify-center w-full"><h1 class="mr-4">Tidak mencantumkan komentar</h1></div>`;
+}
+
+                    let htmlString = `
+                        <div class="flex items-start flex-col mb-2">
+                            <div class="flex w-full items-center pl-2">
+                                <p class="mr-2 text-xs text-indigo-400">${userPublishTime(review.created_at)}</p>
+                                ${rating}
+                            </div>
+                            <div class="flex items-start w-full flex-col bg-gray-300 py-2 px-1 rounded-md">
+                                <div class="flex w-full  items-start">
+                                    <div class="flex-none min-w-[18%] max-w-[18%]  mr-2">
+                                        <div class="flex justify-center">
+                                            <img class="rounded-full w-10 h-10" src="${review.user ? (review.user.profile_picture ? review.user.profile_picture : noProfileUrl) : noProfileUrl}" />
+                                        </div>
+                                        <a href="${review.user ? `/profile/visit/${review.user.username}` : '#'}" class=" text-xs break-words line-clamp-2 text-center hover:underline">${review.user ? review.user.username : 'Guest'}</a>
+                                    </div>
+                                    <div class="ml-2 p-2 flex flex-col  items-start">
+                                        ${contentHtml}
+                                    </div>
+                                </div>
+                                ${photoHtml}
+                            </div>
+                        </div>
+                    `;
+                    if(review.user && finalUserId){
+                        if(review.user.user_id == finalUserId){
+                            htmlString = ` <div class="flex items-start flex-col mb-2">
+        <div class="flex w-full items-center pl-2">
+            <p class="mr-2 text-xs text-indigo-400">${userPublishTime(review.created_at)}</p>
+            ${rating}
+        </div>
+        <div class="flex w-full items-start flex-col bg-gray-300 py-2 px-1 rounded-md">
+            <div class="flex w-full items-start">
+                <div class="flex-none min-w-[18%] max-w-[18%]  mr-2">
+                    <div class="flex justify-center">
+                        <img class="rounded-full w-10 h-10" src="${review.user ? (review.user.profile_picture ? review.user.profile_picture : noProfileUrl) : noProfileUrl}" />
+                    </div>
+                    <a href="#" class="text-xs break-words line-clamp-2 text-center hover:underline">Anda</a>
+                </div>
+                <div class="ml-2 p-2 flex flex-col  items-start">
+                    ${contentHtml}
+                </div>
+            </div>
+            ${photoHtml}
+        </div>
+    </div>`;
+
+                        }
+                      }
+                    innerHTML+=htmlString;
+                })
+                if(data.reviews.length == 0){
+                    innerHTML = `<div class="grow flex w-full my-12 text-base font-bold justify-center items-center">
+                        <h1>Belum ada Review. Silahkan memulainya</h1>
+                        </div>`
+                }
+                ele.innerHTML = innerHTML;
+
+            console.log(data)
+            } catch (error) {
+                console.log(error)
+                showError('Terdapat kesalahan dalam me-load komentar')
+            }
+        }
+        refreshReview()
+
+
+        // COMMENT
+        const refreshComment = async () => {
+            const userId = document.getElementById('save-user-id').getAttribute('data-user-id')
+            const finalUserId = userId == 'null'? null : parseInt(userId)
+            try {
+                const bookId = document.getElementById('save-book-id').getAttribute('data-book-id')
+                const ele = document.getElementById("kontainer-komentar");
+                const response = await fetch(`/detail/get-comment/${bookId}`);
+                const data = await response.json();
+                let innerHTML = ``
+                data.comments.forEach((comment)=>{
+                    let htmlString = `<div class="flex items-start mb-4">
+                        <div class="flex-none max-w-[15%] min-w-[15%]  mr-2">
+                         <div class="flex justify-center">
+                            <img class="rounded-full w-10 h-10"
+                            src="${comment.user? comment.user.profile_picture? comment.user.profile_picture:noProfileUrl :noProfileUrl}" />
+                        </div>
+                          <a href="${comment.user?`/profile/visit/${comment.user.username}`:'#'}" class="text-xs line-clamp-2 break-words text-center hover:underline">${comment.user? comment.user.username : 'Guest'}</a>
+                        </div>
+                        <div class="ml-2 flex-1 flex flex-col items-start">
+                            <div class="text-sm bg-indigo-400 text-white min-w-[5rem] p-2 rounded-lg mb-2 relative">
+                                <div>${comment.content}</div>
+                                <!-- arrow -->
+                                <div class="absolute left-0 top-1/2 transform -translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-400"></div>
+                                <!-- end arrow -->
+                              </div>
+                               <p class="text-xs text-indigo-400">${userPublishTime(comment.created_at)}</p>
+                        </div>
+                      </div>`;
+                    if(comment.user && finalUserId){
+                        if(comment.user.user_id == finalUserId){
+                            htmlString = `<div class="flex items-center flex-row-reverse mb-4">
+                        <div class="flex-none max-w-[12%]  ml-2">
+                          <div class="flex justify-center">
+                            <img class="rounded-full w-10 h-10"
+                            src="${comment.user? comment.user.profile_picture? comment.user.profile_picture:noProfileUrl :noProfileUrl}" />
+                         </div>
+                          <a href="#" class="line-clamp-2 break-words text-xs text-center hover:underline">Anda</a>
+                        </div>
+                        <div class="mr-2 flex-1 flex flex-col items-end">
+                            <div class="text-sm bg-violet-400 min-w-[5rem] text-gray-800 p-2 rounded-lg mb-2 relative">
+                                <div>${comment.content}</div>   
+                                <!-- arrow -->
+                                <div class="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-2 h-2 bg-violet-400"></div>
+                                <!-- end arrow -->
+                              </div>
+                              <p class="text-xs text-violet-400">${userPublishTime(comment.created_at)}</p>
+                        </div>
+                      </div>`;
+
+                        }
+                      }
+                    innerHTML+=htmlString;
+                })
+                if(data.comments.length == 0){
+                    innerHTML = `<div class="flex w-full my-auto text-base font-bold justify-center items-center">
+                        <h1>Belum ada komentar. Silahkan memulainya</h1>
+                        </div>`
+                }
+                ele.innerHTML = innerHTML;
+
+            console.log(data)
+            } catch (error) {
+                console.log(error)
+                showError('Terdapat kesalahan dalam me-load komentar')
+            }
+        }
+
+        const showSuccess = (message) => {
+                return Toastify({
+                    text: message,
+                    duration: 3000, // Durasi tampilan toast (dalam milidetik)
+                    style: {
+                    background: 'green', // Warna latar belakang untuk pesan sukses
+                    color: 'white', // Warna teks untuk pesan sukses
+                    },
+                    close:true
+                }).showToast();
+            }
+
+        const postComment = async () => {
+            const bookId = document.getElementById('save-book-id').getAttribute('data-book-id')
+            const userId = document.getElementById('save-user-id').getAttribute('data-user-id')
+            const content = document.getElementById('comment').value
+            if(content.trim() == ''){
+                return showError('maaf komentar tidak boleh kosong')
+            }
+            const data = {'userId': userId == 'null'? null : userId, 'bookId':bookId, 'content': content}
+            document.getElementById('comment').value = ''
+            const url = '/detail/add-comment-ajax/'
+            const requestOptions = {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify(data), 
+            };
+            const res = await fetch(url,requestOptions)
+            const result = await res.json()
+            if(result.status == 201){
+                refreshComment()
+                showSuccess('Berhasil memposting komentar')
+            }
+            else{
+                showError('Gagal memposting komentar')
+            }
+        }
+        document.getElementById('comment-btn').addEventListener('click', async ()=> {
+             await postComment()
+        })
+        console.log('HELLO')
+        refreshComment()
+
+    </script>
+{% endblock content %}
+    
+    

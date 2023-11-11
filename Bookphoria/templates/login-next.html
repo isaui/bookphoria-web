@@ -1,0 +1,48 @@
+{% extends 'base-tailwind.html' %}
+{% load static %}
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+{% if messages %}
+    <ul class="messages fixed z-20 text-sm md:text-base max-w-[50vw] lg:text-lg top-4 right-4 p-3 bg-red-500 text-white rounded-md">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<div class="min-h-screen flex items-center justify-center " style="background-image: url('{% static 'img/home3.svg' %}'); background-size: cover;">
+    <div class="flex w-full fixed z-20 top-4 left-4 font-bold text-2xl">
+        <h1 class="mr-auto text-indigo-500">BOOKPHORIA.</h1>
+    </div>
+    <div class=" bg-white bg-opacity-50 p-8 rounded-lg  md:w-96 min-w-[16rem] w-[96vw] max-w-[24rem]">
+        <h2 class="text-3xl font-semibold text-center text-black mb-6">Selamat datang, <span class="text-indigo-500">Bookphorior!</span></h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+                <div class="relative">
+                    <input type="text" id="username" name="username" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700" placeholder="Masukkan username" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-user"></i>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                <div class="relative">
+                    <input type="password" id="password" name="password" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700" placeholder="Masukkan password" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-lock"></i>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <span  class=" text-sm text-gray-600">Belum membuat akun? <a href="/register/" class="text-blue-400">Register sekarang</a></span>
+                </label>
+            </div>
+            <button type="submit" class="w-full bg-violet-500 text-white rounded-md p-3 hover:bg-blue-600 transition duration-300">Masuk</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+    
+    

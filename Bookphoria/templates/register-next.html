@@ -1,0 +1,176 @@
+{% extends 'base-tailwind.html' %}
+{% load static %}
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}
+{% if messages %}
+    <ul class="messages fixed z-20 text-sm md:text-base max-w-[50vw] lg:text-lg top-4 right-4 p-3 bg-red-500 text-white rounded-md">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<div class="min-h-screen flex items-center justify-center " style="background-image: url('{% static 'img/home3.svg' %}'); background-size: cover;">
+    
+    <div class=" bg-white bg-opacity-20  p-8 rounded-lg  min-w-[16rem] max-w-[96vw] md:w-[36rem]">
+        <h2 class="text-3xl font-semibold text-center text-white mb-6">Buat Akun <span class="text-indigo-500">Bookphorior</span></h2>
+        
+        
+        <form method="POST" class="">
+            {% csrf_token %}
+            <div class="flex justify-center min-h-[5rem] items-center mb-4">
+                <div class="relative  w-40 h-40 overflow-hidden ">
+                    <img id="profile-picture" src="https://storage.googleapis.com/pod_public/1300/173932.jpg" alt="Foto Profil" class="rounded-full w-full h-full object-cover" />
+                    <div class="absolute top-0 right-0">
+                        <label for="fileInput" class=" w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded-full">
+                          <i class="fas fa-plus"></i>
+                        </label>
+                        <input id="fileInput" class="hidden" type="file" accept="image/*">
+                        <input type="text" class="hidden" name="url" id="url">
+                      </div>
+                </div>
+            </div>
+           <div class="grid grid-cols-6 gap-x-2">
+            <div class="flex-auto mb-4 col-span-3 flex flex-col">
+                <label for="username" class="block text-sm font-medium text-gray-300">Username</label>
+                <div class="relative mt-auto">
+                    <input type="text" id="username" name="username" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan username" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-user"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-3 flex flex-col ">
+                <label for="fullname" class="block text-sm font-medium text-gray-300">Nama Lengkap</label>
+                <div class="relative mt-auto">
+                    <input type="text" id="fullname" name="fullname" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan Nama" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-user"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-2 flex flex-col">
+                <label for="age" class="block text-sm font-medium text-gray-300">Umur</label>
+                <div class="relative mt-auto">
+                    <input type="number" id="age" name="age" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan umur" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-birthday-cake"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-2 flex flex-col">
+                <label for="country" class="block text-sm font-medium text-gray-300">Negara</label>
+                <div class="relative mt-auto">
+                    <input type="text" id="country" name="country" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan negara" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-globe"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-2 flex flex-col">
+                <label for="city" class="block text-sm font-medium text-gray-300">Kota</label>
+                <div class="relative mt-auto">
+                    <input type="text" id="city" name="city" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan kota" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-map-marker"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-3 flex flex-col">
+                <label for="password" class="block text-sm font-medium text-gray-300">Password</label>
+                <div class="relative mt-auto">
+                    <input type="password" id="password1" name="password1" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Tambahkan password" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-lock"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-3 flex flex-col">
+                <label for="password" class="block text-sm font-medium text-gray-300">Confirm Password</label>
+                <div class="relative mt-auto">
+                    <input type="password" id="password2" name="password2" class="w-full pl-8 pr-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 text-sm" placeholder="Konfirmasi password" />
+                    <i class="absolute top-3 left-3 text-gray-400 fas fa-lock"></i>
+                </div>
+            </div>
+        
+            <div class="flex-auto mb-4 col-span-6 flex flex-col">
+                <label class="flex items-center">
+                    <span  class=" text-sm text-gray-300">Sudah membuat akun? <a href="/login/" class="text-blue-400">Login sekarang</a></span>
+                </label>
+            </div>
+        
+            <button type="submit" class="col-span-6 w-full bg-violet-500 text-white rounded-md p-3 hover-bg-blue-600 transition duration-300">Buat Akun</button>
+           </div>
+        </form>
+        
+    </div>
+</div>
+<script type="module">
+import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_SfzhQZo261Z3kBvxNEz2zY1gzKAQ274",
+            authDomain: "isa-citra-1691878861005.firebaseapp.com",
+            projectId: "isa-citra-1691878861005",
+            storageBucket: "isa-citra-1691878861005.appspot.com",
+            messagingSenderId: "162707233969",
+            appId: "1:162707233969:web:04d90b8885ba8768999690",
+            measurementId: "G-ERVNNYPQ3L"
+        };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const storage = getStorage(app);
+
+  /* 
+  file ekuivalen dengan event.files[0]
+  */
+  const uploadImageByElement = async (elementId)=> {
+    const ele = document.getElementById(elementId);
+    const file = ele?.files[0];
+    if(!file){
+        console.log("Tidak ada file yang diupload");
+        return;
+    }
+    const storageRef  = ref(storage, "django-image/", file.name);
+    try {
+        const snapshot = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL)
+        return downloadURL;
+    } catch (error) {
+        console.error("Kesalahan dalam mengupload file: ", error)
+    }
+  }
+  const uploadImageByFile = async (file) => {
+    const uniqueFileName = `${uuidv4()}_${file.name}`;
+    const storageRef  = ref(storage, "django-image/"+uniqueFileName);
+    if(!file){
+        console.log("Tidak ada file yang diupload");
+        return null;
+    }
+    try {
+        const snapshot = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL)
+        return downloadURL;
+    } catch (error) {
+        console.error("Kesalahan dalam mengupload file: ", error)
+    }
+  }
+ document.getElementById("fileInput").addEventListener('change', async ()=> {
+    console.log('HEIIII')
+    const selectedFile = document.getElementById('fileInput').files[0];
+    let resUrl = ''
+    if(selectedFile){
+        if (selectedFile.type.startsWith('image/')){
+            resUrl = await uploadImageByFile(selectedFile)
+            document.getElementById('url').value = resUrl
+            document.getElementById('profile-picture').src = resUrl
+        }
+    }
+    
+ })
+</script>
+{% endblock content %}
+    
+    

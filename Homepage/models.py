@@ -11,7 +11,7 @@ class Author(models.Model):
         return self.name
 
 class ImageUrl (models.Model):
-    url = models.URLField()
+    url = models.TextField()
     def __str__(self):
         return self.url
 

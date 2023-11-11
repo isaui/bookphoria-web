@@ -264,7 +264,23 @@ def get_books_json(request):
         }
         book_list.append(book_data)
     return JsonResponse({'books': book_list})
-
+@csrf_exempt
+def like_book_more_efficient(request):
+    data = json.loads(request.body)
+    userId = data["userId"]
+    print(userId)
+    bookId = data["bookId"]
+    print(userId,bookId)
+    state = 'like'
+    book = Book.objects.prefetch_related('likes__auth_user').get(id=bookId)
+    if not book:
+        return JsonResponse({'error': 'Buku tidak ditemukan.', 'status':404})
+    if(book.likes.filter(id=userId).exists()):
+        book.likes.remove(userId)
+        state = 'dislike'
+    else:
+        book.likes.add(userId)
+    return JsonResponse({'state':state, 'bookId': bookId, 'userId':userId, 'status':201})
 @csrf_exempt
 def like_book(request):
     data = json.loads(request.body)
