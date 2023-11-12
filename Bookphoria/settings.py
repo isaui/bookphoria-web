@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bukudbganteng_claynewper',
         'USER': 'bukudbganteng_claynewper',
-        'PASSWORD': '0c82cb23facf592140feae94a302cd4bd0bfadab',
+        'PASSWORD': 'gUP8ALijcpZEzE7oYpZxF1UyU46qRskNfPUdARszmyJVN76KB6QB7EjWYaaatS8Q',
         'HOST': 'ypz.h.filess.io',
         'PORT': '3307',
     }
@@ -142,3 +142,4 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
