@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'Bookphoria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bukudbganteng_claynewper',
-        'USER': 'bukudbganteng_claynewper',
-        'PASSWORD': 'gUP8ALijcpZEzE7oYpZxF1UyU46qRskNfPUdARszmyJVN76KB6QB7EjWYaaatS8Q',
-        'HOST': 'ypz.h.filess.io',
-        'PORT': '3307',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'fgeeCC5HFAf2a2eeH4Gf---HhaEA6d33',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '24497',
     }
 }
 
