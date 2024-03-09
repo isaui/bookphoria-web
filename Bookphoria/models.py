@@ -21,7 +21,7 @@ class UserProfile(models.Model):
 
     def to_dict(self):
         user_data = {
-            'user_id': self.user.id,
+            'user_id': self.user.pk,
             'username': self.username,
             'fullname': self.fullname,
             'country': self.country,

@@ -140,11 +140,19 @@ def user_profile_serializer(user_profile):
 def get_comment_json(request, book_id):
     comments = Comment.objects.select_related('user__auth_user').filter(book__id=book_id)
     commentList = []
-    for comment in comments:
-        commentData = {
-            'user': comment.user.auth_user.to_dict() if comment.user else None,
-            'content':comment.content,
-            'created_at':comment.created_at
-        }
-        commentList.append(commentData)
-    return JsonResponse({'comments': commentList},safe=False)
+    try:
+        for comment in comments:
+            print(comment.user.auth_user.to_dict())
+            commentData = {
+                'user': comment.user.auth_user.to_dict() if comment.user else None,
+                'content':comment.content,
+                'created_at':comment.created_at
+            }
+            commentList.append(commentData)
+        return JsonResponse({'comments': commentList},safe=False)
+    except Exception as err:
+        print(comments[0].user.auth_user.to_dict())
+
+
+
+    
