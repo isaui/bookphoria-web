@@ -1,0 +1,77 @@
+name: Install Dependencies and Push to PWS
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+        - '**.md'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+        - '**.md'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip
+
+    - name: Create custom-wheels directory
+      run: mkdir -p ./custom-wheels
+
+    - name: Download wheels
+      run: pip download -r requirements.txt -d ./custom-wheels
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Check PWS remote, pull, merge, and push
+      env:
+        PWS_URL: 'https://isa.citra:7Hx_nz8J0Ve7HiConcnDYWYnlcpTlwzE@pbp.cs.ui.ac.id/isa.citra/bookphoriawebcicd'
+      run: |
+          git add .
+          git commit -m "Add installed dependencies and custom wheels" || echo "No changes to commit"
+          
+          # Check if master branch exists locally
+          if ! git show-ref --verify --quiet refs/heads/master; then
+            echo "Creating master branch"
+            git branch master
+          fi
+          
+          # Switch to master branch
+          git checkout master
+          
+          # Try to pull and merge
+          if ! git pull $PWS_URL master --no-rebase; then
+            echo "Pull failed, trying to merge"
+            if ! git merge origin/main -m "Merge main into master"; then
+              echo "Merge failed. Attempting to resolve conflicts automatically."
+              git config merge.ours.driver true
+              if ! git merge -X ours origin/main -m "Merge main into master (ours strategy)"; then
+                echo "Error: Unable to automatically resolve conflicts. Manual intervention required."
+                exit 1
+              fi
+            fi
+          fi
+          
+          # Push to master branch and capture the output
+          push_output=$(git push $PWS_URL master 2>&1)
+          if [[ $? -ne 0 ]]; then
+            echo "Push failed with output: $push_output"
+            echo "Error: Unable to push changes. Please check the error message above and resolve any conflicts manually."
+            exit 1
+          fi
+          echo "Push successful with output: $push_output"
